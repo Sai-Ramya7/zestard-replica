@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { graphql } from "gatsby"
 
 import Layout from "./../../components/layout"
-import './../../components/partnership.scss'
+// import './../../components/partnership.scss'
 
 class Partnership extends Component {
   

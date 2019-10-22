@@ -10,7 +10,7 @@
 
 
 .blog-header {
-    background-image: url('./../images/blog-banner.png');
+    background-image: url('./../../images/blog-banner.png');
     color: #fff;
     padding-top: 110px;
     padding-bottom: 110px;
@@ -111,8 +111,7 @@
         .read-more-link {
             text-align: right;
             font-family: 'Times New Roman', Times, serif;
-
-
+            color: red;
             @media only screen and (max-width: 575px) {
                 text-align: left;
                 margin-top: 10px;
@@ -138,10 +137,7 @@
             }
         }
     }
-    .read-more-link {
-        text-align: right;
-        font-family: 'Times New Roman', Times, serif;
-    }
+   
 
     .posts-navigation {
         @media only screen and (max-width: 575px) {
@@ -223,6 +219,13 @@
 
 // blog sidebar
 
+
+
+.read-more-link {
+    text-align: right;
+    font-family: 'Times New Roman', Times, serif;
+    color: red;
+}
 
 // .container {
 //     width: 100%;

@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 
 import Layout from "./../../components/layout"
-import './../../components/career.scss'
+// import './../../components/career.scss'
 
 
 class Career extends Component {

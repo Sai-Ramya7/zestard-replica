@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 
 
 import Layout from "../components/layout"
-import './../styles/blog.scss'
 // import BlogSidebar from './../components/blog/blogsidebar'
 
 class BlogPage extends Component {

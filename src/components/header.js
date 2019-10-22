@@ -1,5 +1,5 @@
 import { Link } from "gatsby";
-import './header.scss'
+// import './header.scss'
 // import PropTypes from "prop-types"
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
