@@ -1,0 +1,98 @@
+// banner
+
+.page-header{
+    margin: 0px;
+    padding: 50px 0px;
+    margin-top: 53px;
+    @media screen and (max-width: 575px){
+        padding: 30px 0;
+    }
+}
+.page-header {
+    background-image: url('./../images/blog-banner.png');
+    background-repeat: no-repeat;
+    margin-top: 0px;
+    background-size: 100% 100%;
+    @media(max-width: 767px){
+        background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
+    }
+    img { 
+        display: block;
+        margin: 0 auto;
+        height: 320px;
+        @media only screen and (max-width: 576px) {
+            height: 250px;
+        }
+    }
+    h5 {
+        font-size: 25px;
+        font-weight: 600;
+        color: #ffffff;
+        line-height: 30px;
+        margin-top: 50px;
+        margin-bottom: 10px;
+        font-family: 'Montserrat', sans-serif;
+        @media screen and (max-width: 575px){
+            margin-top: 20px;
+        }
+    }
+    .title {
+        font-family: 'Open Sans', sans-serif;
+        color: #ffffff;
+        font-weight: 700;
+        font-style: normal;
+        font-size: 50px;
+        line-height: 60px;
+        position: relative;
+        margin-bottom: 20px;
+        margin-top: 0px;
+        padding-bottom: 10px;
+        &:after {
+            width: 73px;
+            background: #33a2de;
+            height: 5px;
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: 0;
+        }
+        @media(max-width: 767px){
+            font-size: 38px;
+        }
+    }
+    .sub-title {
+        font-family: 'Roboto', sans-serif;
+        color: #ffffff;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 17px;
+        line-height: 25px;
+        margin-top: 8px;
+    }
+}
+
+//banner
+
+
+// privacy policy
+
+.entry-content {
+    padding-top: 15px;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.5em;
+    p {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        color: #6e6e6e;
+        font-size: 17px;
+        line-height: 28px;
+    }
+    h5 {
+        font-size: 1.25rem;
+    }
+    h6 {
+        font-size: 1rem;
+    }
+}
+
+//privacy policy
