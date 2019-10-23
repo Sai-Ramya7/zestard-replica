@@ -49,7 +49,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "engines": {
-    "node": "13.o.1",
+    "node": "13.0.1",
     "yarn": "1.19.1"
   }
 }
