@@ -13,7 +13,7 @@ const Header = () => (
       className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
         <div className="container">
           <Navbar.Brand>
-            <Link to="/">
+            <Link to="/home">
               <img src="https://149359943.v2.pressablecdn.com/wp-content/uploads/2019/09/zestard.png"
               alt="zestard Logo" width="181px" height="48.08px"
                 className="logo"

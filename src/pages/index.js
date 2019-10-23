@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 
 import Layout from "../components/layout"
 // import Image from "../components/image"
@@ -7,20 +7,23 @@ import Layout from "../components/layout"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './../assets/scss/index.scss'
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 
+// const data = this.props.data
+// console.log(data)
+// const acfData = data.wordpressPage.acf;
 const IndexPage = () => (
-  
   <Layout>
-    <div style={{ color: `purple` }}>
+    
+    {/* <div style={{ color: `purple` }}>
       <h1>Hello Gatsby!</h1>
       <p>What is a World</p>
       <img src="https://source.unsplash.com/random/400x200" alt="..."/>
     </div>
     <button className="primary-button">Click me</button>
     <br />
-    <Link external to="/about">About</Link>
-    <Button>about</Button>
+    <Link external to="/about">About</Link> */}
+    {/* <Button>about</Button> */}
   </Layout>
   //   <SEO title="Home" />
   //   <h1>Hi Gatsby</h1>
@@ -36,3 +39,4 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+

@@ -58,16 +58,17 @@ class BlogPage extends Component {
                                   <div className="row">
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
-                                        By 
+                                        <body>By 
                                         <Link to="" className="vcard author">
-                                          <strong className="fn">  Tiksha Dalal
-                                          {/* {node.featured_media.author.name !== null &&
-                                          <span>{node.featured_media.author.name}</span>}  */}
+                                          <strong className="fn">
+                                          {node.featured_media !== null &&
+                                          <span>  {node.featured_media.author.name}</span>} 
                                           </strong>
                                         </Link>, 
                                         <Link to="">
                                           <time> {node.date}</time>
                                         </Link>
+                                        </body>
                                       </div>
                                     </div>
                                     <div className="col-md-6 col-sm-6">
