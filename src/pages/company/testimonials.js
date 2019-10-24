@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 
 import Layout from "./../../components/layout"
-// import './../../components/testimonials.scss'
+import PageHeader from './../../components/page-header';
 
 
 class Testimonials extends Component {
@@ -16,27 +16,12 @@ class Testimonials extends Component {
         <Layout>
             <div id="page" className="site">
                 <div id="content" className="site-content">
-                    <section>
-                        <div className="page-header">
-                            <div className="container">
-                                <div className="row">
-                                    <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
-                                       {/* <img src="{acfData.header_mascot.source_url}" /> */}
-                                       {acfData.header_mascot !== null &&
-                                        <img src={acfData.header_mascot.source_url} alt=""/>
-                                        }
-                                    </div>
-                                    <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
-                                        <div className="page-detail">
-                                            <h5>{acfData.header_section_title}</h5>
-                                            <h1 className="title">{acfData.header_page_title}</h1>
-                                            <h4 className="sub-title">{acfData.header_sub_text}</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <PageHeader
+                        headerMascot = {acfData.header_mascot.source_url}
+                        headerSubText = {acfData.header_sub_text}
+                        headerSectionTitle={acfData.header_section_title}
+                        headerPageTitle={acfData.header_page_title}
+                    />
                     <div className="container">
                         <div className="row grid testimonial-list"
                         >

@@ -1,10 +1,10 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "./../../components/layout"
-import PageHeader from './../../components/page-header';
+import Layout from "./../components/layout"
+import PageHeader from './../components/page-header';
 
-class Partnership extends Component {
+class ContactUs extends Component {
   
     render() {
       const data = this.props.data
@@ -12,7 +12,7 @@ class Partnership extends Component {
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
-            <div id="page" className="site ">
+            <div id="page" className="site-header">
                 <div id="content" className="site-content">
                     <PageHeader
                         headerMascot = {acfData.header_mascot.source_url}
@@ -27,11 +27,11 @@ class Partnership extends Component {
   }
 
 }
-export default Partnership
+export default ContactUs
 
 export const query = graphql`
 {
-    wordpressPage(wordpress_id: {eq: 103}) {
+    wordpressPage(wordpress_id: {eq: 57}) {
         acf {
           header_page_title
           header_sub_text

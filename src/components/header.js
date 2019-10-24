@@ -13,7 +13,7 @@ const Header = () => (
       className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
         <div className="container">
           <Navbar.Brand>
-            <Link to="/home">
+            <Link to="/">
               <img src="https://149359943.v2.pressablecdn.com/wp-content/uploads/2019/09/zestard.png"
               alt="zestard Logo" width="181px" height="48.08px"
                 className="logo"
@@ -24,27 +24,25 @@ const Header = () => (
             <ul id="primary-menu" className="navbar-nav ml-auto">
               <li className="nav-item menu-item">
               <NavDropdown title="COMPANY" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">About US</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Culture</NavDropdown.Item>
-                <NavDropdown.Item><Link to="/company/career">Career</Link></NavDropdown.Item>
-                <NavDropdown.Item><Link to="/company/testimonials">Testimonials</Link></NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link to="/company/partnership">Partnership</Link>
-                </NavDropdown.Item>
+                <NavDropdown.Item href="/company/aboutus">About Us</NavDropdown.Item>
+                <NavDropdown.Item href="/company/culture">Culture</NavDropdown.Item>
+                <NavDropdown.Item href="/company/career">Career</NavDropdown.Item>
+                <NavDropdown.Item href="/company/testimonials">Testimonials</NavDropdown.Item>
+                <NavDropdown.Item href="/company/partnership">Partnership</NavDropdown.Item>
               </NavDropdown>
               </li>
               <li className="nav-item menu-item">
                 <NavDropdown title="SERVICES" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">E-commerce Development</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">CMS Website Development</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">JS Frameworks</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Digital Marketing</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">Hire Developer</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/ecommerce-development">E-commerce Development</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/cms-website-development">CMS Website Development</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/javascript-framework">JS Frameworks</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/digital-marketing">Digital Marketing</NavDropdown.Item>
+                  <NavDropdown.Item href="/services/hire-dedicated-developer">Hire Developer</NavDropdown.Item>
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
                 <NavDropdown title="WORK" id="basic-nav-dropdown">
-                  <NavDropdown.Item><Link to="/portfolio/all-portfolio">Portfolio</Link></NavDropdown.Item>
+                  <NavDropdown.Item href="/portfolio/all-portfolio">Portfolio</NavDropdown.Item>
                   <NavDropdown.Item target="_blank"
                   href="https://www.zestardshop.com/">
                     Magento Extensions
@@ -56,17 +54,13 @@ const Header = () => (
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link>
-                  <Link className="active" to="/blog">
-                    BLOG
-                  </Link>
+                <Nav.Link href="/blog">
+                  BLOG
                 </Nav.Link>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link>
-                  <Link className="active" to="/contact">
-                    CONTACT
-                  </Link>
+                <Nav.Link href="/contact-us">
+                  CONTACT
                 </Nav.Link>
               </li>
             </ul>

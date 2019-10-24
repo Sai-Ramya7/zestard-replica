@@ -205,7 +205,7 @@ class Index extends Component {
                 {data.allWordpressPost.edges.map(({ node }) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 blog-wraper"
                   key="node.wordpress_id">
-                    <Link to="sd">
+                    <Link to="/blog">
                       <div className="card-img" style={{ 
                         backgroundImage: `url(${node.featured_media.source_url})` }}>
                       </div>
@@ -293,6 +293,7 @@ export const query = graphql`
     edges {
       node {
         title
+        slug
         wordpress_id
         featured_media {
           source_url
