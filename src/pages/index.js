@@ -13,6 +13,7 @@ class Index extends Component {
   
     render() {
       const data = this.props.data
+      // const link = this.data.wordPressAcfTechnologyTabs.technology_tabs_repeater
       console.log(data)
       const acfData = data.wordpressPage.acf;
       const ser = data.wordPressAcfHomeServicesBlock;
@@ -48,7 +49,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
-              <section>
+              {/* <section>
                 <div className="services">
                   <div className="row">
                     <div className="row justify-content-center">
@@ -72,6 +73,42 @@ class Index extends Component {
                             <h2 className="title text-center">Magento</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                           </div>
+                        </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section> */}
+              <section>
+                <div className="services">
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <div className="col-lg-10 col-md-12 text-center">
+                        <ul className="nav nav-pills" role="tablist">
+                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
+                          <li className="nav-item item-1 active" key={index}>
+                          <Link aria-selected="false" className="nav-link"
+                            data-toggle="tab" to="#tab_1" role="tab">
+                              <p>
+                                <img src={node.tt_title_icon.source_url} alt=""/>
+                                <span>{node.tt_tab_title}</span>
+                              </p>
+                            </Link>
+                          </li>
+                        ))}
+                        </ul>
+                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => (
+                        <div className="tab-content tab-space" key={index}>
+                          {/* <div className="tab-pane" id="tab_1"> */}
+                            <h2 className="title text-center">{node.tt_tab_title}</h2>
+                            <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
+                            <div className="row">
+                              <div className="col-sm-12 col-12 text-center">
+                                <Link to="/services/" className="btn btn-primary learn-more">Learn More</Link>
+                              </div>
+                            </div>
+                          {/* </div> */}
                         </div>
                         ))}
                       </div>
@@ -238,6 +275,7 @@ export const query = graphql`
     id
     technology_tabs_repeater {
       tt_tab_title
+      tt_tab_link
       tt_tab_description
       tt_title_icon {
         source_url

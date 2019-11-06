@@ -39,7 +39,7 @@ class Career extends Component {
                                         <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 "
                                         key={node.id}>
                                             <div className="card">
-                                                <h3>{node.slug}</h3>
+                                                <h3>{node.career_category[0].name}</h3>
                                                 <div className="row padding-bottom">
                                                     <div className="col-xl-7 col-lg-7 col-sm-12">
                                                         <h4>{node.title}</h4>
@@ -81,15 +81,17 @@ export const query = graphql`
                 source_url
               }
             }
-          }
-          allWordpressWpCareer {
+        }
+        allWordpressWpCareer {
             edges {
               node {
-                id
-                slug
+                career_category {
+                  name
+                }
                 title
+                id
               }
             }
-          }
+        }
     }
 `

@@ -225,15 +225,30 @@
 
 // Partnership
 .offshare, .referral {
-    padding: 20px 0px;
+    padding: 70px 0px;
     .row{
         flex-direction: row-reverse;
     }
     p {
-        padding: 0px;
+        padding: 6px;
         font-size: 17px;
         font-family: 'Open Sans', sans-serif;
         color: #6e6e6e;
+        line-height: 25px;
+        text-align: left;
+    }
+}
+.reseller {
+    background: linear-gradient(45deg, #3860a1 0%, #3797d1 51%, #39c9c9 100%, #6bcbdd 100%);
+    padding: 70px 10px;
+    .title {
+        color: #fff;
+    }
+    p {
+        padding: 0px;
+        color: #fff;
+        font-size: 17px;
+        font-family: 'Open Sans', sans-serif;
         line-height: 25px;
         text-align: left;
     }

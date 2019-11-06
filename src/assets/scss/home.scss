@@ -252,6 +252,7 @@
             }
 
             p {
+                padding: 0px;
                 margin-top: 0px;
                 font-weight: 600;
                 font-size: 18px;
@@ -266,6 +267,7 @@
                 }
 
                 img {
+                    margin-bottom: 1px;
                     margin-right: 5px;
                     @media only screen and (max-width: 1200px) {
                         width: 20px;
@@ -322,7 +324,13 @@
             border-bottom: 4px solid #000000;
         }
     }
-
+    .learn-more {
+        display: inline-block;
+        background: transparent;
+        border: 2px solid #0e7aff;
+        color: #0e7aff;
+        padding: 14px 30px;
+    }
     .tab-content {
         .tab-pane {
             .title {

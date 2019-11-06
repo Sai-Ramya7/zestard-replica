@@ -129,17 +129,17 @@ export const pageQuery = graphql`
     }
     allWordpressPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
         edges {
-        node {
-            id
-            title
-            wordpress_id
-            date(formatString: "l")
-            slug
-            excerpt
-            featured_media {
-            source_url
+            node {
+                id
+                title
+                wordpress_id
+                date(formatString: "l")
+                slug
+                excerpt
+                featured_media {
+                source_url
+                }
             }
-        }
         }
     }
   }
