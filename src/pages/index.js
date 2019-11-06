@@ -1,6 +1,9 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import Tab from 'react-bootstrap/Tab'
+import Tabs from 'react-bootstrap/Tabs'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -13,7 +16,7 @@ class Index extends Component {
   
     render() {
       const data = this.props.data
-      // const link = this.data.wordPressAcfTechnologyTabs.technology_tabs_repeater
+      const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
       console.log(data)
       const acfData = data.wordpressPage.acf;
       const ser = data.wordPressAcfHomeServicesBlock;
@@ -49,58 +52,27 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
-              {/* <section>
-                <div className="services">
-                  <div className="row">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-10 col-md-12 text-center">
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
-                        <ul className="nav nav-pills" role="tablist"  key={index}>
-                          <li className="nav-item item-1">
-                            <Link aria-selected="false" className="nav-link"
-                            data-toggle="tab" to="#tab_1" role="tab">
-                              <p>
-                                <img src={node.tt_title_icon.source_url} alt=""/>
-                                <span>{node.tt_tab_title}</span>
-                              </p>
-                            </Link>
-                          </li>
-                        </ul>
-                        ))}
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => (
-                        <div className="tab-content tab-space" key={index}>
-                          <div className="tab-pane" id="tab_1">
-                            <h2 className="title text-center">Magento</h2>
-                            <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
-                          </div>
-                        </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section> */}
               <section>
                 <div className="services">
                   <div className="container">
                     <div className="row justify-content-center">
                       <div className="col-lg-10 col-md-12 text-center">
-                        <ul className="nav nav-pills" role="tablist">
+                        {/* <ul className="nav nav-pills" role="tablist">
                         {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
-                          <li className="nav-item item-1 active" key={index}>
-                          <Link aria-selected="false" className="nav-link"
-                            data-toggle="tab" to="#tab_1" role="tab">
+                          <li className={`nav-item item-1 ${index === 0 ? 'active' : ''}`} key={index}>
+                          <a aria-selected="false" className="nav-link"
+                            data-toggle="tab" href={`tab_${index}`} role="tab">
                               <p>
                                 <img src={node.tt_title_icon.source_url} alt=""/>
                                 <span>{node.tt_tab_title}</span>
                               </p>
-                            </Link>
+                            </a>
                           </li>
                         ))}
                         </ul>
+                        <div className="tab-content tab-space" >
                         {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => (
-                        <div className="tab-content tab-space" key={index}>
-                          {/* <div className="tab-pane" id="tab_1"> */}
+                          <div className="tab-pane" id={`tab_${index}`} key={index}>
                             <h2 className="title text-center">{node.tt_tab_title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                             <div className="row">
@@ -108,9 +80,27 @@ class Index extends Component {
                                 <Link to="/services/" className="btn btn-primary learn-more">Learn More</Link>
                               </div>
                             </div>
-                          {/* </div> */}
-                        </div>
+                          </div>
                         ))}
+                        </div> */}
+                        <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
+                          {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
+                            <Tab eventKey={node.tt_tab_title} className="nav-link item-1" 
+                            key={index} title={<p className={`item-${index+1}`}>
+                              <img alt="" src={node.tt_title_icon.source_url} width="30" />
+                              <span>{node.tt_tab_title}</span></p>}>
+                              <div className="tab-pane" id="tab_1">
+                                <h2 className="title text-center">{node.tt_tab_title}</h2>
+                                <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
+                                <div className="row">
+                                  <div className="col-sm-12 col-12 text-center">
+                                    <Link to="/services/" className="btn btn-primary learn-more">Learn More</Link>
+                                  </div>
+                                </div>
+                              </div>
+                            </Tab>
+                          ))}
+                        </Tabs>
                       </div>
                     </div>
                   </div>
