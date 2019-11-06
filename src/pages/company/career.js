@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 
 import Layout from "./../../components/layout"
@@ -36,7 +36,8 @@ class Career extends Component {
                                 <div className="job-open">
                                     <div className="row">
                                     {data.allWordpressWpCareer.edges.map(({ node }) => (
-                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 ">
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-6 col-12 "
+                                        key={node.id}>
                                             <div className="card">
                                                 <h3>{node.slug}</h3>
                                                 <div className="row padding-bottom">
@@ -47,9 +48,9 @@ class Career extends Component {
                                                         <span>Full time - India</span>
                                                     </div>
                                                     <div className="col-xl-5 col-lg-5 col-sm-12">
-                                                        <Link to="/" className="btn btn-primary">
+                                                        <a href="mailto:hr@zestard.com" className="btn btn-primary">
                                                             Apply Now
-                                                        </Link>
+                                                        </a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -84,6 +85,7 @@ export const query = graphql`
           allWordpressWpCareer {
             edges {
               node {
+                id
                 slug
                 title
               }

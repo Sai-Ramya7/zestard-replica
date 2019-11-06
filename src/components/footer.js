@@ -15,7 +15,7 @@ const Footer = () => (
                         <ul id="menu-footer-about" className="menu">
                             <li id="menu-item-1654"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1654">
-                                <Link to="/culture">Culture</Link>
+                                <Link to="/company/culture">Culture</Link>
                             </li>
                             <li id="menu-item-1655"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1655">
@@ -39,23 +39,23 @@ const Footer = () => (
                         <ul id="menu-services" className="menu">
                             <li id="menu-item-1659"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1659">
-                                <Link to="/culture">E-commerce Development</Link>
+                                <Link to="/services/ecommerce-development">E-commerce Development</Link>
                             </li>
                             <li id="menu-item-1660"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1660">
-                                <Link to="/culture">CMS Development</Link>
+                                <Link to="/services/cms-website-development">CMS Development</Link>
                             </li>
                             <li id="menu-item-1661"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1661">
-                                <Link to="/culture">JS Frameworks</Link>
+                                <Link to="/services/javascript-framework">JS Frameworks</Link>
                             </li>
                             <li id="menu-item-2523"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2523">
-                                <Link to="/culture">Digital Marketing</Link>
+                                <Link to="/services/digital-marketing">Digital Marketing</Link>
                             </li>
                             <li id="menu-item-1682"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1682">
-                                <Link to="/culture">Hire Developers</Link>
+                                <Link to="/services/hire-dedicated-developer">Hire Developers</Link>
                             </li>
                         </ul>
                     </div>
@@ -67,7 +67,7 @@ const Footer = () => (
                         <ul id="menu-resources" className="menu">
                             <li id="menu-item-1677"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1677">
-                                <Link to="/culture">Happy Clients</Link>
+                                <Link to="company/testimonials">Happy Clients</Link>
                             </li>
                             <li id="menu-item-1676"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1676">
@@ -79,11 +79,13 @@ const Footer = () => (
                             </li>
                             <li id="menu-item-1681"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1681">
-                                <Link to="/culture">Magento Extensions</Link>
+                                <a href="https://www.zestardshop.com/"
+                                target="_blank">Magento Extensions</a>
                             </li>
                             <li id="menu-item-1681"
                             className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1681">
-                                <Link to="/culture">Shopify Apps</Link>
+                                <a href="https://apps.shopify.com/partners/zestard-technologies"
+                                target="_blank">Shopify Apps</a>
                             </li>
                         </ul>
                     </div>
@@ -98,7 +100,7 @@ const Footer = () => (
                                     <i className="fa fa-envelope"></i>
                                     </div>
                                     <div className="col-sm-8 col-xs-8 col-8 col-md-8">
-                                        <Link to="/mailto:info@zestard.com">info@zestard.com</Link>
+                                        <a href="mailto:hr@zestard.com">info@zestard.com</a>
                                     </div>
                                 </div>
                             </li>
@@ -108,7 +110,7 @@ const Footer = () => (
                                     <i className="fa fa-phone-square"></i>
                                     </div>
                                     <div className="col-sm-8 col-xs-8 col-8 col-md-8">
-                                        <Link to="tel:+91 79 40320305">+91 79 40320305</Link>
+                                        <a href="tel:+91 79 40320305">+91 79 40320305</a>
                                     </div>
                                 </div>
                             </li>
@@ -119,24 +121,24 @@ const Footer = () => (
                         <h3>Let's Socialize</h3>
                         <ul>
                             <li>
-                                <Link to="/https://www.facebook.com/zestard"  target="_blank">
-                                    <i aria-hidden="true" className="fa fa-facebook-square"></i>
-                                </Link>
+                                <a href="https://www.facebook.com/zestard" target="_blank">
+                                    <i aria-hidden="true" className="fab fa-facebook-square"></i>
+                                </a>
                             </li>
                             <li>
-                                <Link to="/skype:zestard.technologies"  target="_blank">
-                                    <i aria-hidden="true" className="fa fa-skype"></i>
-                                </Link>
+                                <a href="skype:zestard.technologies" target="_blank">
+                                    <i aria-hidden="true" className="fab fa-skype"></i>
+                                </a>
                             </li>
                             <li>
-                                <Link to="/https://twitter.com/zestardtech"  target="_blank">
-                                    <i aria-hidden="true" className="fa fa-twitter"></i>
-                                </Link>
+                                <a href="https://twitter.com/zestardtech" target="_blank">
+                                    <i aria-hidden="true" className="fab fa-twitter"></i>
+                                </a>
                             </li>
                             <li>
-                                <Link to="/https://www.linkedin.com/company/zestard"  target="_blank">
-                                    <i aria-hidden="true" className="fa fa-linkedin-square"></i>
-                                </Link>
+                                <a href="https://www.linkedin.com/company/zestard" target="_blank">
+                                    <i aria-hidden="true" className="fab fa-linkedin-square"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>

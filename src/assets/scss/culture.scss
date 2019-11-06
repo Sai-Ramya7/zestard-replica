@@ -1,0 +1,86 @@
+/* Single Event */
+
+.event-gallery{
+    padding: 70px 0px; 
+    @media(min-width: 320px) and (max-width:576px){
+      padding: 40px 0px;  
+    }
+    a{
+        @media(min-width: 320px) and (max-width:576px){
+            margin: 5px 0px;
+            display: block;
+        }
+    }
+    img{
+        width: 100%;
+    }
+    .grid {
+        display: table;
+        width: 100%;
+    }
+    .grid-item {
+        margin-bottom: 30px;
+        width: 33.333333%;
+        // position: relative;
+        padding-right: 15px;
+        padding-left: 15px;
+        float: left;
+    }
+}
+
+.events-wrapper {
+    height: calc(100% - 60px);
+    margin: 30px auto;
+    @media only screen and (max-width: 575px) {
+        height: calc(100% - 30px);
+        margin: 15px 0px;
+    }
+    .gallery-image{
+        height: 250px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        border-top-left-radius: .25rem;
+        border-top-right-radius: .25rem;
+        @media only screen and (max-width: 420px){
+            height: 200px;
+        }
+        .view-more{
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.52);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: visibility 0s, opacity 0.5s linear;
+            visibility: hidden;
+            opacity: 0;
+            a{
+                color: #ffffff;
+                border: 1px solid #ffffff;
+                padding: 5px 15px;
+                border-radius: 3px;
+            }
+        }
+
+        &:hover .view-more{
+            visibility: visible;
+            opacity: 1;
+            a:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    .event-title{
+        h3{
+            margin: 0;
+            font-size: 1.4625em;
+            @media only screen and (max-width: 575px) {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+            @media (min-width: 768px) and (max-width: 991px) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+}

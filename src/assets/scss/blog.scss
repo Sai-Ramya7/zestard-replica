@@ -4,9 +4,8 @@
 .blog-header {
     background-image: url('./../images/blog-banner.png');
     color: #fff;
-    padding-top: 110px;
-    padding-bottom: 110px;
-    background-size: 100% 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
     background-repeat: no-repeat;
     @media(max-width: 767px){
         background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
@@ -15,14 +14,23 @@
     .blog-title {
         font-family: 'Roboto', sans-serif;
     }
-    h1.hestia-title{
-        @media(max-width: 767px){
-                font-size: 2.8rem;
-        }
+    // h1.hestia-title{
+    //     font-weight: 400;
+    //     @media(max-width: 767px){
+    //             font-size: 2.5rem;
+    //     }
+    // }
+    h1 {
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.5em;
+        font-size: 2.5rem;
     }
 }
 
 .blog-list {
+    padding-bottom: 30px;
+    // padding-top: 30px;
     .card {
         margin-top: 30px;
         // padding-bottom: 0px;
@@ -52,6 +60,11 @@
                 font-size: 18px;
                 line-height: 1.2;
                 margin-bottom: 10px;
+            }
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
             }
         }
 
@@ -87,6 +100,7 @@
         overflow: hidden;
 
         .author {
+            font-size: 16px;
             @media only screen and (max-width: 575px) {
                 font-size: 14px;
                 line-height: 1.2;

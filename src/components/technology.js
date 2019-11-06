@@ -8,14 +8,12 @@ class Technology extends Component {
             serviceImage,
             serviceName,
             ServiceSubText,
-            serviceTitle,
-            serLink,
-            key
+            serLink
         } = this.props;
         const serviceLink = serLink.split('/');
         const link = serviceLink[serviceLink.length-2]
         return (
-            <section key={key}>
+            <section>
                 <div className="technology-odd">
                     <div className="container">
                         <div className="row">

@@ -1,8 +1,6 @@
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
-// import './../assets/scss/index.scss';
-// import Header from './../components/'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -55,11 +53,11 @@ class Index extends Component {
                   <div className="row">
                     <div className="row justify-content-center">
                       <div className="col-lg-10 col-md-12 text-center">
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node , index) => ( 
-                        <ul className="nav nav-pills" role="tablist">
-                          <li className="nav-item item-1" key="{index}">
+                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
+                        <ul className="nav nav-pills" role="tablist"  key={index}>
+                          <li className="nav-item item-1">
                             <Link aria-selected="false" className="nav-link"
-                            data-toggle="tab" to="#tab_{index+1}" role="tab">
+                            data-toggle="tab" to="#tab_1" role="tab">
                               <p>
                                 <img src={node.tt_title_icon.source_url} alt=""/>
                                 <span>{node.tt_tab_title}</span>
@@ -68,8 +66,8 @@ class Index extends Component {
                           </li>
                         </ul>
                         ))}
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node , index) => (
-                        <div className="tab-content tab-space">
+                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => (
+                        <div className="tab-content tab-space" key={index}>
                           <div className="tab-pane" id="tab_1">
                             <h2 className="title text-center">Magento</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
@@ -86,14 +84,12 @@ class Index extends Component {
                   <div className="container">
                     <div className="row">
                       <div className="service-head col-lg-12">
-                        {/* {data.wordPressAcfHomeServicesBlock.map(( node ) => ( */}
                           <h2 className="title text-center">{ser.home_service_heading}</h2>
-                        {/* ))} */}
                       </div>
                       <div className="service-content">
                         <div className="row row-eq-height">
-                        {data.wordPressAcfHomeServicesBlock.home_services.map(( node , index) => ( 
-                          <div className="col-lg-6 col-md-6 col-sm-12 hm-service-card">
+                        {data.wordPressAcfHomeServicesBlock.home_services.map(( node, index ) => ( 
+                          <div className="col-lg-6 col-md-6 col-sm-12 hm-service-card" key={index}>
                             <div className="content-col card">
                               <div className="row service-head">
                                 <div className="col-md-3 col-sm-3 col-3 text-xs-center service-img">
@@ -183,8 +179,9 @@ class Index extends Component {
                         <div className="clients-wrapper m-xs-0 m-sm-0 mb-sm-4 text-center">
                           <h2 className="title">{clients.ch_title}</h2>
                           <div className="row m-0 ">
-                          {data.wordPressAcfHomeClients.ch_clients_logos.map(( node , index) => ( 
-                            <div className="col-md-2  mb-md-4 px-xs-2 pb-xs-4 col-12 client-logo mobile">
+                          {data.wordPressAcfHomeClients.ch_clients_logos.map(( node, index ) => ( 
+                            <div className="col-md-2  mb-md-4 px-xs-2 pb-xs-4 col-12 client-logo mobile"
+                            key={index}>
                               <img src={node.source_url} alt=""/>
                             </div>
                           ))}
@@ -204,7 +201,7 @@ class Index extends Component {
                 <div className="row hm-blog-wrap ">
                 {data.allWordpressPost.edges.map(({ node }) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 blog-wraper"
-                  key="node.wordpress_id">
+                  key={node.wordpress_id}>
                     <Link to="/blog">
                       <div className="card-img" style={{ 
                         backgroundImage: `url(${node.featured_media.source_url})` }}>
@@ -238,6 +235,7 @@ export const query = graphql`
     }
   }
   wordPressAcfTechnologyTabs {
+    id
     technology_tabs_repeater {
       tt_tab_title
       tt_tab_description

@@ -45,8 +45,9 @@ class TechnologyDetail extends Component {
                                 </div>
                             </div>
                             <div className="row">
-                            {serviceDetails.tech_services_list.map(( node ) => (
-                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mobile mb-5">
+                            {serviceDetails.tech_services_list.map(( node, index ) => (
+                                <div className="col-lg-4 col-md-6 col-sm-6 col-12 mobile mb-5"
+                                key={index}>
                                     <div className="info">
                                         <div className="head">
                                             <h3 className="title">{node.tech_service_name}</h3>
@@ -92,8 +93,9 @@ class TechnologyDetail extends Component {
                             <div className="benefites-work">
                                 <div className="col-lg-8 col-md-10 col-sm-12 mx-auto">
                                     <div className="row">
-                                    {benefitsDetails.tech_key_features_repeater.map(( node ) => (
-                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12">
+                                    {benefitsDetails.tech_key_features_repeater.map(( node, index ) => (
+                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 col-12"
+                                        key={index}>
                                             <div className="benefites-grp">
                                                 <span>
                                                 <div className="benefites-image">

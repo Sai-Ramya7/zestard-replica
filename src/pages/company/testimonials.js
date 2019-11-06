@@ -27,7 +27,7 @@ class Testimonials extends Component {
                         >
                             {data.allWordpressWpTestimonials.edges.map(({ node }) => (
                                 <div className="col-lg-4 col-md-6 col-sm-6 col-12 grid-item"
-                                >
+                                key={node.id}>
                                     <div className="testimonial-wrapper card">
                                         <div className="speaks">
                                             <i className="coma">
@@ -68,6 +68,7 @@ export const query = graphql`
         allWordpressWpTestimonials {
             edges {
                 node {
+                    id
                     title
                     content
                 }

@@ -43,7 +43,6 @@ class TermsOfUse extends Component {
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
                                 <article id="post-{node.wordpress_id}" className="post-{node.wordpress_id} page type-page status-publish hentry">
-                                    <div>{node.wordpress_id}</div>
                                     <div className="entry-content"
                                     dangerouslySetInnerHTML={{ __html: node.content }} />
                                 </article>

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 
 import Layout from "./../../components/layout"
@@ -25,15 +25,15 @@ class Portfolio extends Component {
                         <div className="all-portfolio">
                             <div className="container">
                                 <div className="row portfolio-list">
-                                {data.allWordpressWpPortfolio.edges.map(({ node }) => (
-                                    <div className="col-lg-3 col-md-4 col-sm-6 col-12">
+                                {data.allWordpressWpPortfolio.edges.map(({ node }, index) => (
+                                    <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
                                         <div className="project">
-                                            <Link className="project-img">
+                                            <a className="project-img">
                                             {node.featured_media !== null &&
                                             <img src={node.featured_media.source_url} alt=""/>
                                             }
                                                 <div className="img-hover-color"></div>
-                                            </Link>
+                                            </a>
                                             <div className="project-title">
                                                 <h5><em>{node.title}</em></h5>
                                             </div>

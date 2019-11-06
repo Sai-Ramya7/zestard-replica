@@ -1,0 +1,210 @@
+.about-page {
+    .who-we-are {
+        margin: 100px 0px 70px 0px;
+        h2 {
+            text-align: left;
+            margin: 0 0 16px 0px;
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            color: #393b3c;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 50px;
+            @media only screen and (max-width: 768px) {
+                font-size: 25px;
+                line-height: 35px;
+            }
+        }
+        @media(max-width: 767px){
+            margin: 35px 0px 35px 0px;
+        }
+         p {
+            font-size: 17px;
+            padding-left: 0px;
+            font-family: 'Open Sans', sans-serif;
+            color: #6e6e6e;
+            line-height: 1.7;
+            text-align: left;
+            margin-bottom: 0px;
+            @media only screen and (max-width: 768px) {
+                font-size: 15px;
+            }
+            @media only screen and (max-width: 575px) {
+                margin-bottom: 30px;
+            }
+        }
+    }
+    .our-values {
+        position: relative;
+        overflow: hidden;
+        padding: 70px 0px;
+        background: #e8eef2;
+        h2 {
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            color: #434e5a;
+            text-align: center;
+            margin: 0 0 30px 0px;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 50px;
+            text-transform: capitalize;
+            @media only screen and (max-width: 768px) {
+                font-size: 25px;
+            }
+            @media only screen and (max-width: 575px) {
+                margin-bottom: 30px;
+            }
+        }
+        @media(max-width: 767px){
+            padding: 55px 0px 35px;
+        }
+        .our-values-box-wrapper {
+            margin-bottom: 30px;
+            &:nth-child(n+5) {
+                margin-bottom: 0px;
+                @media only screen and (max-width: 991px) {
+                    margin-bottom: 30px;
+                }
+            }
+            .our-values-box {
+                padding: 30px 15px;
+                margin-bottom: 30px;
+                transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+                background-color: #ffffff;
+                height: 100%;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px #a7a7a7;
+                &:hover {
+                    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+                    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2), 0 13px 24px -11px rgba(58, 49, 60, 0.6);
+                }
+                .icon {
+                    display: inline-flex;
+                    margin-bottom: 0px;
+                    img {
+                        margin: 0 auto;
+                        width: 50%;
+                    }
+                }
+                h3 {
+                    font-family: 'Open Sans', sans-serif;
+                    font-size: 20px;
+                    color: #4c4c4c;
+                    line-height: 26px;
+                    font-weight: 600;
+                    margin: 0px 0px 10px 0px;
+                }
+                p {
+                    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+                    padding: 0px;
+                    font-size: 17px;
+                    color: #737373;
+                    line-height: 26px;
+                    text-align: center;
+                    margin-bottom: 0px;
+                    font-weight: 400;
+                    @media only screen and (max-width: 768px) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+    .why-choose {
+        padding: 70px 0px 20px;
+        background: #e8eef2;
+        @media only screen and (max-width: 768px) {
+            padding: 55px 0px 5px;
+        }
+        .title {
+            text-align: center;
+            margin: 0px 0px 30px 0px;
+            font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+            color: #393b3c;
+            font-weight: 600;
+            font-size: 36px;
+            line-height: 50px;
+            @media only screen and (max-width: 768px) {
+                font-size:25px;
+            }
+        }
+        .box {
+            margin-bottom: 50px;
+            .text-right {
+                text-align: right!important;
+            }
+            h5 {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 20px;
+                font-weight: 600;
+                color: #4c4c4c;
+                margin-top: 0px;
+                margin-bottom: 5px;
+                line-height: 30px;
+                letter-spacing: 0.5px;
+                @media only screen and (max-width: 768px) {
+                    font-size:18px;
+                }
+            }
+            p {
+                margin-bottom: 0px;
+                font-family: 'Roboto', sans-serif;
+                font-size: 17px;
+                font-weight: 300;
+                color: #a4b4c3;
+                line-height: 30px;
+                @media only screen and (max-width: 768px) {
+                    font-size:15px;
+                }
+            }
+        }
+    }
+    .footer-provide {
+        overflow: hidden;
+        padding-top: 70px;
+        padding-bottom: 70px;
+        position: relative;
+        order: -1;
+        font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+        font-weight: 400;
+        line-height: 1.5em;
+        .title {
+            color: #434e51;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 50px;
+            line-height: 60px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            span {
+                font-size: 22px;
+            }
+        }
+        .subtitle {
+            color: #444343;
+            font-weight: normal;
+            font-style: normal;
+            font-size: 18px;
+            line-height: 30px;
+            margin-top: 10px;
+            margin-bottom: 0px;
+        }
+        .get-in-touch {
+            display: inline-block;
+            font-weight: 600;
+            font-style: normal;
+            background: linear-gradient(-45deg, #9fcb29 0%, #5bb53f 100%);
+            padding: 15px 50px;
+            margin-top: 45px;
+            border-radius: 5px;
+            font-size: 24px;
+            line-height: 30px;
+            text-transform: capitalize;
+        }
+    }
+    .industry {
+        padding: 70px 20px;
+        h5 {
+            margin-bottom: 10px;
+        }
+    }
+}

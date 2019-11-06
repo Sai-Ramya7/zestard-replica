@@ -42,9 +42,8 @@ class PrivacyPolicy extends Component {
                     <div className="container">
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
-                                <article id="post-{node.id}" 
-                                // className="post-{node.id} page type-page status-publish hentry"
-                                >   <div>{node.wordpress_id}</div>
+                                <article id="post-{node.id}">   
+                                    {/* <div>{node.wordpress_id}</div> */}
                                     <div className="entry-content"
                                     dangerouslySetInnerHTML={{ __html: node.content }} />
                                 </article>

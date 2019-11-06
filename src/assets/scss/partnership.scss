@@ -1,6 +1,6 @@
 // Partnership
 
-.partnership-page {
+.partnership-type {
     .call-section {
         background-color: #00386c;
         padding: 100px 0px;
@@ -224,3 +224,17 @@
 }
 
 // Partnership
+.offshare, .referral {
+    padding: 20px 0px;
+    .row{
+        flex-direction: row-reverse;
+    }
+    p {
+        padding: 0px;
+        font-size: 17px;
+        font-family: 'Open Sans', sans-serif;
+        color: #6e6e6e;
+        line-height: 25px;
+        text-align: left;
+    }
+}

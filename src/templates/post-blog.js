@@ -7,8 +7,6 @@ import { dateFormate } from './../util/common'
 
 class PostTemplate extends Component {
   render() {
-    const data = this.props.data
-    console.log(data)
     const post = this.props.data.wordpressPost
     return (
       <Layout>
@@ -24,17 +22,17 @@ class PostTemplate extends Component {
                                         <ul>
                                             <li>
                                                 <Link to="/https://www.facebook.com/zestard"  target="_blank">
-                                                    <i aria-hidden="true" className="fab fa-facebook-square"></i>
+                                                    <i aria-hidden="true" className="fa fa-facebook-square"></i>
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/https://twitter.com/zestardtech"  target="_blank">
-                                                    <i aria-hidden="true" className="fab fa-twitter"></i>
+                                                    <i aria-hidden="true" className="fa fa-twitter"></i>
                                                 </Link>
                                             </li>
                                             <li>
                                                 <Link to="/https://www.linkedin.com/company/zestard"  target="_blank">
-                                                    <i aria-hidden="true" className="fab fa-linkedin-square"></i>
+                                                    <i aria-hidden="true" className="fa fa-linkedin-square"></i>
                                                 </Link>
                                             </li>
                                         </ul>
@@ -90,7 +88,7 @@ class PostTemplate extends Component {
                                 </div>
                             </div>
                             <BlogPostFooter 
-                                allPost = {data.allWordpressPost}/>
+                            post_id = {post.wordpress_id}/>
                         </div>
                     </main>
                 </div>
@@ -109,9 +107,10 @@ PostTemplate.propTypes = {
 export default PostTemplate
 
 export const pageQuery = graphql`
-  query($id: String!, $cat: String! ) {
+  query($id: String!) {
     wordpressPost(id: { eq: $id }) {
         title
+        wordpress_id
         date(locale: "")
         content
         author {
@@ -125,21 +124,6 @@ export const pageQuery = graphql`
         }
         categories {
             slug
-        }
-    }
-    allWordpressPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: $cat}}}, id: {ne: $id}}) {
-        edges {
-        node {
-            id
-            title
-            wordpress_id
-            date(formatString: "l")
-            slug
-            excerpt
-            featured_media {
-            source_url
-            }
-        }
         }
     }
   }
