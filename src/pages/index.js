@@ -11,6 +11,7 @@ import './../assets/scss/index.scss'
 
 
 import Layout from "../components/layout"
+import { serviceUrl } from './../util/common'
 
 class Index extends Component {
   
@@ -85,7 +86,7 @@ class Index extends Component {
                         </div> */}
                         <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
                           {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
-                            <Tab eventKey={node.tt_tab_title} className="nav-link item-1" 
+                            <Tab eventKey={node.tt_tab_title} className="nav-link" 
                             key={index} title={<p className={`item-${index+1}`}>
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
                               <span>{node.tt_tab_title}</span></p>}>
@@ -94,7 +95,7 @@ class Index extends Component {
                                 <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                                 <div className="row">
                                   <div className="col-sm-12 col-12 text-center">
-                                    <Link to="/services/" className="btn btn-primary learn-more">Learn More</Link>
+                                    <Link to={`/services/${serviceUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
                                   </div>
                                 </div>
                               </div>

@@ -11,14 +11,13 @@ class TermsOfUse extends Component {
   
     render() {
       const data = this.props.data
-      console.log(data)
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
             <div id="page" className="site">
                 <div id="content" className="site-content">
-                {data.allWordpressPage.edges.map(({ node }) => (
-                    <div>
+                {data.allWordpressPage.edges.map(({ node }, index) => (
+                    <div key={index}>
                     <section>
                         <div className="page-header">
                             <div className="container">

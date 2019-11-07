@@ -52,6 +52,19 @@
                     margin-bottom: 5px;
                 }
             }
+            h3 {
+                padding-top: 15px;
+                padding-bottom: 0px;
+                font-size: 25px;
+                color: #fff;
+                line-height: 20px;
+                text-align: left;
+                font-weight: 400;
+                margin: 0px;
+                @media only screen and (max-width: 1199px) {
+                    font-size: 16px;
+                }
+            }
             h4 {
                 font-size: 15px;
                 color: #8ba4bb;
@@ -64,10 +77,16 @@
                 }
             }
             .frm_forms {
+                padding-top: 15px;
                 label  {
                     margin-bottom: 15px;
                     color: #fff;
                     font-size: 13px;
+                    span {
+                        color: red;
+                        // font-size: 18px;
+                        vertical-align: top;
+                    }
                 }
                 input, textarea {
                     background: transparent;

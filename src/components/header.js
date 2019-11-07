@@ -1,20 +1,54 @@
-import { Link } from "gatsby";
-// import './header.scss'
-// import PropTypes from "prop-types"
+import { useStaticQuery, Link } from "gatsby";
+
 import React from "react";
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-const Header = () => (
-  // <Link to="/">
+import { serviceUrl, headerItemsUrl } from './../util/common'
+
+const Header = () => {
+
+  const data = useStaticQuery(graphql`
+    {
+      allWordpressAcfOptions {
+        nodes {
+          options {
+            site_logo {
+              source_url
+            }
+          }
+        }
+      }
+      allWordpressMenusMenusItems(filter: {wordpress_id: {eq: 207}}) {
+        nodes {
+          name
+          items {
+            title
+            url
+            child_items {
+              title
+              url
+            }
+          }
+        }
+      }
+    }
+  `)
+  const logo = data.allWordpressAcfOptions.nodes[0].options.site_logo.source_url;
+  const company = data.allWordpressMenusMenusItems.nodes[0].items[0];
+  const services = data.allWordpressMenusMenusItems.nodes[0].items[1];
+  const work = data.allWordpressMenusMenusItems.nodes[0].items[2];
+  const blog = data.allWordpressMenusMenusItems.nodes[0].items[3];
+  const contact = data.allWordpressMenusMenusItems.nodes[0].items[4];
+  return(
     <header id="masthead" className="site-header">
       <Navbar bg="default" expand="lg" id="sectionsNav"
       className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
         <div className="container">
           <Navbar.Brand>
             <Link to="/">
-              <img src="https://149359943.v2.pressablecdn.com/wp-content/uploads/2019/09/zestard.png"
+              <img src={logo}
               alt="zestard Logo" width="181px" height="48.08px"
                 className="logo"
               />
@@ -23,57 +57,49 @@ const Header = () => (
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="primary-menu" className="navbar-nav ml-auto">
               <li className="nav-item menu-item">
-              <NavDropdown title="COMPANY" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/company/aboutus">About Us</NavDropdown.Item>
-                <NavDropdown.Item href="/company/culture">Culture</NavDropdown.Item>
-                <NavDropdown.Item href="/company/career">Career</NavDropdown.Item>
-                <NavDropdown.Item href="/company/testimonials">Testimonials</NavDropdown.Item>
-                <NavDropdown.Item href="/company/partnership">Partnership</NavDropdown.Item>
+              <NavDropdown title={company.title} id="basic-nav-dropdown">
+                {company.child_items.map((node, index) => (
+                  <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                    {node.title}
+                  </NavDropdown.Item>
+                ))}
               </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <NavDropdown title="SERVICES" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/services/ecommerce-development">E-commerce Development</NavDropdown.Item>
-                  <NavDropdown.Item href="/services/cms-website-development">CMS Website Development</NavDropdown.Item>
-                  <NavDropdown.Item href="/services/javascript-framework">JS Frameworks</NavDropdown.Item>
-                  <NavDropdown.Item href="/services/digital-marketing">Digital Marketing</NavDropdown.Item>
-                  <NavDropdown.Item href="/services/hire-dedicated-developer">Hire Developer</NavDropdown.Item>
+                <NavDropdown title={services.title} id="basic-nav-dropdown">
+                  {services.child_items.map((node, index) => (
+                    <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                      {node.title}
+                    </NavDropdown.Item>
+                  ))}
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <NavDropdown title="WORK" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/portfolio/all-portfolio">Portfolio</NavDropdown.Item>
-                  <NavDropdown.Item target="_blank"
-                  href="https://www.zestardshop.com/">
-                    Magento Extensions
-                  </NavDropdown.Item>
-                  <NavDropdown.Item target="_blank"
-                  href="https://apps.shopify.com/partners/zestard-technologies">
-                   Shopify Apps
-                  </NavDropdown.Item>
+                <NavDropdown title={work.title} id="basic-nav-dropdown">
+                  {work.child_items.map((node, index) => (
+                    <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                      {node.title}
+                    </NavDropdown.Item>
+                  ))}
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href="/blog">
-                  BLOG
+                <Nav.Link href={`/${serviceUrl(blog.url)}`}>
+                  {blog.title}
                 </Nav.Link>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href="/contact-us">
-                  CONTACT
+                <Nav.Link href={`/${serviceUrl(contact.url)}`}>
+                  {contact.title}
                 </Nav.Link>
               </li>
             </ul>
           </div>
         </div>
-        {/* <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Nav.Link>
-          <Link to="/blog">BLOG</Link>
-        </Nav.Link> */}
       </Navbar>
     </header>
-  // </Link>     
-)
+  )
+}
 
 
 export default Header

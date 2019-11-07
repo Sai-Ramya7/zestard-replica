@@ -1,8 +1,9 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "./../../components/layout"
-import PageHeader from './../../components/page-header';
+import Layout from "../../components/layout"
+import PageHeader from '../../components/page-header';
+import { serviceUrl } from './../../util/common';
 
 class AboutUs extends Component {
   
@@ -149,7 +150,7 @@ class AboutUs extends Component {
                       dangerouslySetInnerHTML = {{ __html: footer.cta_mod_description }}
                     />
                     <a className="get-in-touch btn btn-primary" target="_blank"
-                    href="/contact-us">
+                    href={`/${serviceUrl(footer.cta_mod_link)}`}>
                       Get In Touch
                     </a>
                   </div>
