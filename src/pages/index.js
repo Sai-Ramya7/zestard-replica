@@ -18,12 +18,10 @@ class Index extends Component {
     render() {
       const data = this.props.data
       const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
-      console.log(data)
       const acfData = data.wordpressPage.acf;
       const ser = data.wordPressAcfHomeServicesBlock;
       const project = data.wordPressAcfHomePortfolioSection;
       const industry = data.allWordpressAcfOptions.nodes[0].options;
-      console.log('ind' ,industry)
       const clients = data.wordPressAcfHomeClients;
       const blog = data.wordPressAcfHomeBlogBlock;
       return (
@@ -58,32 +56,6 @@ class Index extends Component {
                   <div className="container">
                     <div className="row justify-content-center">
                       <div className="col-lg-10 col-md-12 text-center">
-                        {/* <ul className="nav nav-pills" role="tablist">
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
-                          <li className={`nav-item item-1 ${index === 0 ? 'active' : ''}`} key={index}>
-                          <a aria-selected="false" className="nav-link"
-                            data-toggle="tab" href={`tab_${index}`} role="tab">
-                              <p>
-                                <img src={node.tt_title_icon.source_url} alt=""/>
-                                <span>{node.tt_tab_title}</span>
-                              </p>
-                            </a>
-                          </li>
-                        ))}
-                        </ul>
-                        <div className="tab-content tab-space" >
-                        {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => (
-                          <div className="tab-pane" id={`tab_${index}`} key={index}>
-                            <h2 className="title text-center">{node.tt_tab_title}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
-                            <div className="row">
-                              <div className="col-sm-12 col-12 text-center">
-                                <Link to="/services/" className="btn btn-primary learn-more">Learn More</Link>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
-                        </div> */}
                         <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
                           {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
                             <Tab eventKey={node.tt_tab_title} className="nav-link" 
@@ -182,12 +154,9 @@ class Index extends Component {
                       </div>
                       <div className="col-md-5 col-lg-5 col-sm-12 tablet">
                         <div className="mt-sm-5">
-                          {/* <h5> </h5> */}
                           <h2>{industry.pt_left_sec_sub_title}</h2>
                           <div id="testimonial-video">
                             <a href="https://www.youtube.com/watch?v=a6ml5b2j04M">
-                              {/* <img alt="testimonial image"
-                              src="{industry.pt_left_sec_thumbnail.source_url}"/> */}
                               {industry.pt_left_sec_thumbnail !== null &&
                                 <img src={industry.pt_left_sec_thumbnail.source_url} alt=""/>
                               }

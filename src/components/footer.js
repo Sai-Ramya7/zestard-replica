@@ -33,6 +33,7 @@ const Footer = () => {
             }
         }
     `)
+    
     const about = data.allWordpressMenusMenusItems.nodes[0].items;
     const services = data.allWordpressMenusMenusItems.nodes[4].items;
     const resources = data.allWordpressMenusMenusItems.nodes[3].items;
@@ -79,28 +80,16 @@ const Footer = () => {
                         {resources.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                {/* <Link to={`/${headerItemsUrl(node.url)}`}>{node.title}</Link> */}
-                                <a href={`/${changeUrl(node.url)}`} target={node.target}> {node.title}</a>
+                                {/* <a href={`/${node.target === "" ? `${changeUrl(node.url)}` : node.url}`}
+                                    target={node.target}> {node.title}
+                                </a> */}
+                                {node.target === "" ? 
+                                <Link to={`${changeUrl(node.url)}`}>{node.title}</Link>
+                                : 
+                                <a href={node.url} target={node.target}>{node.title}</a>
+                                }
                             </li>
                         ))}
-                            {/* <li id="menu-item-1676"
-                            className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1676">
-                                <Link to="/blog">Blog</Link>
-                            </li>
-                            <li id="menu-item-1678"
-                            className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1678">
-                                <Link to="/portfolio/all-portfolio">Our Work</Link>
-                            </li>
-                            <li id="menu-item-1681"
-                            className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1681">
-                                <a href="https://www.zestardshop.com/"
-                                target="_blank">Magento Extensions</a>
-                            </li>
-                            <li id="menu-item-1681"
-                            className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1681">
-                                <a href="https://apps.shopify.com/partners/zestard-technologies"
-                                target="_blank">Shopify Apps</a>
-                            </li> */}
                         </ul>
                     </div>
                 </div>

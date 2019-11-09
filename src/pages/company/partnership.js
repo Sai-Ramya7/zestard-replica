@@ -8,7 +8,6 @@ class Partnership extends Component {
   
     render() {
       const data = this.props.data
-      console.log(data)
       const acfData = data.wordpressPage.acf;
       const offshore = data.wordpressPage.acf.gen_content_modules_page[0];
       const referral = data.wordpressPage.acf.gen_content_modules_page[2];

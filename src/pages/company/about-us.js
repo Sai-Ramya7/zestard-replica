@@ -9,7 +9,6 @@ class AboutUs extends Component {
   
     render() {
       const data = this.props.data
-      console.log(data)
       const acfData = data.wordpressPage.acf;
       const whoweare = data.wordpressPage.childWordPressAcfGenRightVideoAndLeftDescription;
       const ourValues = data.wordpressPage.childWordPressAcfGenGridBoxes;

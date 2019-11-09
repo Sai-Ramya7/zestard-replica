@@ -1,6 +1,7 @@
 import React from "react";
 import { useStaticQuery, Link, graphql } from "gatsby";
 
+import { postsUrl, headerItemsUrl } from './../util/common'
 
 const BlogSidebar = () => {
   const data = useStaticQuery(graphql`
@@ -11,6 +12,7 @@ const BlogSidebar = () => {
             id
             title
             slug
+            link
           }
         }
       }
@@ -20,6 +22,7 @@ const BlogSidebar = () => {
             name
             slug
             id
+            link
           }
         }
       }
@@ -34,7 +37,7 @@ const BlogSidebar = () => {
           <ul>
             {data.allWordpressCategory.edges.map(({ node }) => (
             <li className="cat-item cat-item-{node.id}" key={node.id}>
-            <Link to={`/blog/category/${node.slug}`}>{node.name}</Link>
+            <Link to={`/${postsUrl(node.link)}`}>{node.name}</Link>
             </li>
             ))}
           </ul>
@@ -46,7 +49,7 @@ const BlogSidebar = () => {
           <ul>
             {data.allWordpressPost.edges.map(({ node }) => (
               <li key={node.id}>
-              <Link to={`/blog/${node.slug}`}>{node.title}</Link>
+              <Link to={`/${headerItemsUrl(node.link)}`}>{node.title}</Link>
               </li>
             ))}
           </ul>

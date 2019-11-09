@@ -8,7 +8,6 @@ class BlogEventTemplate extends Component {
     render() {
       const data = this.props.data
       const eventHead = this.props.data.allWordpressWpEvent.edges[0].node.title
-      console.log('event', data)
       return (
         <Layout>
           <div id="page" className="site">

@@ -4,29 +4,9 @@ import { dateFormate } from './../util/common'
 
 
 const BlogPostFooter = (props) => {
-  // const data = useStaticQuery(graphql`
-  //   query {
-  //     allWordpressPost(limit: 3, filter: {categories: {elemMatch: {slug: {eq: "design"}}}}) {
-  //       edges {
-  //         node {
-  //           id
-  //           title
-  //           wordpress_id
-  //           date(formatString: "l")
-  //           slug
-  //           excerpt
-  //           featured_media {
-  //             source_url
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `)
   const {
     allPost
   } = props;
-  console.log(props)
   return (
     <div className="section related-posts bg-related-post">
       <div className="container">

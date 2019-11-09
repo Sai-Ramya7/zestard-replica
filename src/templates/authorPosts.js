@@ -4,14 +4,13 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
+import { headerItemsUrl } from './../util/common'
 
 class AuthorPostsTemplate extends Component {
   
   render() {
     const data = this.props.data
-    console.log('Cat', data.allWordpressPost.edges)
     const authorName = data.allWordpressPost.edges[0].node.author.name
-    console.log(authorName)
     return (
       <Layout>
         <div id="page" className="site">
@@ -39,10 +38,7 @@ class AuthorPostsTemplate extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                {/* <Link to="/" className="post-thumbnail">
-                                  {node.featured_media.source_url}
-                                </Link> */}
-                                <Link to={`/blog/${node.node.slug}`} className="post-thumbnail">
+                                <Link to={`/${headerItemsUrl(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featured_media !== null &&
                                   <img src={node.node.featured_media.source_url} alt=""/>
                                 }</Link>
@@ -50,7 +46,7 @@ class AuthorPostsTemplate extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">
-                                    <Link to={`/blog/${node.node.slug}`}>{node.node.title}</Link>
+                                    <Link to={`/${headerItemsUrl(node.node.link)}`}>{node.node.title}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"
@@ -60,14 +56,14 @@ class AuthorPostsTemplate extends Component {
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/author/${node.node.author.slug}`} className="vcard author">
+                                        <Link to={`/${headerItemsUrl(node.node.author.link)}`} className="vcard author">
                                           <strong className="fn">
                                           {node.node.author !== null &&
                                           <span>  {node.node.author.name}</span>
                                           } 
                                           </strong>
                                         </Link>, 
-                                        <Link to={`/blog/${node.node.slug}`}>
+                                        <Link to={`/${headerItemsUrl(node.node.link)}`}>
                                           <time> {node.node.date}</time>
                                         </Link>
                                         </div>
@@ -75,7 +71,7 @@ class AuthorPostsTemplate extends Component {
                                     </div>
                                     <div className="col-md-6 col-sm-6">
                                       <div className="read-more-link">
-                                        <Link to={`/blog/${node.node.slug}`}>Read More</Link>
+                                        <Link to={`/${headerItemsUrl(node.node.link)}`}>Read More</Link>
                                       </div>
                                     </div>
                                   </div>
@@ -107,11 +103,6 @@ class AuthorPostsTemplate extends Component {
 }
 
 
-// CategoryPostsTemplate.propTypes = {
-//     data: PropTypes.object.isRequired,
-//     edges: PropTypes.array,
-// }
-
 export default AuthorPostsTemplate
 
 export const pageQuery = graphql`
@@ -124,9 +115,11 @@ export const pageQuery = graphql`
           slug
           date(fromNow: true)
           excerpt
+          link
           author {
             name
             slug
+            link
           }
           featured_media {
             source_url

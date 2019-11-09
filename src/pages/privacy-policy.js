@@ -3,9 +3,6 @@ import { graphql } from "gatsby"
 
 
 import Layout from "./../components/layout"
-// import './../components/privacy.scss'
-// import { node } from "prop-types";
-
 
 class PrivacyPolicy extends Component {
   
@@ -42,7 +39,6 @@ class PrivacyPolicy extends Component {
                         <div id="primary" className="content-area">
                             <main id="main" className="site-main">
                                 <article id="post-{node.id}">   
-                                    {/* <div>{node.wordpress_id}</div> */}
                                     <div className="entry-content"
                                     dangerouslySetInnerHTML={{ __html: node.content }} />
                                 </article>

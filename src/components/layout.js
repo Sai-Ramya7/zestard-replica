@@ -31,19 +31,11 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          // marginLeft: `-20px`,
-          // marginRight: `-20px`,
-          // maxWidth: 960,
           padding: 0,
           paddingTop: `86px`,
         }}
       >
         <main>{children}</main>
-        {/* <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer> */}
       </div>
       <Footer />
     </>

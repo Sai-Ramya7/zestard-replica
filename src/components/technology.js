@@ -10,8 +10,6 @@ class Technology extends Component {
             ServiceSubText,
             serLink
         } = this.props;
-        const serviceLink = serLink.split('/');
-        const link = serviceLink[serviceLink.length-2]
         return (
             <section>
                 <div className="technology-odd">

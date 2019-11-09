@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "./../../components/layout"
-import PageHeader from './../../components/page-header';
-import Technology from './../../components/technology'
+import Layout from "../../components/layout"
+import PageHeader from '../../components/page-header';
+import Technology from '../../components/technology'
 
 class CmsDevelopment extends Component {
   
@@ -45,30 +45,30 @@ export default CmsDevelopment
 
 export const query = graphql`
 {
-    allWordpressPage(filter: {wordpress_id: {eq: 1493}}) {
-        edges {
-          node {
-            slug
-            acf {
-              header_page_title
-              header_sub_text
-              header_section_title
-              header_mascot {
-                source_url
-              }
-              sl_content_module_page {
-                sl_service_name
-                sl_service_sub_text
-                sl_service_page_link
-                sl_service_image {
-                  source_url,
-                  title,
-                  wordpress_id
-                }
-              }
+  allWordpressPage(filter: {wordpress_id: {eq: 1493}}) {
+    edges {
+      node {
+        slug
+        acf {
+          header_page_title
+          header_sub_text
+          header_section_title
+          header_mascot {
+            source_url
+          }
+          sl_content_module_page {
+            sl_service_name
+            sl_service_sub_text
+            sl_service_page_link
+            sl_service_image {
+              source_url,
+              title,
+              wordpress_id
             }
           }
         }
+      }
     }
+  }
 }
 `

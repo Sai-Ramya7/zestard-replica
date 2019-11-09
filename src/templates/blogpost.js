@@ -8,7 +8,6 @@ import { dateFormate } from './../util/common'
 class PostTemplate extends Component {
   render() {
     const data = this.props.data
-    console.log(data)
     const post = this.props.data.wordpressPost
     return (
       <Layout>
@@ -46,10 +45,6 @@ class PostTemplate extends Component {
                                             <h1 className="hestia-title">{post.title}</h1>
                                             <div className="authormeta">
                                                 <div className="author_avatar">
-                                                    {/* <img 
-                                                    src="" alt={post.author.name}
-                                                    className="avatar avatar-96wp-user-avatar wp-user-avatar-96 alignnone photo avatar-default"
-                                                    /> */}
                                                     {post.author.avatar_urls.wordpress_24 !== null &&
                                                     <img src={post.author.avatar_urls.wordpress_24.source_url} alt={post.author.name}/>
                                                     }

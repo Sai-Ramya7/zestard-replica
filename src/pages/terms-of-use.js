@@ -3,9 +3,6 @@ import { graphql } from "gatsby"
 
 
 import Layout from "./../components/layout"
-// import './../components/terms.scss'
-// import { node } from "prop-types";
-
 
 class TermsOfUse extends Component {
   

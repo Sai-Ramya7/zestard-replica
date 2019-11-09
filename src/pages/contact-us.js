@@ -1,24 +1,19 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import axios from 'axios'
 
 import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
 
 
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
-const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach(
-    (val) => val.length > 0 && (valid = false)
-  );
-  return valid;
-}
-const fields = ['fullname', 'email', 'phone', 'subject', 'message']
+const validPhoneRegex = RegExp(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/);
 class ContactUs extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      submitted: false,
       status: "",
       fullname: null,
       email: null,
@@ -30,79 +25,92 @@ class ContactUs extends Component {
         email: '',
         phone: '',
         subject: '',
-        message: ''
+        message: '',
       }
     };
+  }
+
+  allFieldsValid() {
+    // retrieve all required fields
+    // const fields = document.querySelectorAll('.form-field.validate');
+    const fields = [
+    'fullname',
+    'email',
+    'phone',
+    'subject',
+    'message'
+    ];
+    
+    // build up the userErrors object to make one setState call at the end
+    const errors = {};
+    
+    fields.forEach((field) => {
+      const value = this.state[field];
+    
+    // check for empty data
+      if (!value || value === '') {
+        errors[field] = "This field cannot be blank.";
+      } 
+      if (field === "email") {
+        if(!value || value === '') {
+          errors.email = "This field cannot be blank.";
+        } else if (!value.match(validEmailRegex)) {
+          errors.email = "Please enter a valid email address";
+        } 
+      }
+      if (field === "phone") {
+        if(!value || value === '') {
+          errors.phone = "This field cannot be blank.";
+        } else if (!value.match(validPhoneRegex)) {
+          errors.phone = "Phone is invalid";
+        }
+      }
+    }); 
+   
+    this.setState({ errors });
+    // check if it's ok to submit the data to the API or not
+    return Object.keys(errors).length === 0;
   }
   
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
-    let errors = this.state.errors;
-
-    switch (name) {
-      case 'fullname': 
-        errors.fullname = 
-          value.length === 0
-            ? 'This field cannot be blank.'
-            : '';
-        break;
-      case 'email': 
-        errors.email =
-          validEmailRegex.test(value)
-          // value.length === 0
-            ? ''
-            : 'Email is not valid!';
-        break;
-      case 'phone': 
-        errors.phone = 
-          value.length < 10
-            ? 'Phone is invalid'
-            : '';
-        break;
-      case 'subject': 
-      errors.subject = 
-        value.length === 0
-          ? 'This field cannot be blank.'
-          : '';
-      break;
-      case 'message': 
-        errors.message = 
-          value.length === 0
-            ? 'This field cannot be blank.'
-            : '';
-        break;
-      default:
-        break;
-    }
-
-    this.setState({errors, [name]: value});
+    this.setState({[name]: value});
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    if(validateForm(this.state.errors)) {
-      console.info('Valid Form')
-      this.setState({
-        status: "Thank you. We've received your Inquiry. We'll get back to you soon."
+    if(this.allFieldsValid()) {
+      const { fullname, email, phone, subject,message } = this.state;
+      axios.post('https://postyoulike.com/zestard/wp-json/api/v1/contact', {
+        'fullname': fullname,
+        'email': email,
+        'phone': phone,
+        'subject': subject,
+        'message': message  
+      })
+      .then((response) => {
+        this.setState({
+          submitted: true,
+          status: "Thank you. We've received your Inquiry. We'll get back to you soon."
+        });
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      
-    }else{
-      console.error('Invalid Form')
+    } else {
       this.setState({
-        status: 'There was a problem with your submission. Errors are marked below.'
+        submitted: false,
+        status: "There was a problem with your submission. Errors are marked below."
       });
     }
   }
 
-  
-
-
   render() {
     const data = this.props.data
-    console.log(data)
     const acfData = data.wordpressPage.acf;
-    // console.log(data)
+    console.log(this.state.errors);
     return (
       <Layout>
         <div id="page" className="site-header">
@@ -120,49 +128,49 @@ class ContactUs extends Component {
                     <div className="col-xl-10 col-md-10 col-lg-10 col-sm-11 col-xs-11 col-11 mx-auto card">
                       <div className="row">
                         <div className="col-xl-6 col-lg-6 col-md-12 col-sm-12 form-detail col-xs-12">
-                          {/* <div dangerouslySetInnerHTML={{ __html: acfData.contact_form_area }} /> */}
                           <h2>We'd love to hear from you!</h2>
                           <h4>Brief us your requirements below, and let's connect.</h4>
                           <h3>{this.state.status}</h3>
+                          {this.state.submitted === false && 
                           <form method="post" action="#" className="frm_forms"
                           onSubmit={this.handleSubmit} noValidate>
                             <label className="form-group">
                               Full Name <span>*</span>
                               <input type="text" name="fullname" id="fullname" 
                               className="form-control fullname" onChange={this.handleChange} noValidate />
-                              {this.state.errors.fullname.length > 0 && 
+                              {this.state.errors.fullname && 
                               <span className='error'>{this.state.errors.fullname}</span>}
                             </label>
                             <label className="form-group">
                               Email <span>*</span>
                               <input type="email" name="email" id="email" 
                               className="form-control email" onChange={this.handleChange} noValidate />
-                              {this.state.errors.email.length > 0 && 
+                              {this.state.errors.email && 
                               <span className='error'>{this.state.errors.email}</span>}
                             </label>
                             <label className="form-group">
                               Phone <span>*</span>
                               <input type="text" name="phone" id="phone" 
                               className="form-control phone" onChange={this.handleChange} noValidate />
-                              {this.state.errors.phone.length > 0 && 
+                              {this.state.errors.phone && 
                               <span className='error'>{this.state.errors.phone}</span>}
                             </label>
                             <label className="form-group">
                               Subject <span>*</span>
                               <input type="text" name="subject" id="subject" 
                               className="form-control subject" onChange={this.handleChange} noValidate />
-                              {this.state.errors.subject.length > 0 && 
+                              {this.state.errors.subject && 
                               <span className='error'>{this.state.errors.subject}</span>}
                             </label>
                             <label className="form-group">
                               Message <span>*</span>
                               <textarea name="message" id="message" rows="5" 
                               className="form-control message" onChange={this.handleChange} noValidate />
-                              {this.state.errors.message.length > 0 && 
+                              {this.state.errors.message && 
                               <span className='error'>{this.state.errors.message}</span>}
                             </label>
                             <button className="btn-primary" type="submit">Send</button>
-                          </form>
+                          </form>}
                         </div>
                         <div className="is-submitted">
                         <i aria-hidden="true" className="fa fa-check"></i>

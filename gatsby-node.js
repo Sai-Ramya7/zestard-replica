@@ -59,10 +59,31 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      allWordpressPage {
+        edges {
+          node {
+            slug
+            acf {
+              sl_content_module_page {
+                sl_service_name
+                sl_service_sub_text
+                sl_service_page_link
+                sl_service_image {
+                  source_url,
+                  title,
+                  wordpress_id
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
-  const { allWordpressPost, allWordpressCategory, allWordpressWpUsers, allWordpressWpEvent } = result.data
+  const { allWordpressPost, allWordpressCategory, 
+          allWordpressWpUsers, allWordpressWpEvent,
+          allWordpressPage} = result.data
 
   if (result.errors) {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
@@ -74,6 +95,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const CategoryPostsTemplate = path.resolve(`./src/templates/categoryPosts.js`)
   const AuthorPostsTemplate = path.resolve(`./src/templates/authorPosts.js`)
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
+  const ServiceTemplate = path.resolve(`./src/templates/services.js`)
+  const BlogList = path.resolve(`./src/templates/blog.js`)
   // We want to create a detailed page for each
   // post node. We'll just use the WordPress Slug for the slug.
   // The Post ID is prefixed with 'POST_'
@@ -114,32 +137,23 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+  
+  const posts = allWordpressPost.edges
+  const postsPerPage = 10
+  const numPages = Math.ceil(posts.length / postsPerPage)
+  Array.from({ length: numPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
+      component: path.resolve('./src/templates/blog.js'),
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1
+      }
+    });
+  });
 
-  // const posts = allWordpressPost.edges
-  // const postsPerPage = 6
-  // const numPages = Math.ceil(posts.length / postsPerPage)
-  // Array.from({ length: numPages }).forEach((_, i) => {
-  //   createPage({
-  //     path: i === 0 ? `/blogPage` : `/blogPage/${i + 1}`,
-  //     component: postTemplate,
-  //     context: {
-  //       limit: postsPerPage,
-  //       skip: i * postsPerPage,
-  //       numPages,
-  //       currentPage: i + 1,
-  //     },
-  //   })
-  // })
+
 }
 
-// exports.onCreateNode = ({ node, actions, getNode }) => {
-//   const { createNodeField } = actions
-//   if (node.internal.type === `MarkdownRemark`) {
-//     const value = createFilePath({ node, getNode })
-//     createNodeField({
-//       name: `slug`,
-//       node,
-//       value,
-//     })
-//   }
-// }
