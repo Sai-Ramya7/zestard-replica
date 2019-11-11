@@ -9,7 +9,6 @@ class DigitalMarketing extends Component {
 
   render() {
     const data = this.props.data
-    console.log(data)
     const acfData = data.allWordpressPage.edges[0].node.acf;
     const tech = data.allWordpressPage.edges[0].node.childWordPressAcfTechAboutTechnology;
     const service = data.allWordpressPage.edges[0].node.childWordPressAcfTechServices;
@@ -33,7 +32,10 @@ class DigitalMarketing extends Component {
                 serviceHeading = {service.tech_services_heading}
                 serviceSubHeading = {service.tech_sub_heading}
                 portfolioHeading = {portfolio.tech_portfolio_heading}
+                portfolioLink = {portfolio.tech_portfolio_link}
                 portfolioSubHeading = {portfolio.tech_portfolio_sub_heading}
+                portfolioItem1 = {portfolio.tech_portfolio_item1}
+                portfolioItem2 = {portfolio.tech_portfolio_item2}
                 benefitsHeading = {benefits.tech_keyb_heading}
                 benefitsDetails = {benefits}
             />
@@ -77,6 +79,8 @@ export const query = graphql`
             tech_portfolio_heading
             tech_portfolio_sub_heading
             tech_portfolio_link
+            tech_portfolio_item1
+            tech_portfolio_item2
         }
         childWordPressAcfTechKeyBenefits {
           tech_keyb_heading

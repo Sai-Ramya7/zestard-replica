@@ -3,7 +3,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import BlogSidebar from '../components/blogsidebar'
-import { headerItemsUrl } from './../util/common'
+import { headerItemsUrl, removeSpecialSymbols } from './../util/common'
 
 class BlogList extends Component {
   
@@ -49,7 +49,8 @@ class BlogList extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">
-                                    <Link to={`/${headerItemsUrl(node.link)}`}>{node.title}</Link>
+                                    {/* <Link to={`/${headerItemsUrl(node.link)}`}>{node.title}</Link> */}
+                                    <Link to={`/${headerItemsUrl(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"

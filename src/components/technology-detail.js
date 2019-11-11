@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
+import TechPortfolio from './techportfolio'
 
 class TechnologyDetail extends Component {
     
@@ -12,10 +13,15 @@ class TechnologyDetail extends Component {
                 serviceHeading,
                 serviceSubHeading,
                 portfolioHeading,
+                portfolioLink,
                 portfolioSubHeading,
+                portfolioItem1,
+                portfolioItem2,
                 benefitsHeading,
-                benefitsDetails
+                benefitsDetails,
         } = this.props;
+        // const data = this.props.data.allWordpressWpPortfolio;
+        // console.log(data)
         return (
             <div>
                 <section>
@@ -65,18 +71,18 @@ class TechnologyDetail extends Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 col-12">
-                                    <div className="row">
-                                        <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
-
-                                        </div>
-                                    </div>
+                                    <TechPortfolio 
+                                        item1 = {portfolioItem1}
+                                        item2 = {portfolioItem2}
+                                    />
                                 </div>
                                 <div className="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-12 col-12"></div>
                                 <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-6">
                                     <h2>{portfolioHeading}</h2>
                                     <p>{portfolioSubHeading}</p>
-                                    <a className="btn btn-primary"
-                                    href="https://www.google.com/">Browse Our Portfolio</a>
+                                    <Link className="btn btn-primary" to="/portfolio/all-portfolio">
+                                        Browse Our Portfolio
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -120,3 +126,4 @@ class TechnologyDetail extends Component {
 
 
 export default TechnologyDetail
+

@@ -24,7 +24,7 @@ export const postsUrl = (url) => {
 }
 
 export const changeUrl = (url) => {
-  var newUrl = url.replace (/^[a-z]{5}\:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
+  var newUrl = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
   const len = newUrl.length;
   const link = newUrl.split('/');
   for (var i=0 ; i< len ; i++) {
@@ -32,6 +32,11 @@ export const changeUrl = (url) => {
     break;
   }
   return (link[i] + '/' + link[i+1]);
+}
+
+export const removeSpecialSymbols = (title) => {
+  title = title.replace(/[^a-zA-Z ]/g, "");
+  return title;
 }
 // var URL = "https://postyoulike.com/zestard/company/culture/";
 // var newURL = URL.replace (/^[a-z]{5}\:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
