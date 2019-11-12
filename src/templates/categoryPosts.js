@@ -25,7 +25,7 @@ class CategoryPostsTemplate extends Component {
               <div className="blog-header">
                 <div className="container">
                   <div className="row">
-                      {data1.node.length > 0 && data1.node.categories.map((node, index) => (
+                      {data1.node !== null && data1.node.categories.map((node, index) => (
                         <div className="col-md-12 text-center" key={index}>
                           {node.slug === catName &&
                             <h1>{node.name}</h1>
