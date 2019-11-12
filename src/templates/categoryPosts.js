@@ -14,6 +14,7 @@ class CategoryPostsTemplate extends Component {
     const parameters = path.split('/');
     const len = parameters.length
     const catName = parameters[len-1]
+    const data1 = data.allWordpressPost.edges[0].node;
     // console.log('this.props.location.pathname', path);
     return (
       <Layout>
@@ -23,7 +24,7 @@ class CategoryPostsTemplate extends Component {
               <div className="blog-header">
                 <div className="container">
                   <div className="row">
-                      {data.allWordpressPost.edges[0].node.categories.map((node, index) => (
+                      {data1 && data1.categories.map((node, index) => (
                         <div className="col-md-12 text-center" key={index}>
                           {node.slug === catName &&
                             <h1>{node.name}</h1>
