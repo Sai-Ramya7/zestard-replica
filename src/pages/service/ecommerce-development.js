@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-import Layout from "./../../components/layout"
-import PageHeader from './../../components/page-header';
-import Technology from './../../components/technology'
+import Layout from "../../components/layout"
+import PageHeader from '../../components/page-header';
+import Technology from '../../components/technology'
 
 class Ecommerce extends Component {
   

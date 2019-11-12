@@ -63,18 +63,8 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             slug
-            acf {
-              sl_content_module_page {
-                sl_service_name
-                sl_service_sub_text
-                sl_service_page_link
-                sl_service_image {
-                  source_url,
-                  title,
-                  wordpress_id
-                }
-              }
-            }
+            title
+            wordpress_id
           }
         }
       }
@@ -89,8 +79,6 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
 
-  
-
   const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const CategoryPostsTemplate = path.resolve(`./src/templates/categoryPosts.js`)
   const AuthorPostsTemplate = path.resolve(`./src/templates/authorPosts.js`)
@@ -100,6 +88,17 @@ exports.createPages = async ({ graphql, actions }) => {
   // We want to create a detailed page for each
   // post node. We'll just use the WordPress Slug for the slug.
   // The Post ID is prefixed with 'POST_'
+
+  allWordpressPage.edges.forEach(edge => {
+    createPage({
+      path: `/services/${edge.node.slug}/`,
+      component: slash(ServiceTemplate),
+      context: {
+        id: edge.node.wordpress_id,
+      },
+    })
+  })
+
   allWordpressPost.edges.forEach(edge => {
     createPage({
       path: `/blog/${edge.node.slug}/`,
