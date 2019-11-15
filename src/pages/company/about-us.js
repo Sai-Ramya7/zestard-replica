@@ -1,3 +1,5 @@
+// About us Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
@@ -19,12 +21,14 @@ class AboutUs extends Component {
         <Layout>
           <div id="page" className="site about-page">
             <div id="content" className="site-content">
+              {/* page header */}
               <PageHeader
                 headerMascot = {acfData.header_mascot.source_url}
                 headerSubText = {acfData.header_sub_text}
                 headerSectionTitle={acfData.header_section_title}
                 headerPageTitle={acfData.header_page_title}
               />
+              {/* Our Story */}
               <section>
                 <div className="who-we-are">
                   <div className="container">
@@ -40,6 +44,7 @@ class AboutUs extends Component {
                   </div>
                 </div>
               </section>
+              {/* Our Values */}
               <section>
                 <div className="our-values">
                   <div className="container">
@@ -67,6 +72,7 @@ class AboutUs extends Component {
                   </div>
                 </div>
               </section>
+              {/* Partnership and trusted */}
               <section>
                 <div className="industry">
                   <div className="container">
@@ -112,6 +118,7 @@ class AboutUs extends Component {
                   </div>
                 </div>
               </section>
+              {/* Why Choose US */}
               <section>
                 <div className="why-choose">
                   <div className="container">
@@ -141,6 +148,7 @@ class AboutUs extends Component {
                   </div>
                 </div>
               </section>
+              {/* Call to action */}
               <div className="footer-provide">
                 <div className="container">
                   <div className="row">

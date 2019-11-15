@@ -1,3 +1,5 @@
+// Page Footer
+
 import React from 'react'
 import { useStaticQuery, Link } from "gatsby";
 
@@ -44,6 +46,7 @@ const Footer = () => {
     <footer id="colophon" className="footer-bottom">
         <div className="container">
             <div className="row">
+            {/* About */}
                 <div id="nav-menu-2" 
                 className="col-lg-3 col-md-3  col-6 widget widget_nav_menu">
                     <h3 className="widget-title">About Zestard</h3>
@@ -58,6 +61,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
+                {/* Services */}
                 <div id="nav-menu-3" 
                 className="col-lg-3 col-md-3  col-6 widget widget_nav_menu">
                     <h3 className="widget-title">Services</h3>
@@ -72,6 +76,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
+                {/* Resources */}
                 <div id="nav-menu-4" 
                     className="col-lg-3 col-md-3  col-6 widget widget_nav_menu">
                     <h3 className="widget-title">Resources</h3>
@@ -93,6 +98,7 @@ const Footer = () => {
                         </ul>
                     </div>
                 </div>
+                {/* Contact-Details */}
                 <div className="col-lg-3 col-md-3 col-6">
                     <div className="contact">
                         <h3>Contact US</h3>

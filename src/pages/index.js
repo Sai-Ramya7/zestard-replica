@@ -1,3 +1,5 @@
+// Home Page
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
@@ -8,7 +10,6 @@ import Tabs from 'react-bootstrap/Tabs'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './../assets/scss/index.scss'
-
 
 import Layout from "../components/layout"
 import { serviceUrl } from './../util/common'
@@ -28,6 +29,7 @@ class Index extends Component {
         <Layout>
           <div id="page" className="site page-home">
             <div id="content" className="site-content">
+            {/* page header */}
               <section>
                 <div className="page-home-header">
                   <div className="hero-bkg-animated">
@@ -51,6 +53,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* TEchnology Tabs section */}
               <section>
                 <div className="services">
                   <div className="container">
@@ -79,6 +82,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* what we do */}
               <section>
                 <div className="what-we-do">
                   <div className="container">
@@ -131,6 +135,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* partnership and trusted */}
               <section>
                 <div className="industry">
                   <div className="container">
@@ -168,6 +173,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* clents section */}
               <section>
                 <div className="clients">
                   <div className="container">
@@ -190,6 +196,7 @@ class Index extends Component {
                 </div>             
               </section>
             </div>
+            {/* Blog Posts */}
             <div className="home-blogs">
               <div className="container">
                 <div className="col-sm-12 text-center">

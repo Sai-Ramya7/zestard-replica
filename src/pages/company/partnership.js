@@ -1,3 +1,5 @@
+// Partnership Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
@@ -16,12 +18,14 @@ class Partnership extends Component {
         <Layout>
           <div id="page" className="site ">
             <div id="content" className="site-content">
+              {/* page header */}
               <PageHeader
                 headerMascot = {acfData.header_mascot.source_url}
                 headerSubText = {acfData.header_sub_text}
                 headerSectionTitle={acfData.header_section_title}
                 headerPageTitle={acfData.header_page_title}
               />
+              {/* partnership */}
               <section>
                 <div className="partner-type  offshare">
                   <div className="container">

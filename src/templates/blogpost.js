@@ -1,3 +1,5 @@
+// Template for single blog post page
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 import PropTypes from "prop-types"
@@ -17,6 +19,7 @@ class PostTemplate extends Component {
                     <main id="main" className="site-main blog-post blog-post-wrapper">
                         <div className="container">
                             <div className="row">
+                            {/* sticky sidebar with social icons */}
                                 <div className="col-md-2 sticky">
                                     <div className="blog-social" id="sidebar">
                                         <h3>Share</h3>
@@ -39,6 +42,7 @@ class PostTemplate extends Component {
                                         </ul>
                                     </div>
                                 </div>
+                                {/* post details */}
                                 <div className="single-post-wrap col-md-10 col-lg-8">
                                     <section>
                                         <div className="blog-header">
@@ -84,6 +88,7 @@ class PostTemplate extends Component {
                                     </article>
                                 </div>
                             </div>
+                            {/* related posts */}
                             <BlogPostFooter 
                                 allPost = {data.allWordpressPost}/>
                         </div>

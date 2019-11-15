@@ -1,3 +1,5 @@
+// Services section in service technology
+
 import React, { Component } from "react"
 
 class ServiceServices extends Component {
@@ -8,8 +10,7 @@ class ServiceServices extends Component {
             serviceHeading,
             serviceSubHeading
         } = this.props;
-        // const data = this.props.data.allWordpressWpPortfolio;
-        // console.log(data)
+        
         return (
             <div>
                 <section>

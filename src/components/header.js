@@ -1,3 +1,5 @@
+// Navbar Page Header
+
 import { useStaticQuery, Link } from "gatsby";
 
 import React from "react";

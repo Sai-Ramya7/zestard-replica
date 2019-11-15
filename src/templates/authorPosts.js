@@ -1,6 +1,7 @@
+// template for author Posts
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-
 
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
@@ -15,6 +16,7 @@ class AuthorPostsTemplate extends Component {
       <Layout>
         <div id="page" className="site">
           <div id="content" className="site-content">
+          {/* author header */}
             <section>
               <div className="blog-header">
                 <div className="container">
@@ -26,6 +28,7 @@ class AuthorPostsTemplate extends Component {
                 </div>
               </div>
             </section>
+            {/* author posts */}
             <div id="primary" className="content-area blog-list">
               <main id="main" className="site-main">
                 <div className="container">
@@ -85,6 +88,7 @@ class AuthorPostsTemplate extends Component {
                     </div>
                     <div className="col-md-4 blog-sidebar-wrapper col-md-offset-0">
                       <div>
+                      {/* sidebar */}
                       <aside id="secondary" className="widget-area">
                         <BlogSidebar />
                       </aside>

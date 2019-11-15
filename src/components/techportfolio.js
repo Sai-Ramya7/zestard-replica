@@ -1,3 +1,5 @@
+// Portfolio part in service technology portfolio section
+
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
 

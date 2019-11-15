@@ -1,3 +1,5 @@
+// Benefits section in Service technology
+
 import React, { Component } from "react"
 
 class ServiceBenefits extends Component {
@@ -7,8 +9,6 @@ class ServiceBenefits extends Component {
             benefitsHeading,
             benefitsDetails,
         } = this.props;
-        // const data = this.props.data.allWordpressWpPortfolio;
-        // console.log(data)
         return (
             <div>
                 <section>

@@ -1,3 +1,5 @@
+// template for blog Posts
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
@@ -18,6 +20,7 @@ class BlogList extends Component {
       <Layout>
         <div id="page" className="site">
           <div id="content" className="site-content">
+            {/* blog header */}
             <section>
               <div className="blog-header">
                 <div className="container">
@@ -29,6 +32,7 @@ class BlogList extends Component {
                 </div>
               </div>
             </section>
+            {/* blog posts */}
             <div id="primary" className="content-area blog-list">
               <main id="main" className="site-main">
                 <div className="container">
@@ -86,6 +90,7 @@ class BlogList extends Component {
                         </article>
                       </div>
                     ))}
+                    {/* Pagination */}
                     <div className="post-pagination">
                       <ul className="page-num">
                         {!isFirst && (
@@ -121,6 +126,7 @@ class BlogList extends Component {
                     </div>
                     <div className="col-md-4 blog-sidebar-wrapper col-md-offset-0">
                       <div>
+                      {/* blogpage sidebar */}
                       <aside id="secondary" className="widget-area">
                         <BlogSidebar />
                       </aside>

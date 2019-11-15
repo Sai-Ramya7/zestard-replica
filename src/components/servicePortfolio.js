@@ -1,3 +1,5 @@
+// Portfolio section in service technology
+
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import TechPortfolio from './techportfolio'
@@ -12,8 +14,7 @@ class ServicePortfolio extends Component {
             portfolioItem1,
             portfolioItem2
         } = this.props;
-        // const data = this.props.data.allWordpressWpPortfolio;
-        // console.log(data)
+        
         return (
             <div>
                 <section>

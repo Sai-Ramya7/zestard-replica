@@ -1,6 +1,6 @@
+// Technology section in service technology
+
 import React, { Component } from "react"
-// import { Link } from "gatsby"
-// import TechPortfolio from './techportfolio'
 
 class ServiceTechnology extends Component {
     
@@ -10,8 +10,7 @@ class ServiceTechnology extends Component {
             techContent,
             techContentRight
         } = this.props;
-        // const data = this.props.data.allWordpressWpPortfolio;
-        // console.log(data)
+        
         return (
             <div>
                 <section>

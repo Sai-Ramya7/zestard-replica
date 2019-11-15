@@ -19,7 +19,7 @@ class ServiceTemplate extends Component {
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     <PageHeader
-                        headerMascot = {acfData.header_mascot}
+                        headerMascot = {acfData.header_mascot.source_url}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}

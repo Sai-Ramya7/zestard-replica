@@ -1,3 +1,5 @@
+// Culture Page
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
@@ -13,12 +15,14 @@ class Culture extends Component {
         <Layout>
             <div id="page" className="site-header">
                 <div id="content" className="site-content">
+                    {/* page header */}
                     <PageHeader
                         headerMascot = {acfData.header_mascot.source_url}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
                     />
+                    {/* events */}
                     <div className="container">
                       <div className="row">
                       {data.allWordpressWpEvent.edges.map(({ node }) => (

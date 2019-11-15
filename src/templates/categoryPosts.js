@@ -1,6 +1,7 @@
+// Template for blog-category Posts 
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-
 
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
@@ -13,19 +14,20 @@ class CategoryPostsTemplate extends Component {
     const path = this.props.location.pathname
     const parameters = path.split('/');
     const len = parameters.length
-    const catName = parameters[len-1]
-    const data1 = data.allWordpressPost.edges[0];
+    const catName = parameters[len-2]
+    const data1 = data.allWordpressPost.edges[0].node;
     console.log('data1', data1)
-    // console.log('this.props.location.pathname', path);
+    console.log('this.props.location.pathname', catName);
     return (
       <Layout>
         <div id="page" className="site">
           <div id="content" className="site-content">
+            {/* blog header */}
             <section>
               <div className="blog-header">
                 <div className="container">
                   <div className="row">
-                      {data1.node !== null && data1.node.categories.map((node, index) => (
+                      {data1 !== null && data1.categories.map((node, index) => (
                         <div className="col-md-12 text-center" key={index}>
                           {node.slug === catName &&
                             <h1>{node.name}</h1>
@@ -136,6 +138,14 @@ export const pageQuery = graphql`
           categories {
             name
             slug
+            parent_element {
+              name
+              slug
+              parent_element {
+                name
+                slug
+              }
+            }
           }
         }
       }

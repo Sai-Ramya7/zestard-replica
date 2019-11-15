@@ -1,10 +1,10 @@
+// Testimonials Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
-
 
 class Testimonials extends Component {
   
@@ -15,12 +15,14 @@ class Testimonials extends Component {
         <Layout>
             <div id="page" className="site">
                 <div id="content" className="site-content">
+                    {/* Page header */}
                     <PageHeader
                         headerMascot = {acfData.header_mascot.source_url}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
                     />
+                    {/* testimonials */}
                     <div className="container">
                         <div className="row grid testimonial-list"
                         >

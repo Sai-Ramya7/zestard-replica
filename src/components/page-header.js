@@ -1,3 +1,5 @@
+// Common Page header
+
 import React, { Component } from "react"
 
 class PageHeader extends Component {
@@ -16,7 +18,7 @@ class PageHeader extends Component {
                         <div className="row">
                             <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
                                 {headerMascot !== null &&
-                                <img src={headerMascot.source_url} alt=""/>
+                                <img src={headerMascot} alt=""/>
                                 }
                             </div>
                             <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">

@@ -1,3 +1,5 @@
+// Contact us Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 import axios from 'axios'
@@ -41,7 +43,7 @@ class ContactUs extends Component {
     'message'
     ];
     
-    // build up the userErrors object to make one setState call at the end
+    // build up the errors object to make one setState call at the end
     const errors = {};
     
     fields.forEach((field) => {
@@ -51,6 +53,7 @@ class ContactUs extends Component {
       if (!value || value === '') {
         errors[field] = "This field cannot be blank.";
       } 
+      // check for matching regEx
       if (field === "email") {
         if(!value || value === '') {
           errors.email = "This field cannot be blank.";
@@ -72,11 +75,15 @@ class ContactUs extends Component {
     return Object.keys(errors).length === 0;
   }
   
+  // Change event in input fields
+
   handleChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
     this.setState({[name]: value});
   }
+
+  // Submit function
 
   handleSubmit = (event) => {
     event.preventDefault();
@@ -115,6 +122,7 @@ class ContactUs extends Component {
       <Layout>
         <div id="page" className="site-header">
           <div id="content" className="site-content">
+          {/* page header */}
             <PageHeader
               headerMascot = {acfData.header_mascot.source_url}
               headerSubText = {acfData.header_sub_text}
@@ -131,6 +139,9 @@ class ContactUs extends Component {
                           <h2>We'd love to hear from you!</h2>
                           <h4>Brief us your requirements below, and let's connect.</h4>
                           <h3>{this.state.status}</h3>
+
+                          {/* form */}
+                          
                           {this.state.submitted === false && 
                           <form method="post" action="#" className="frm_forms"
                           onSubmit={this.handleSubmit} noValidate>

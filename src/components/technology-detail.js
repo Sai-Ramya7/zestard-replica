@@ -1,3 +1,5 @@
+// Service Technology Layout
+
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import TechPortfolio from './techportfolio'
@@ -20,8 +22,7 @@ class TechnologyDetail extends Component {
                 benefitsHeading,
                 benefitsDetails,
         } = this.props;
-        // const data = this.props.data.allWordpressWpPortfolio;
-        // console.log(data)
+
         return (
             <div>
                 <section>

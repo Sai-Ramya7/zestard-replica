@@ -1,5 +1,6 @@
+// Technology part of a Service
+
 import React, { Component } from "react"
-import { Link } from "gatsby"
 import ServiceTechnology from './serviceTechnology'
 import ServiceServices from "./serviceServices";
 import ServicePortfolio from "./servicePortfolio";

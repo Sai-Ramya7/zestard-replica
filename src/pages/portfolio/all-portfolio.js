@@ -1,10 +1,10 @@
+// Portfolio Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
-
 class Portfolio extends Component {
   
     render() {
@@ -15,12 +15,14 @@ class Portfolio extends Component {
         <Layout>
             <div id="page" className="site portfolio-page">
                 <div id="content" className="site-content">
+                    {/* page header */}
                     <PageHeader
                         headerMascot = {acfData.header_mascot.source_url}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
                     />
+                    {/* all Portfolio */}
                     <section id="portfolio-contaner">
                         <div className="all-portfolio">
                             <div className="container">

@@ -35,6 +35,14 @@ exports.createPages = async ({ graphql, actions }) => {
             name
             slug
             id
+            parent_element {
+              name
+              slug
+              parent_element {
+                name
+                slug
+              }
+            }
           }
         }
       }
@@ -79,11 +87,11 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query')
   }
 
-  const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const CategoryPostsTemplate = path.resolve(`./src/templates/categoryPosts.js`)
   const AuthorPostsTemplate = path.resolve(`./src/templates/authorPosts.js`)
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
   const ServiceTemplate = path.resolve(`./src/templates/services.js`)
+  const postTemplate = path.resolve(`./src/templates/blogpost.js`)
   const BlogList = path.resolve(`./src/templates/blog.js`)
   // We want to create a detailed page for each
   // post node. We'll just use the WordPress Slug for the slug.
@@ -110,8 +118,10 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
   allWordpressCategory.edges.forEach(edge => {
+   
     createPage({
       path: `/blog/category/${edge.node.slug}/`,
+      matchpath: `/blog/category/open-source-customization/ecommerce`,
       component: slash(CategoryPostsTemplate),
       context: {
         slug: edge.node.slug,

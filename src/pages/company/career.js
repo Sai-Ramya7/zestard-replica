@@ -1,10 +1,10 @@
+// Career Page
+
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
-
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
-
 
 class Career extends Component {
   
@@ -15,12 +15,14 @@ class Career extends Component {
         <Layout>
             <div id="page" className="site career">
                 <div id="content" className="site-content">
+                {/* page header */}
                     <PageHeader
                         headerMascot = {acfData.header_mascot.source_url}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
                     />
+                    {/* career Part */}
                     <section id="career-container">
                         <div className="open-position">
                             <div className="container">

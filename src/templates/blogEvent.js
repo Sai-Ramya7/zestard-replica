@@ -1,7 +1,10 @@
+// template for blog event
+
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import Lightbox from "../components/lightBox";
 
 class BlogEventTemplate extends Component {
   
@@ -12,6 +15,7 @@ class BlogEventTemplate extends Component {
         <Layout>
           <div id="page" className="site">
             <div id="content" className="site-content">
+            {/* blog header */}
               <section>
                 <div className="blog-header">
                   <div className="container">
@@ -23,12 +27,13 @@ class BlogEventTemplate extends Component {
                   </div>
                 </div>
               </section>
+              {/* events gallery */}
               <div id="primary" className="content-area blog-list">
                 <main id="main" className="site-main">
                   <div className="container">
                     <div className="event-gallery">
                         <div className="grid" style={{position:`relative`}}>
-                          {data.wordpressAcfEvent.acf.el_gallery.map(( node, index ) => (
+                          {/* {data.wordpressAcfEvent.acf.el_gallery.map(( node, index ) => (
                             <div className="grid-item" key={index}>
                                 <Link to="">
                                 {node.source_url !== null &&
@@ -36,7 +41,9 @@ class BlogEventTemplate extends Component {
                                 }
                                 </Link>
                             </div>
-                          ))}
+                          ))} */}
+                          <Lightbox
+                          EventImages={data.wordpressAcfEvent.acf.el_gallery} />
                         </div>
                     </div>
                   </div>

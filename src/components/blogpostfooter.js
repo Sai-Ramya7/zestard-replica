@@ -1,3 +1,5 @@
+// Bottom part in single BlogPost page
+
 import React from "react";
 import { Link } from "gatsby";
 import { dateFormate } from './../util/common'
