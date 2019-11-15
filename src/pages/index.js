@@ -16,6 +16,7 @@ import { serviceUrl } from './../util/common'
 
 class Index extends Component {
   
+  
     render() {
       const data = this.props.data
       const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
@@ -65,7 +66,7 @@ class Index extends Component {
                             key={index} title={<p className={`item-${index+1}`}>
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
                               <span>{node.tt_tab_title}</span></p>}>
-                              <div className="tab-pane" id="tab_1">
+                              <div className="tab-pane" id={`tab_${index+1}`}>
                                 <h2 className="title text-center">{node.tt_tab_title}</h2>
                                 <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                                 <div className="row">
@@ -113,6 +114,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* project */}
               <section>
                 <div className="view-casestudy">
                   <div className="container">
