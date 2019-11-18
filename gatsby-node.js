@@ -120,16 +120,36 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
   allWordpressCategory.edges.forEach(edge => {
-   
-    createPage({
-      path: `/blog/category/${edge.node.slug}/`,
-      matchpath: `/blog/category/open-source-customization/ecommerce`,
-      component: slash(CategoryPostsTemplate),
-      context: {
-        slug: edge.node.slug,
-      },
-    })
+    if (edge.node.parent_element !== null) {
+      if (edge.node.parent_element.parent_element !== null) {
+        createPage({
+          path: `/blog/category/${edge.node.parent_element.parent_element.slug}/${edge.node.parent_element.slug}/${edge.node.slug}/`,
+          component: slash(CategoryPostsTemplate),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      } else {
+        createPage({
+          path: `/blog/category/${edge.node.parent_element.slug}/${edge.node.slug}/`,
+          component: slash(CategoryPostsTemplate),
+          context: {
+            slug: edge.node.slug,
+          },
+        })
+      }
+    } else {
+      createPage({
+        path: `/blog/category/${edge.node.slug}/`,
+        component: slash(CategoryPostsTemplate),
+        context: {
+          slug: edge.node.slug,
+        },
+      })
+    }
+
   })
+
   allWordpressWpUsers.edges.forEach(edge => {
     createPage({
       path: `/author/${edge.node.slug}/`,
