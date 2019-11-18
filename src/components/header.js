@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { serviceUrl, headerItemsUrl } from './../util/common'
+import { removeUrl, removePre } from './../util/common'
 
 const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
@@ -51,6 +51,7 @@ const Header = () => {
               title
               url
               wordpress_id
+              target
             }
           }
         }
@@ -84,7 +85,7 @@ const Header = () => {
               onMouseLeave = { (e) => handleClose(e) }
               >
                 {company.child_items.map((node, index) => (
-                  <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                  <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
                     {node.title}
                   </NavDropdown.Item>
                 ))}
@@ -95,7 +96,7 @@ const Header = () => {
                 onMouseEnter = { (e) => handleOpen(e) }
                 onMouseLeave = { (e) => handleClose(e) }>
                   {services.child_items.map((node, index) => (
-                    <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                    <NavDropdown.Item href={`/${removeUrl(node.url)}`} key={index}>
                       {node.title}
                     </NavDropdown.Item>
                   ))}
@@ -106,19 +107,21 @@ const Header = () => {
                 onMouseEnter = { (e) => handleOpen(e) }
                 onMouseLeave = { (e) => handleClose(e) }>
                   {work.child_items.map((node, index) => (
-                    <NavDropdown.Item href={`/${headerItemsUrl(node.url)}`} key={index}>
+                    <NavDropdown.Item 
+                    href={`${node.target === "" ? `/${removePre(node.url)}` : node.url}`}
+                                    target={node.target} key={index}>
                       {node.title}
                     </NavDropdown.Item>
                   ))}
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href={`/${serviceUrl(blog.url)}`}>
+                <Nav.Link href={`/${removePre(blog.url)}`}>
                   {blog.title}
                 </Nav.Link>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href={`/${serviceUrl(contact.url)}`}>
+                <Nav.Link href={`/${removePre(contact.url)}`}>
                   {contact.title}
                 </Nav.Link>
               </li>

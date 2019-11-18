@@ -2,7 +2,7 @@
 
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import { headerItemsUrl } from './../util/common'
+import { removeUrl } from './../util/common'
 class Technology extends Component {
     
     render() {
@@ -24,10 +24,10 @@ class Technology extends Component {
                             </div>
                             <div className="col-md-7 col-lg-8 tech-content">
                                 <h2 className="title">
-                                    <Link to={`/${headerItemsUrl(serLink)}`}>{serviceName}</Link>
+                                    <Link to={`/${removeUrl(serLink)}`}>{serviceName}</Link>
                                 </h2>
                                 <div dangerouslySetInnerHTML={{ __html: ServiceSubText }} />
-                                <Link to={`/${headerItemsUrl(serLink)}`} className="btn btn-primary">View More</Link>
+                                <Link to={`/${removeUrl(serLink)}`} className="btn btn-primary">View More</Link>
                             </div>
                         </div>
                     </div>

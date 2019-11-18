@@ -3,7 +3,7 @@
 import React from "react";
 import { useStaticQuery, Link, graphql } from "gatsby";
 
-import { postsUrl, headerItemsUrl, removePre } from './../util/common'
+import { removePre } from './../util/common'
 
 const BlogSidebar =   () => {
   const data = useStaticQuery(graphql`
@@ -61,7 +61,7 @@ const BlogSidebar =   () => {
           <ul>
             {data.allWordpressPost.edges.map(({ node }) => (
               <li key={node.id}>
-              <Link to={`/${headerItemsUrl(node.link)}`}>{node.title}</Link>
+              <Link to={`/${removePre(node.link)}`}>{node.title}</Link>
               </li>
             ))}
           </ul>

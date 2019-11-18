@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
-import { headerItemsUrl } from './../util/common'
+import { removePre } from './../util/common'
 
 class CategoryPostsTemplate extends Component {
   
@@ -50,7 +50,7 @@ class CategoryPostsTemplate extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                <Link to={`/${headerItemsUrl(node.node.link)}`} className="post-thumbnail">
+                                <Link to={`/${removePre(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featured_media !== null &&
                                   <img src={node.node.featured_media.source_url} alt=""/>
                                 }</Link>
@@ -58,7 +58,7 @@ class CategoryPostsTemplate extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">
-                                    <Link to={`/${headerItemsUrl(node.node.link)}`}>{node.node.title}</Link>
+                                    <Link to={`/${removePre(node.node.link)}`}>{node.node.title}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"
@@ -68,14 +68,14 @@ class CategoryPostsTemplate extends Component {
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/${headerItemsUrl(node.node.author.link)}`} className="vcard author">
+                                        <Link to={`/${removePre(node.node.author.link)}`} className="vcard author">
                                           <strong className="fn">
                                           {node.node.author !== null &&
                                           <span>  {node.node.author.name}</span>
                                           } 
                                           </strong>
                                         </Link>, 
-                                        <Link to={`/${headerItemsUrl(node.node.link)}`}>
+                                        <Link to={`/${removePre(node.node.link)}`}>
                                           <time> {node.node.date}</time>
                                         </Link>
                                         </div>
@@ -83,7 +83,7 @@ class CategoryPostsTemplate extends Component {
                                     </div>
                                     <div className="col-md-6 col-sm-6">
                                       <div className="read-more-link">
-                                        <Link to={`/${headerItemsUrl(node.node.link)}`}>Read More</Link>
+                                        <Link to={`/${removePre(node.node.link)}`}>Read More</Link>
                                       </div>
                                     </div>
                                   </div>

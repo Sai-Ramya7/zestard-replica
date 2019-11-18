@@ -3,7 +3,7 @@
 import React from 'react'
 import { useStaticQuery, Link } from "gatsby";
 
-import { serviceUrl, headerItemsUrl, changeUrl } from './../util/common'
+import { removePre, removeUrl } from './../util/common'
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -55,7 +55,7 @@ const Footer = () => {
                         {about.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                <Link to={`/${headerItemsUrl(node.url)}`}>{node.title}</Link>
+                                <Link to={`/${removePre(node.url)}`}>{node.title}</Link>
                             </li>
                         ))}
                         </ul>
@@ -70,7 +70,7 @@ const Footer = () => {
                         {services.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                <Link to={`/${headerItemsUrl(node.url)}`}>{node.title}</Link>
+                                <Link to={`/${removeUrl(node.url)}`}>{node.title}</Link>
                             </li>
                         ))}
                         </ul>
@@ -85,11 +85,11 @@ const Footer = () => {
                         {resources.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                {/* <a href={`/${node.target === "" ? `${changeUrl(node.url)}` : node.url}`}
+                                {/* <a href={`/${node.target === "" ? `${removePre(node.url)}` : node.url}`}
                                     target={node.target}> {node.title}
                                 </a> */}
                                 {node.target === "" ? 
-                                <Link to={`${changeUrl(node.url)}`}>{node.title}</Link>
+                                <Link to={`${removePre(node.url)}`}>{node.title}</Link>
                                 : 
                                 <a href={node.url} target={node.target}>{node.title}</a>
                                 }
@@ -166,7 +166,7 @@ const Footer = () => {
                         {legal.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                <Link to={`/${serviceUrl(node.url)}`}>{node.title}</Link>
+                                <Link to={`/${removePre(node.url)}`}>{node.title}</Link>
                             </li>
                         ))}
                         </ul>

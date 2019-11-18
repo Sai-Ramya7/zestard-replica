@@ -72,6 +72,7 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             title
+            path
             wordpress_id
           }
         }
@@ -98,8 +99,9 @@ exports.createPages = async ({ graphql, actions }) => {
   // The Post ID is prefixed with 'POST_'
 
   allWordpressPage.edges.forEach(edge => {
+   
     createPage({
-      path: `/services/${edge.node.slug}/`,
+      path: `${edge.node.path}`,
       component: slash(ServiceTemplate),
       context: {
         id: edge.node.wordpress_id,

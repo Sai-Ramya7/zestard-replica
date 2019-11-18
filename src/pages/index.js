@@ -6,13 +6,14 @@ import { Link, graphql } from "gatsby"
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
+import {ButtonToolbar, OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './../assets/scss/index.scss'
 
 import Layout from "../components/layout"
-import { serviceUrl } from './../util/common'
+import { removeUrl, removePre } from './../util/common'
 
 class Index extends Component {
   
@@ -71,7 +72,7 @@ class Index extends Component {
                                 <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                                 <div className="row">
                                   <div className="col-sm-12 col-12 text-center">
-                                    <Link to={`/services/${serviceUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
+                                    <Link to={`/${removeUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
                                   </div>
                                 </div>
                               </div>
@@ -83,6 +84,43 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
+              {/* <section>
+                <div className="services">
+                  <div className="container">
+                    <div className="row justify-content-center">
+                      <div className="col-lg-10 col-md-12 text-center">
+                        <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
+                          <ButtonToolbar>
+                          {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
+                            <OverlayTrigger
+                              key={index}
+                              overlay={
+                                <Tooltip>
+                                  <div className="tab-pane" id={`tab_${index+1}`}>
+                                    <h2 className="title text-center">{node.tt_tab_title}</h2>
+                                    <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
+                                    <div className="row">
+                                      <div className="col-sm-12 col-12 text-center">
+                                        <Link to={`/services/${removeUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Tooltip>
+                              }>
+                              <Button variant="secondary">
+                                <p className={`item-${index+1}`}>
+                                <img alt="" src={node.tt_title_icon.source_url} width="30" />
+                                <span>{node.tt_tab_title}</span></p>
+                              </Button>
+                            </OverlayTrigger>
+                          ))}
+                          </ButtonToolbar>    
+                        </Tabs>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section> */}
               {/* what we do */}
               <section>
                 <div className="what-we-do">
@@ -123,7 +161,7 @@ class Index extends Component {
                       <div className="project-detail">
                       <div dangerouslySetInnerHTML={{ __html: project.home_description_ps }}/>
                         <div className="view-projects-btn mb-md-4">
-                          <a className="btn btn-primary" href="https://jadeblue.com"
+                          <a className="btn btn-primary" href={project.home_link_ps}
                           rel="noopener noreferrer" target="_blank">View Project</a>
                         </div>
                       </div>
@@ -208,7 +246,7 @@ class Index extends Component {
                 {data.allWordpressPost.edges.map(({ node }) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 blog-wraper"
                   key={node.wordpress_id}>
-                    <Link to="/blog">
+                    <Link to={`/${removePre(node.link)}`}>
                       <div className="card-img" style={{ 
                         backgroundImage: `url(${node.featured_media.source_url})` }}>
                       </div>
@@ -300,6 +338,7 @@ export const query = graphql`
         title
         slug
         wordpress_id
+        link
         featured_media {
           source_url
         }

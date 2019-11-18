@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import BlogSidebar from '../components/blogsidebar'
-import { headerItemsUrl, removeSpecialSymbols } from './../util/common'
+import { removePre, removeSpecialSymbols } from './../util/common'
 
 class BlogList extends Component {
   
@@ -45,7 +45,7 @@ class BlogList extends Component {
                           <div className="row">
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
-                                <Link to={`/${headerItemsUrl(node.link)}`} className="post-thumbnail">
+                                <Link to={`/${removePre(node.link)}`} className="post-thumbnail">
                                 {node.featured_media !== null &&
                                   <img src={node.featured_media.source_url} alt=""/>
                                 }</Link>
@@ -53,8 +53,8 @@ class BlogList extends Component {
                               <div className="section-desc">
                                 <header className="entry-header">
                                   <h2 className="card-title entry-title">
-                                    {/* <Link to={`/${headerItemsUrl(node.link)}`}>{node.title}</Link> */}
-                                    <Link to={`/${headerItemsUrl(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
+                                    {/* <Link to={`/${removePre(node.link)}`}>{node.title}</Link> */}
+                                    <Link to={`/${removePre(node.link)}`}>{removeSpecialSymbols(node.title)}</Link>
                                   </h2>
                                 </header>
                                 <div className="card-description"
@@ -64,14 +64,14 @@ class BlogList extends Component {
                                     <div className="col-md-6 col-sm-6">
                                       <div className="author">
                                         <div>By 
-                                        <Link to={`/${headerItemsUrl(node.author.link)}`} className="vcard author">
+                                        <Link to={`/${removePre(node.author.link)}`} className="vcard author">
                                           <strong className="fn">
                                             {node.author !== null &&
                                             <span>  {node.author.name}</span>
                                             } 
                                           </strong>
                                         </Link>,
-                                        <Link to={`/${headerItemsUrl(node.link)}`}>
+                                        <Link to={`/${removePre(node.link)}`}>
                                           <time> {node.date}</time>
                                         </Link>
                                         </div>
@@ -79,7 +79,7 @@ class BlogList extends Component {
                                     </div>
                                     <div className="col-md-6 col-sm-6">
                                       <div className="read-more-link">
-                                        <Link to={`/${headerItemsUrl(node.link)}`}>Read More</Link>
+                                        <Link to={`/${removePre(node.link)}`}>Read More</Link>
                                       </div>
                                     </div>
                                   </div>
