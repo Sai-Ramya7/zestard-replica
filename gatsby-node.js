@@ -93,13 +93,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const BlogEventTemplate = path.resolve(`./src/templates/blogEvent.js`)
   const ServiceTemplate = path.resolve(`./src/templates/services.js`)
   const postTemplate = path.resolve(`./src/templates/blogpost.js`)
-  const BlogList = path.resolve(`./src/templates/blog.js`)
+  const BlogPosts = path.resolve(`./src/templates/blog.js`)
   // We want to create a detailed page for each
   // post node. We'll just use the WordPress Slug for the slug.
   // The Post ID is prefixed with 'POST_'
 
+  // Creating pages for Services
+
   allWordpressPage.edges.forEach(edge => {
-   
     createPage({
       path: `${edge.node.path}`,
       component: slash(ServiceTemplate),
@@ -108,6 +109,8 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // Creating pages for blog posts
 
   allWordpressPost.edges.forEach(edge => {
     createPage({
@@ -119,6 +122,9 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // creating pages for Category posts
+
   allWordpressCategory.edges.forEach(edge => {
     if (edge.node.parent_element !== null) {
       if (edge.node.parent_element.parent_element !== null) {
@@ -150,6 +156,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
   })
 
+  // Creating pages for Author posts
+
   allWordpressWpUsers.edges.forEach(edge => {
     createPage({
       path: `/author/${edge.node.slug}/`,
@@ -159,6 +167,9 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+  // creating pages for blog events
+
   allWordpressWpEvent.edges.forEach(edge => {
     createPage({
       path: `/blog/event/${edge.node.slug}/`,
@@ -169,13 +180,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
   
+  // Pagination for blog posts page
+
   const posts = allWordpressPost.edges
   const postsPerPage = 10
   const numPages = Math.ceil(posts.length / postsPerPage)
   Array.from({ length: numPages }).forEach((_, i) => {
     createPage({
       path: i === 0 ? `/blog` : `/blog/page/${i + 1}`,
-      component: path.resolve('./src/templates/blog.js'),
+      component: slash(BlogPosts),
       context: {
         limit: postsPerPage,
         skip: i * postsPerPage,
