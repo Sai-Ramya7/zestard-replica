@@ -13,7 +13,7 @@ import 'font-awesome/css/font-awesome.min.css';
 import './../assets/scss/index.scss'
 
 import Layout from "../components/layout"
-import { removeUrl, removePre } from './../util/common'
+import { removePre } from './../util/common'
 
 class Index extends Component {
   
@@ -72,7 +72,7 @@ class Index extends Component {
                                 <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                                 <div className="row">
                                   <div className="col-sm-12 col-12 text-center">
-                                    <Link to={`/${removeUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
+                                    <Link to={`/${removePre(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
                                   </div>
                                 </div>
                               </div>
@@ -101,7 +101,7 @@ class Index extends Component {
                                     <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
                                     <div className="row">
                                       <div className="col-sm-12 col-12 text-center">
-                                        <Link to={`/services/${removeUrl(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
+                                        <Link to={`/services/${removePre(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
                                       </div>
                                     </div>
                                   </div>

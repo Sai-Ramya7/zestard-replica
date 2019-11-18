@@ -96,7 +96,7 @@ const Header = () => {
                 onMouseEnter = { (e) => handleOpen(e) }
                 onMouseLeave = { (e) => handleClose(e) }>
                   {services.child_items.map((node, index) => (
-                    <NavDropdown.Item href={`/${removeUrl(node.url)}`} key={index}>
+                    <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
                       {node.title}
                     </NavDropdown.Item>
                   ))}

@@ -14,11 +14,6 @@ export const removePre = (url) => {
   return catUrl;
 }
 
-export const removeUrl = (url) => {
-  var newUrl = url.replace (/^[a-z]{5}:\/{2}[a-z]{1,}\.[a-z]{3}.(.*)/, '$1');
-  return newUrl;
-}
-
 // To remove special characters from title
 
 export const removeSpecialSymbols = (title) => {

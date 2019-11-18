@@ -3,7 +3,7 @@
 import React from 'react'
 import { useStaticQuery, Link } from "gatsby";
 
-import { removePre, removeUrl } from './../util/common'
+import { removePre } from './../util/common'
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
@@ -70,7 +70,7 @@ const Footer = () => {
                         {services.map((node, index) => (
                             <li id={`menu-item-${node.wordpress_id}`} key={index}
                             className={`menu-item menu-item-type-post_type menu-item-object-page menu-item-${node.wordpress_id}`}>
-                                <Link to={`/${removeUrl(node.url)}`}>{node.title}</Link>
+                                <Link to={`/${removePre(node.url)}`}>{node.title}</Link>
                             </li>
                         ))}
                         </ul>
