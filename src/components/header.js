@@ -14,6 +14,7 @@ const Header = () => {
   const handleOpen = (el) => {
     // setIsOpen(true);
     const target = el.currentTarget.getElementsByClassName('dropdown-menu');
+    console.log(target);
     if(target.length > 0) {
       const test = target[0].closest('.dropdown-menu');
       test.classList.add('show');
