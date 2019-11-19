@@ -101,7 +101,6 @@ class ContactUs extends Component {
           submitted: true,
           status: "Thank you. We've received your Inquiry. We'll get back to you soon."
         });
-        console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -117,7 +116,6 @@ class ContactUs extends Component {
   render() {
     const data = this.props.data
     const acfData = data.wordpressPage.acf;
-    console.log(this.state.errors);
     return (
       <Layout>
         <div id="page" className="site-header">
