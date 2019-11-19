@@ -71,7 +71,7 @@ const Header = () => {
       className="navbar navbar-light navbar-color-on-scroll navbar-transparent fixed-top navbar-expand-lg">
         <div className="container">
           <Navbar.Brand>
-            <Link to="/">
+            <Link to={`/${currentLocale}`}>
               {logo !== null &&
               <img src={logo.source_url}
               alt="zestard Logo" width="181px" height="48.08px"
@@ -91,7 +91,7 @@ const Header = () => {
                   about us
                 </NavDropdown.Item> */}
                 {company.child_items.map((node, index) => (
-                  <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                  <NavDropdown.Item href={`/${currentLocale}/${removePre(node.url)}`} key={index}>
                     {node.title}
                   </NavDropdown.Item>
                 ))}
@@ -102,7 +102,7 @@ const Header = () => {
                 onMouseEnter = { (e) => handleOpen(e) }
                 onMouseLeave = { (e) => handleClose(e) }>
                   {services.child_items.map((node, index) => (
-                    <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
+                    <NavDropdown.Item href={`/${currentLocale}/${removePre(node.url)}`} key={index}>
                       {node.title}
                     </NavDropdown.Item>
                   ))}
@@ -114,7 +114,7 @@ const Header = () => {
                 onMouseLeave = { (e) => handleClose(e) }>
                   {work.child_items.map((node, index) => (
                     <NavDropdown.Item 
-                    href={`${node.target === "" ? `/${removePre(node.url)}` : node.url}`}
+                    href={`${node.target === "" ? `/${currentLocale}/${removePre(node.url)}` : node.url}`}
                                     target={node.target} key={index}>
                       {node.title}
                     </NavDropdown.Item>
@@ -122,12 +122,12 @@ const Header = () => {
                 </NavDropdown>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href={`/${removePre(blog.url)}`}>
+                <Nav.Link href={`/${currentLocale}/${removePre(blog.url)}`}>
                   {blog.title}
                 </Nav.Link>
               </li>
               <li className="nav-item menu-item">
-                <Nav.Link href={`/${removePre(contact.url)}`}>
+                <Nav.Link href={`/${currentLocale}/${removePre(contact.url)}`}>
                   {contact.title}
                 </Nav.Link>
               </li>
