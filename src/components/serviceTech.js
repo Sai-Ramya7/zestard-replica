@@ -12,15 +12,10 @@ class ServiceTech extends Component {
         const {
             sections
         } = this.props;
-        console.log(this.props.sections)
-        const tech = this.props.sections.childWordPressAcfTechAboutTechnology;
-        console.log('tech', tech)
-        const service = this.props.sections.childWordPressAcfTechServices;
-        console.log('ser', service)
-        const portfolio = this.props.sections.childWordPressAcfTechPortfolio;
-        console.log('port', portfolio)
-        const benefits = this.props.sections.childWordPressAcfTechKeyBenefits;
-        console.log('ben', benefits)
+        const tech = sections.childWordPressAcfTechAboutTechnology;
+        const service = sections.childWordPressAcfTechServices;
+        const portfolio = sections.childWordPressAcfTechPortfolio;
+        const benefits = sections.childWordPressAcfTechKeyBenefits;
         return (
             <div>
                 {tech !== null &&

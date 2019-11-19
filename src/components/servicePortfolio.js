@@ -9,7 +9,6 @@ class ServicePortfolio extends Component {
     render() {
         const {
             portfolioHeading,
-            portfolioLink,
             portfolioSubHeading,
             portfolioItem1,
             portfolioItem2

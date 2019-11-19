@@ -72,14 +72,3 @@ const BlogSidebar =   () => {
 }
 
 export default BlogSidebar
-
-
-
-{/* {node.parent_element !== null && node.parent_element.parent_element !==null &&
-              <Link to={`/${params5(node.link)}`}>{node.name}</Link>
-            }
-            {node.parent_element !== null ?
-              <Link to={`/${params4(node.link)}`}>{node.name}</Link>
-              :
-              <Link to={`/${postsUrl(node.link)}`}>{node.name}</Link>
-            } */}

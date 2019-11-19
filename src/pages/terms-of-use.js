@@ -15,7 +15,7 @@ class TermsOfUse extends Component {
                 <div id="content" className="site-content">
                 {/* page header */}
                 <PageHeader
-                    headerMascot = {acfData.header_mascot.source_url}
+                    headerMascot = {acfData.header_mascot}
                     headerSubText = {acfData.header_sub_text}
                     headerSectionTitle={acfData.header_section_title}
                     headerPageTitle={acfData.header_page_title}

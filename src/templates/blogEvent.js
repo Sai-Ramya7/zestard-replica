@@ -1,7 +1,7 @@
 // template for blog event
 
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Lightbox from "../components/lightBox";

@@ -17,7 +17,7 @@ class Portfolio extends Component {
                 <div id="content" className="site-content">
                     {/* page header */}
                     <PageHeader
-                        headerMascot = {acfData.header_mascot.source_url}
+                        headerMascot = {acfData.header_mascot}
                         headerSubText = {acfData.header_sub_text}
                         headerSectionTitle={acfData.header_section_title}
                         headerPageTitle={acfData.header_page_title}
@@ -30,7 +30,7 @@ class Portfolio extends Component {
                                 {data.allWordpressWpPortfolio.edges.map(({ node }, index) => (
                                     <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
                                         <div className="project">
-                                            <a className="project-img">
+                                            <a className="project-img" href="#">
                                             {node.featured_media !== null &&
                                             <img src={node.featured_media.source_url} alt=""/>
                                             }

@@ -23,7 +23,7 @@ class AboutUs extends Component {
             <div id="content" className="site-content">
               {/* page header */}
               <PageHeader
-                headerMascot = {acfData.header_mascot.source_url}
+                headerMascot = {acfData.header_mascot}
                 headerSubText = {acfData.header_sub_text}
                 headerSectionTitle={acfData.header_section_title}
                 headerPageTitle={acfData.header_page_title}
@@ -156,8 +156,8 @@ class AboutUs extends Component {
                     <div
                       dangerouslySetInnerHTML = {{ __html: footer.cta_mod_description }}
                     />
-                    <a className="get-in-touch btn btn-primary" target="_blank"
-                    href={`/${removePre(footer.cta_mod_link)}`}>
+                    <a className="get-in-touch btn btn-primary" 
+                    href={`/${removePre(footer.cta_mod_link)}`} target="_blank">
                       Get In Touch
                     </a>
                   </div>

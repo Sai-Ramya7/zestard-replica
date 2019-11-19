@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Img from 'gatsby-image';
-// import { Dialog } from '@reach/dialog';
-// import { Dialog } from 'react-bootstrap/Dialog';
+
 import Modal from 'react-bootstrap/Modal'
-// import '@reach/dialog/styles.css';
 
 export default class Lightbox extends Component {
   static propTypes = {
@@ -75,7 +72,7 @@ export default class Lightbox extends Component {
   render() {
     const { EventImages } = this.props;
     // console.log('EventImages', EventImages)
-    const { selectedImage, showLightbox, selIndex } = this.state;
+    const { showLightbox, selIndex } = this.state;
     return (
       <Fragment>
         <div className="lightboxContainer">
@@ -140,25 +137,3 @@ export default class Lightbox extends Component {
     );
   }
 }
-
-
-
-{/* <div class="slbElement">
-  <div class="slbOverlay"></div>
-  <div class="slbWrapOuter">
-    <div class="slbWrap">
-      <div class="slbContentOuter">
-        <div class="slbContent">
-          <div class="slbImageWrap">
-            <img class="slbImage" src="https://postyoulike.com/zestard/wp-content/uploads/2019/05/cricket_tournament-min-1.png" style="max-height: 404px;" />
-          </div>
-        </div>
-          <button type="button" title="Close" class="slbCloseBtn ">×</button>
-        <div class="slbArrows">
-          <button type="button" title="Previous" class="prev slbArrow">Previous</button>
-          <button type="button" title="Next" class="next slbArrow">Next</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> */}

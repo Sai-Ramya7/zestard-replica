@@ -1,13 +1,13 @@
 // Navbar Page Header
 
-import React, { useState } from "react";
+import React from "react";
 import { useStaticQuery, Link } from "gatsby";
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 
-import { removeUrl, removePre } from './../util/common'
+import { removePre } from './../util/common'
 
 const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +58,7 @@ const Header = () => {
       }
     }
   `)
-  const logo = data.allWordpressAcfOptions.nodes[0].options.site_logo.source_url;
+  const logo = data.allWordpressAcfOptions.nodes[0].options.site_logo;
   const company = data.allWordpressMenusMenusItems.nodes[0].items[0];
   const services = data.allWordpressMenusMenusItems.nodes[0].items[1];
   const work = data.allWordpressMenusMenusItems.nodes[0].items[2];
@@ -71,10 +71,12 @@ const Header = () => {
         <div className="container">
           <Navbar.Brand>
             <Link to="/">
-              <img src={logo}
+              {logo !== null &&
+              <img src={logo.source_url}
               alt="zestard Logo" width="181px" height="48.08px"
                 className="logo"
               />
+              }
             </Link>
           </Navbar.Brand>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
