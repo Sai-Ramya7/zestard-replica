@@ -27,11 +27,6 @@ class CategoryPostsTemplate extends Component {
               <div className="blog-header">
                 <div className="container">
                   <div className="row">
-                    {/* <div className="col-md-12 text-center">
-                    {data1 !== null && data1.node.categories[0].slug === catName &&
-                      <h1>{data1.node.categories[0].name}</h1>
-                    }
-                    </div> */}
                     {data1 !== null && data1.edges.length > 0 &&
                       <div className="col-md-12 text-center">
                         {data1.edges[0].node.categories[0].slug === catName &&
