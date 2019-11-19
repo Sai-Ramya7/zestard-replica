@@ -13,9 +13,10 @@ const Header = () => {
   // const [isOpen, setIsOpen] = useState(false);
   const handleOpen = (el) => {
     // setIsOpen(true);
-    const target = el.currentTarget.getElementsByClassName('dropdown-menu')[0];
-    if(target !== null) {
-      const test = target.closest('.dropdown-menu');
+    const target = el.currentTarget.getElementsByClassName('dropdown-menu');
+  
+    if(target.length > 0) {
+      const test = target[0].closest('.dropdown-menu');
       test.classList.add('show');
     }
   }
