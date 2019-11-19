@@ -29,9 +29,16 @@ class CategoryPostsTemplate extends Component {
                   <div className="row">
                     {data1 !== null && data1.edges.length > 0 &&
                       <div className="col-md-12 text-center">
-                        {data1.edges[0].node.categories[0].slug === catName &&
+                        {/* {data1.edges[0].node.categories[0].slug === catName &&
                           <h1>{data1.edges[0].node.categories[0].name}</h1>
-                        }
+                        } */}
+                        {data1.edges[0].node.categories.map((node, index) => (
+                          <div key={index}>
+                            {node.slug === catName &&
+                            <h1>{node.name}</h1>
+                            }
+                          </div>
+                        ))}
                       </div>
                     }
                   </div>
