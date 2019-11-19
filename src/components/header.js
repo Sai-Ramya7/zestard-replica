@@ -87,9 +87,9 @@ const Header = () => {
               onMouseEnter = { (e) => handleOpen(e) }
               onMouseLeave = { (e) => handleClose(e) }
               >
-                  <NavDropdown.Item>
-                    about us
-                  </NavDropdown.Item>
+                {/* <NavDropdown.Item>
+                  about us
+                </NavDropdown.Item> */}
                 {company.child_items.map((node, index) => (
                   <NavDropdown.Item href={`/${removePre(node.url)}`} key={index}>
                     {node.title}
