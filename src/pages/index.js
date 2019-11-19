@@ -17,28 +17,28 @@ import { removePre } from './../util/common'
 
 class Index extends Component {
 
-  constructor(props) {
-    super(props);
-    this.onMouseEnter = this.onMouseEnter.bind(this);
-    this.state = {
-      // showTab: false,
-    };
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.onMouseEnter = this.onMouseEnter.bind(this);
+  //   this.state = {
+  //     // showTab: false,
+  //   };
+  // }
 
-  onMouseEnter = (event, title) => {
-    // this.setState({showTab: true})
-    // console.log('showtab', this.state.showTab);
-    console.log('fun', event);
-    var navLink = document.getElementsByClassName('nav-link')
-    for(var i = 0; i < navLink.length; i++) {
-      navLink[i].style.display = "none";
-    }
-    // const target = el.currentTarget.getElementsByClassName('dropdown-menu')[0];
-    // const test = target.closest('.dropdown-menu');
-    // if(test !== null) {
-    //   test.classList.add('show');
-    // }
-  }
+  // onMouseEnter = (event, title) => {
+  //   // this.setState({showTab: true})
+  //   // console.log('showtab', this.state.showTab);
+  //   console.log('fun', event);
+  //   var navLink = document.getElementsByClassName('nav-link')
+  //   for(var i = 0; i < navLink.length; i++) {
+  //     navLink[i].style.display = "none";
+  //   }
+  //   // const target = el.currentTarget.getElementsByClassName('dropdown-menu')[0];
+  //   // const test = target.closest('.dropdown-menu');
+  //   // if(test !== null) {
+  //   //   test.classList.add('show');
+  //   // }
+  // }
   
     render() {
       const data = this.props.data
@@ -87,7 +87,8 @@ class Index extends Component {
                           {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
                             <Tab eventKey={node.tt_tab_title} className="nav-link" 
                             key={index} title={<p className={`item-${index+1}`}
-                            onMouseEnter = { (e) => this.onMouseEnter(e, node.tt_tab_title) }>
+                            >
+                            {/* onMouseEnter = { (e) => this.onMouseEnter(e, node.tt_tab_title) }> */}
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
                               <span>{node.tt_tab_title}</span></p>}>
                               <div className="tab-pane" id={`tab_${index+1}`}>
