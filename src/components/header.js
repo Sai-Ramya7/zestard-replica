@@ -24,9 +24,11 @@ const Header = () => {
     // setIsOpen(false);
     // console.log('leave', isOpen);
     const target = el.currentTarget.getElementsByClassName('dropdown-menu')[0];
-    const test = target.closest('.dropdown-menu');
-    if(test !== null) {
-      test.classList.remove('show');
+    if(target !== null) {
+      const test = target.closest('.dropdown-menu');
+      if(test !== null) {
+        test.classList.remove('show');
+      }
     }
   }
 
