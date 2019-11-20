@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
 import { removePre } from './../util/common'
+import Img from "gatsby-image"
 class Technology extends Component {
     
     render() {
@@ -18,6 +19,7 @@ class Technology extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-5 col-lg-4 tech-img">
+                                {/* <Img fixed={serviceImage.source_url.childImageSharp.fixed} /> */}
                             { serviceImage!== null &&
                             <img src={serviceImage.source_url} alt=""/>
                             }

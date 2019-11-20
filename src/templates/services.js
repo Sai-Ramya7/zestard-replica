@@ -10,6 +10,7 @@ class ServiceTemplate extends Component {
   
     render() {
       const data = this.props.data
+      console.log(data.imageOne)
       console.log('data',data)
       const acfData = data.allWordpressPage.edges[0].node.acf;
       const sertech = data.allWordpressPage.edges[0].node
@@ -38,9 +39,9 @@ class ServiceTemplate extends Component {
                     ))}
                     </div>}
                     {sertech !== null &&
-                        <ServiceTech 
-                            sections = {sertech}
-                        />
+                      <ServiceTech 
+                          sections = {sertech}
+                      />
                     }
                 </div>
             </div>
@@ -66,6 +67,7 @@ query($id: Int!) {
           header_mascot {
             source_url
           }
+          
           sl_content_module_page {
             sl_service_name
             sl_service_sub_text

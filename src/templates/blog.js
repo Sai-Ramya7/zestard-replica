@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import BlogSidebar from '../components/blogsidebar'
@@ -47,8 +48,9 @@ class BlogList extends Component {
                               <div className="card-image">
                                 <Link to={`/${removePre(node.link)}`} className="post-thumbnail">
                                 {node.featured_media !== null &&
-                                  <img src={node.featured_media.source_url} alt=""/>
-                                }</Link>
+                                  <Img fluid={node.featured_media.localFile.childImageSharp.fluid} alt=""/>
+                                }
+                                </Link>
                               </div>
                               <div className="section-desc">
                                 <header className="entry-header">
@@ -169,6 +171,24 @@ export const pageQuery = graphql`
             source_url
             author {
               name
+            }
+            localFile {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
+              }
             }
           }
           categories {

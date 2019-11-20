@@ -131,6 +131,11 @@ const Header = () => {
                   {contact.title}
                 </Nav.Link>
               </li>
+              <li className="nav-item menu-item">
+                <Nav.Link href="/sample">
+                  sample
+                </Nav.Link>
+              </li>
             </ul>
           </div>
         </div>

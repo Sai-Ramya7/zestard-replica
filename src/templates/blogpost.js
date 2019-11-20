@@ -137,7 +137,7 @@ export const pageQuery = graphql`
                 slug
                 excerpt
                 featured_media {
-                source_url
+                    source_url
                 }
             }
         }

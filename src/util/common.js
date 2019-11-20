@@ -17,6 +17,6 @@ export const removePre = (url) => {
 // To remove special characters from title
 
 export const removeSpecialSymbols = (title) => {
-  title = title.replace(/[^a-zA-Z ]/g, "");
+  title = title.replace(/[^a-zA-Z0-9 ]/g, "");
   return title;
 }

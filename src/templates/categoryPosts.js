@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
@@ -59,7 +60,7 @@ class CategoryPostsTemplate extends Component {
                               <div className="card-image">
                                 <Link to={`/${removePre(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featured_media !== null &&
-                                  <img src={node.node.featured_media.source_url} alt=""/>
+                                  <Img fixed={node.node.featured_media.localFile.childImageSharp.fixed} alt=""/>
                                 }</Link>
                               </div>
                               <div className="section-desc">
@@ -141,6 +142,22 @@ export const pageQuery = graphql`
           }
           featured_media {
             source_url
+            localFile {
+              childImageSharp {
+                fixed {
+                  base64
+                  height
+                  src
+                  srcSet
+                  width
+                  aspectRatio
+                  originalName
+                  srcSetWebp
+                  srcWebp
+                  tracedSVG
+                }
+              }
+            }
           }
           categories {
             name

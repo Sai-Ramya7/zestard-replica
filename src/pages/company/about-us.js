@@ -3,6 +3,7 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
 
+import Img from "gatsby-image"
 import Layout from "../../components/layout"
 import PageHeader from '../../components/page-header';
 import { removePre } from './../../util/common';
