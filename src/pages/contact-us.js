@@ -119,7 +119,7 @@ class ContactUs extends Component {
     return (
       <Layout>
         <div id="page" className="site-header">
-          <div id="content" className="site-content">
+          <div id="content" className="site-content contact">
           {/* page header */}
             <PageHeader
               headerMascot = {acfData.header_mascot}
