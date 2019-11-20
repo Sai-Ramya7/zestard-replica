@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
+import { removeSpecialSymbols } from './../../util/common'
 class Portfolio extends Component {
   
     render() {
@@ -37,7 +38,7 @@ class Portfolio extends Component {
                                                 <div className="img-hover-color"></div>
                                             </a>
                                             <div className="project-title">
-                                                <h5><em>{node.title}</em></h5>
+                                                <h5><em>{`${removeSpecialSymbols(node.title)}`}</em></h5>
                                             </div>
                                         </div>
                                     </div>
