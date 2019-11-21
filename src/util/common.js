@@ -15,8 +15,12 @@ export const removePre = (url) => {
 }
 
 // To remove special characters from title
+// replace unicode characters
 
-export const removeSpecialSymbols = (title) => {
-  title = title.replace(/[^a-zA-Z0-9 ]/g, "");
-  return title;
+export const removeSpecialSymbols = (str) => {
+  return str.replace(/&#([0-9]{1,4});/gi, function(match, numStr) {
+      var num = parseInt(numStr, 10); // read num as normal number
+      return String.fromCharCode(num);
+  });
 }
+
