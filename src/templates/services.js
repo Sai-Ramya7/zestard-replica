@@ -10,11 +10,8 @@ class ServiceTemplate extends Component {
   
     render() {
       const data = this.props.data
-      console.log(data.imageOne)
-      console.log('data',data)
       const acfData = data.allWordpressPage.edges[0].node.acf;
       const sertech = data.allWordpressPage.edges[0].node
-      console.log('sertech', sertech)
       return (
         <Layout>
             <div id="page" className="site">

@@ -17,8 +17,6 @@ class CategoryPostsTemplate extends Component {
     const len = parameters.length
     const catName = parameters[len-2]
     const data1 = data.allWordpressPost;
-    console.log('data1', data)
-    console.log('this.props.location.pathname', catName);
     return (
       <Layout>
         <div id="page" className="site">

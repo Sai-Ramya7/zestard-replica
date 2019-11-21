@@ -14,7 +14,6 @@ const Header = () => {
   const handleOpen = (el) => {
     // setIsOpen(true);
     const target = el.currentTarget.getElementsByClassName('dropdown-menu');
-    console.log('target', target)
     if(target.length > 0) {
       const test = target[0].closest('.dropdown-menu');
       test.classList.add('show');
@@ -129,11 +128,6 @@ const Header = () => {
               <li className="nav-item menu-item">
                 <Nav.Link href={`/${removePre(contact.url)}`}>
                   {contact.title}
-                </Nav.Link>
-              </li>
-              <li className="nav-item menu-item">
-                <Nav.Link href="/sample">
-                  sample
                 </Nav.Link>
               </li>
             </ul>
