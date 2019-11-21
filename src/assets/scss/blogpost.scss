@@ -354,6 +354,7 @@
             overflow: hidden !important;
             // height: calc(100% - 60px);
             .card-image{
+                transition: .3s ease-in-out;
                 margin-bottom: 0px;
                 // height:189px;
                 width:100%;
