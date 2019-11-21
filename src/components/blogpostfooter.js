@@ -3,7 +3,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import { dateFormate } from './../util/common'
-
+import Img from "gatsby-image"
 
 const BlogPostFooter = (props) => {
   const {
@@ -21,8 +21,10 @@ const BlogPostFooter = (props) => {
             <div className="col-md-4 rel-bog-wrap" key={node.id}>
               <div className="card card-blog">
                 <Link to={`/blog/${node.slug}`} className="post-thumbnail">
+                  {/* <img src={node.featured_media.source_url} alt="img" className="card-image" /> */}
                 {node.featured_media !== null &&
-                  <img src={node.featured_media.source_url} alt="img"/>
+                  <Img className="card-image" 
+                  fluid={node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                 }</Link>
                 <div className="content">
                   <h4 className="card-title">

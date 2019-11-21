@@ -273,7 +273,7 @@
                 }
                 h3{
                     strong{
-                        font-size: 30px;
+                        font-size: 22px;
                         font-weight: 600;
                     }
                 }
@@ -281,20 +281,18 @@
                     strong{
                         font-size: 28px;
                         margin: 0px;
-                        // font-weight: 600;
                         line-height: 40px;
                         margin-bottom: 10px;
                         display: block;
-                        font-family: 'Graphik-Regular';
                     }
                 }
                 h4{
                     font-size: 17px;
-                    font-family: 'Graphik-Regular';
+                    // font-family: 'Graphik-Regular';
                 }
                 h3{
                     font-size: 22px;
-                    font-family: 'PT Sans', sans-serif;
+                    // font-family: 'PT Sans', sans-serif;
                 }
                 ul,ol{
                     margin: 20px;
@@ -303,6 +301,13 @@
                     font-size: 17px !important;
                     font-weight: 300;
                     line-height: 2;
+                    strong {
+                        font-weight: bold;
+                        font-size: 20px !important;
+                        color: #333;
+                        line-height: 34px;
+                        font-family: 'PT Serif', serif;
+                    }
                 }
                 p{
                     font-family: 'PT Serif', serif;
@@ -341,14 +346,25 @@
                 font-size: 28px;
             }
         }
+        .card {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+        }
         .card-blog{
-            border-radius: 0; 
+            border-radius: 0;
+            overflow: hidden !important;
             // height: calc(100% - 60px);
             .card-image{
-                height:189px;
+                margin-bottom: 0px;
+                // height:189px;
                 width:100%;
                 background-position: center;
                 background-size: cover;
+                overflow: hidden;
+                display: inline-block;
+                &:hover{
+                    transform: scale(1.2);
+                    overflow: hidden !important;
+                }
             }
             .content{
                 padding: 15px;
