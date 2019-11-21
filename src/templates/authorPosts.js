@@ -44,7 +44,7 @@ class AuthorPostsTemplate extends Component {
                               <div className="card-image">
                                 <Link to={`/${removePre(node.node.link)}`} className="post-thumbnail">
                                 {node.node.featured_media !== null &&
-                                  <Img fixed={node.node.featured_media.localFile.childImageSharp.fixed} alt=""/>
+                                  <Img fluid={node.node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                                 }</Link>
                               </div>
                               <div className="section-desc">
@@ -130,17 +130,19 @@ export const pageQuery = graphql`
             source_url
             localFile {
               childImageSharp {
-                fixed {
+                fluid {
                   base64
-                  height
+                  tracedSVG
+                  aspectRatio
                   src
                   srcSet
-                  width
-                  aspectRatio
-                  originalName
-                  srcSetWebp
                   srcWebp
-                  tracedSVG
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
                 }
               }
             }
