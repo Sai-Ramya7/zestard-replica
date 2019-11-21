@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
+import Img from "gatsby-image"
 
 import Modal from 'react-bootstrap/Modal'
 
@@ -79,6 +80,7 @@ export default class Lightbox extends Component {
           {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>
+                {/* <Img fluid= {image.localFile.childImageSharp.fluid}/> */}
                 {image !== null &&
                   <img src={image.source_url} alt="img" />
                 }
@@ -94,6 +96,7 @@ export default class Lightbox extends Component {
               <div className="slbContentOuter">
                 <div className="slbContent">
                   <div className="slbImageWrap">
+                    {/* <Img  fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
                   {EventImages !== null &&
                     <img src={EventImages[selIndex].source_url} alt="img" className="slbImage"/>
                   }
@@ -115,22 +118,6 @@ export default class Lightbox extends Component {
             </div>
           </div>
         </div>
-            {/* <div>
-              <button className="slbCloseBtn" onClick={this.closeModal}>
-              X
-              </button>
-              <div>
-                <button onClick={this.goBack} disabled={selIndex === 0}>
-                  Previous
-                </button>
-                <button onClick={this.goForward} disabled={selIndex === EventImages.length - 1}>
-                  Next
-                </button>
-              </div>
-            </div>
-            {EventImages !== null &&
-              <img src={EventImages[selIndex].source_url} alt="img" />
-            } */}
         </Modal>
         )}
       </Fragment>

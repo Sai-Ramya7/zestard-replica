@@ -85,13 +85,13 @@ export const query = graphql`
         }
         allWordpressWpCareer {
             edges {
-              node {
-                career_category {
-                  name
+                node {
+                    career_category {
+                        name
+                    }
+                    title
+                    id
                 }
-                title
-                id
-              }
             }
         }
     }

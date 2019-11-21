@@ -57,28 +57,46 @@ class BlogEventTemplate extends Component {
   
   }
   
-  export default BlogEventTemplate
-  
-  export const pageQuery = graphql`
-    query($id: Int!) {
-        wordpressAcfEvent(wordpress_id: {eq: $id}) {
-            acf {
-                el_gallery {
-                    source_url
-                }
-            }
-        }
-        allWordpressWpEvent(filter: {wordpress_id: {eq: $id}}) {
-            edges {
-                node {
-                    id
-                    title
-                    featured_media {
-                        source_url
-                        wordpress_id
-                    }
-                }
-            }
-        }
+export default BlogEventTemplate
+
+export const pageQuery = graphql`
+        query($id: Int!) {
+  wordpressAcfEvent(wordpress_id: {eq: $id}) {
+      acf {
+        el_gallery {
+          source_url
+          localFile {
+            childImageSharp {     
+              fluid {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+              }
+            } 
+          } 
+        } 
+      } 
     }
-  `
+    allWordpressWpEvent(filter: {wordpress_id: {eq: $id}}) {
+      edges {
+        node {
+          id
+          title
+          featured_media {
+            source_url
+            wordpress_id
+          }
+        }
+      }
+    }
+  }
+`

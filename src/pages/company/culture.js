@@ -5,6 +5,7 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
+import { removePre } from './../../util/common'
 
 class Culture extends Component {
   
@@ -28,9 +29,10 @@ class Culture extends Component {
                       {data.allWordpressWpEvent.edges.map(({ node }) => (
                         <div className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap" key={node.id}>
                           <div className="events-wrapper card shadow-sm rounded">
-                            <div className="gallery-image" style={{backgroundImage:`url(${node.featured_media.source_url})`}}>
+                            <div className="gallery-image" 
+                            style={{backgroundImage:`url(${node.featured_media.localFile.childImageSharp.fluid.src})`}}>
                               <div className="view-more">
-                                <Link to={`/blog/event/${node.slug}/`}>View All</Link>
+                                <Link to={`/${removePre(node.link)}/`}>View All</Link>
                               </div>
                             </div>
                             <div className="card-body event-title">
@@ -68,9 +70,28 @@ export const query = graphql`
         id
         title
         slug
+        link
         featured_media {
           source_url
           wordpress_id
+          localFile {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+              }
+            }
+          }
         }
       }
     }

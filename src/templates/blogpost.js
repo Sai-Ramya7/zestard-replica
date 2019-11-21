@@ -68,20 +68,23 @@ class PostTemplate extends Component {
                                                     <div className="content-description"
                                                       dangerouslySetInnerHTML={{ __html: post.content }}  
                                                     />
-                                                    <hr />
-                                                    <div className="authorbio">
-                                                        <div className="authorbio-top row">
-                                                            <div className="author-image col-md-2">
-                                                            {post.author.avatar_urls.wordpress_24 !== null &&
-                                                            <img src={post.author.avatar_urls.wordpress_24.source_url} alt={post.author.name}/>
-                                                            }
+                                                    {post.author.description !== "" &&
+                                                        <div>
+                                                        <hr />
+                                                        <div className="authorbio">
+                                                            <div className="authorbio-top row">
+                                                                <div className="author-image col-md-2">
+                                                                {post.author.avatar_urls.wordpress_24 !== null &&
+                                                                <img src={post.author.avatar_urls.wordpress_24.source_url} alt={post.author.name}/>
+                                                                }
+                                                                </div>
+                                                                <div className="title">
+                                                                    <h3>About {post.author.name}</h3>
+                                                                </div>
                                                             </div>
-                                                            <div className="title">
-                                                                <h3>About {post.author.name}</h3>
-                                                            </div>
+                                                            <p dangerouslySetInnerHTML={{ __html: post.author.description }} />
                                                         </div>
-                                                        <p dangerouslySetInnerHTML={{ __html: post.author.description }} />
-                                                    </div>
+                                                    </div>}
                                                 </div>
                                             </div>
                                         </div>
