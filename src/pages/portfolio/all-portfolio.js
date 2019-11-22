@@ -6,6 +6,7 @@ import { graphql } from "gatsby"
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
 import { removeSpecialSymbols } from './../../util/common'
+import SEO from "../../components/seo";
 class Portfolio extends Component {
   
     render() {
@@ -14,6 +15,7 @@ class Portfolio extends Component {
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
+            <SEO title={data.wordpressPage.title} />
             <div id="page" className="site portfolio-page">
                 <div id="content" className="site-content">
                     {/* page header */}
@@ -59,6 +61,7 @@ export default Portfolio
 export const query = graphql`
 {
     wordpressPage(slug: {eq: "work"}) {
+        title
         acf {
             header_page_title
             header_sub_text

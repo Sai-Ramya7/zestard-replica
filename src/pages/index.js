@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import './../assets/scss/index.scss'
 
+import SEO from "./../components/seo"
 import Layout from "../components/layout"
 import { removePre } from './../util/common'
 
@@ -51,6 +52,7 @@ class Index extends Component {
       const blog = data.wordPressAcfHomeBlogBlock;
       return (
         <Layout>
+        <SEO title="Offshore Website Design & Development Company" />
           <div id="page" className="site page-home">
             <div id="content" className="site-content">
             {/* page header */}
@@ -293,6 +295,7 @@ export default Index
 export const query = graphql`
 {  
   wordpressPage(wordpress_id: {eq: 2}) {
+    title
     acf {
       header_page_title
       header_sub_text

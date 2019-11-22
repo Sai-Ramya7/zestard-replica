@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Lightbox from "../components/lightBox";
+import SEO from "../components/seo";
 
 class BlogEventTemplate extends Component {
   
@@ -13,6 +14,7 @@ class BlogEventTemplate extends Component {
       const eventHead = this.props.data.allWordpressWpEvent.edges[0].node.title
       return (
         <Layout>
+        <SEO title={eventHead} />
           <div id="page" className="site">
             <div id="content" className="site-content">
             {/* blog header */}

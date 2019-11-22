@@ -6,6 +6,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
 import { removePre } from './../../util/common'
+import SEO from "../../components/seo";
 
 class Culture extends Component {
   
@@ -14,6 +15,7 @@ class Culture extends Component {
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
+          <SEO title={data.wordpressPage.title} />
             <div id="page" className="site-header">
                 <div id="content" className="site-content">
                     {/* page header */}
@@ -55,6 +57,7 @@ export default Culture
 export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 169}) {
+    title
     acf {
       header_page_title
       header_sub_text

@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
+import SEO from "../components/seo";
 
 class AuthorPostsTemplate extends Component {
   
@@ -15,6 +16,7 @@ class AuthorPostsTemplate extends Component {
     const authorName = data.allWordpressPost.edges[0].node.author.name
     return (
       <Layout>
+      <SEO title={`${authorName}, Author`} />
         <div id="page" className="site">
           <div id="content" className="site-content">
           {/* author header */}

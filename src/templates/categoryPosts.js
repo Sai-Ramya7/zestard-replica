@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import BlogSidebar from './../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
+import SEO from "../components/seo";
 
 class CategoryPostsTemplate extends Component {
   
@@ -19,6 +20,7 @@ class CategoryPostsTemplate extends Component {
     const data1 = data.allWordpressPost;
     return (
       <Layout>
+      <SEO title={`${catName} Archives`} />
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}
@@ -28,9 +30,6 @@ class CategoryPostsTemplate extends Component {
                   <div className="row">
                     {data1 !== null && data1.edges.length > 0 &&
                       <div className="col-md-12 text-center">
-                        {/* {data1.edges[0].node.categories[0].slug === catName &&
-                          <h1>{data1.edges[0].node.categories[0].name}</h1>
-                        } */}
                         {data1.edges[0].node.categories.map((node, index) => (
                           <div key={index}>
                             {node.slug === catName &&

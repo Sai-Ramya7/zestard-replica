@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "Zestard Technologies Private Limited",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Offshore Website Design & Development Company | Zestard Technologies",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Zestard",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",

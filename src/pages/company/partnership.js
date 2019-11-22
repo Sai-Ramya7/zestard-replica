@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
+import SEO from "../../components/seo";
 
 class Partnership extends Component {
   
@@ -16,6 +17,7 @@ class Partnership extends Component {
       const reseller = data.wordpressPage.childWordPressAcfGenLeftImageAndRightDescription;
       return (
         <Layout>
+          <SEO title={data.wordpressPage.title} />
           <div id="page" className="site ">
             <div id="content" className="site-content">
               {/* page header */}
@@ -95,6 +97,7 @@ export default Partnership
 export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 103}) {
+    title
     acf {
       header_page_title
       header_sub_text

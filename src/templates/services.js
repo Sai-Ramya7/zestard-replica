@@ -5,6 +5,7 @@ import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
 import Technology from './../components/technology'
 import ServiceTech from './../components/serviceTech'
+import SEO from './../components/seo'
 
 class ServiceTemplate extends Component {
   
@@ -14,6 +15,7 @@ class ServiceTemplate extends Component {
       const sertech = data.allWordpressPage.edges[0].node
       return (
         <Layout>
+        <SEO title={acfData.header_page_title} />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     <PageHeader
@@ -37,7 +39,7 @@ class ServiceTemplate extends Component {
                     </div>}
                     {sertech !== null &&
                       <ServiceTech 
-                          sections = {sertech}
+                        sections = {sertech}
                       />
                     }
                 </div>

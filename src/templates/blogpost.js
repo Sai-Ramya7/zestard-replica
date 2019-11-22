@@ -6,6 +6,7 @@ import PropTypes from "prop-types"
 import Layout from "./../components/layout"
 import BlogPostFooter from './../components/blogpostfooter';
 import { dateFormate } from './../util/common'
+import SEO from "../components/seo";
 
 class PostTemplate extends Component {
   render() {
@@ -13,6 +14,7 @@ class PostTemplate extends Component {
     const post = this.props.data.wordpressPost
     return (
       <Layout>
+      <SEO title={post.title} />
         <div id="page" className="site">
             <div id="content" className="single-post-detail site-content">
                 <div id="primary" className="content-area ">

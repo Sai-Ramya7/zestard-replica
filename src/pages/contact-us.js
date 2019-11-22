@@ -6,6 +6,7 @@ import axios from 'axios'
 
 import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
+import SEO from "../components/seo";
 
 
 const validEmailRegex = RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
@@ -118,6 +119,7 @@ class ContactUs extends Component {
     const acfData = data.wordpressPage.acf;
     return (
       <Layout>
+      <SEO title={data.wordpressPage.title} />
         <div id="page" className="site-header">
           <div id="content" className="site-content contact">
           {/* page header */}
@@ -205,6 +207,7 @@ export default ContactUs
 export const query = graphql`
 {
   wordpressPage(wordpress_id: {eq: 57}) {
+    title
     acf {
       header_page_title
       header_sub_text

@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 import Layout from "../../components/layout"
 import PageHeader from '../../components/page-header';
 import { removePre } from './../../util/common';
+import SEO from "../../components/seo";
 
 class AboutUs extends Component {
   
@@ -20,6 +21,7 @@ class AboutUs extends Component {
       const footer = data.wordpressAcfOptions.options;
       return (
         <Layout>
+        <SEO title = "Offshore Website Design & Development Company" />
           <div id="page" className="site about-page">
             <div id="content" className="site-content">
               {/* page header */}

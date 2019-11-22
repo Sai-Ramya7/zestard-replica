@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "./../components/layout"
 import PageHeader from './../components/page-header';
+import SEO from "../components/seo";
 
 class TermsOfUse extends Component {
   
@@ -11,6 +12,7 @@ class TermsOfUse extends Component {
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
+        <SEO title={data.wordpressPage.title} />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                 {/* page header */}
@@ -44,6 +46,7 @@ export default TermsOfUse
 export const query = graphql`
     {
         wordpressPage(slug: {eq: "terms-of-use"}) {
+            title
             acf {
               header_page_title
                 header_mascot {

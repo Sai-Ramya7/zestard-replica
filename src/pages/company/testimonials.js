@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
+import SEO from "../../components/seo";
 
 class Testimonials extends Component {
   
@@ -13,6 +14,7 @@ class Testimonials extends Component {
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>
+        <SEO title={data.wordpressPage.title} />
             <div id="page" className="site">
                 <div id="content" className="site-content">
                     {/* Page header */}
@@ -57,6 +59,7 @@ export default Testimonials
 export const query = graphql`
     {
         wordpressPage(slug: {eq: "testimonials"}) {
+            title
             acf {
               header_page_title
               header_sub_text

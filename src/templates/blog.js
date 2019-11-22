@@ -7,6 +7,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import BlogSidebar from '../components/blogsidebar'
 import { removePre, removeSpecialSymbols } from './../util/common'
+import SEO from "../components/seo";
 
 class BlogList extends Component {
   
@@ -19,6 +20,7 @@ class BlogList extends Component {
     const data = this.props.data
     return (
       <Layout>
+      <SEO title="Blogs" />
         <div id="page" className="site">
           <div id="content" className="site-content">
             {/* blog header */}
