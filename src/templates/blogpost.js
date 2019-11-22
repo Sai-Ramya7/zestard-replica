@@ -5,7 +5,7 @@ import { Link, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import Layout from "./../components/layout"
 import BlogPostFooter from './../components/blogpostfooter';
-import { dateFormate } from './../util/common'
+import { dateFormate, removeSpecialSymbols } from './../util/common'
 import SEO from "../components/seo";
 
 class PostTemplate extends Component {
@@ -48,7 +48,7 @@ class PostTemplate extends Component {
                                 <div className="single-post-wrap col-md-10 col-lg-8">
                                     <section>
                                         <div className="blog-header">
-                                            <h1 className="hestia-title">{post.title}</h1>
+                                            <h1 className="hestia-title">{`${removeSpecialSymbols(post.title)}`}</h1>
                                             <div className="authormeta">
                                                 <div className="author_avatar">
                                                     {post.author.avatar_urls.wordpress_24 !== null &&

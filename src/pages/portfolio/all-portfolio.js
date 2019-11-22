@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import Img from 'gatsby-image'
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
@@ -35,7 +36,7 @@ class Portfolio extends Component {
                                         <div className="project">
                                             <a className="project-img" href="#">
                                             {node.featured_media !== null &&
-                                            <img src={node.featured_media.source_url} alt=""/>
+                                            <Img fluid={node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                                             }
                                                 <div className="img-hover-color"></div>
                                             </a>
@@ -78,6 +79,24 @@ export const query = graphql`
             title
                 featured_media {
                     source_url
+                    localFile {
+                        childImageSharp {
+                            fluid {
+                                base64
+                                tracedSVG
+                                aspectRatio
+                                src
+                                srcSet
+                                srcWebp
+                                srcSetWebp
+                                sizes
+                                originalImg
+                                originalName
+                                presentationWidth
+                                presentationHeight
+                            }
+                        }
+                    }
                 }
             }
         }

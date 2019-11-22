@@ -80,10 +80,6 @@
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 28px;
-                    // width: 1150px;
-                    // white-space: nowrap;
-                    // overflow: hidden;
-                    // text-overflow: ellipsis;
                     display: block; /* or inline-block */
                     text-overflow: ellipsis;
                     word-wrap: break-word;
@@ -317,6 +313,11 @@
                     text-align: justify;
                     margin-bottom: 15px;
                     padding: 0px;
+                    a {
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
                 }
             }
         }

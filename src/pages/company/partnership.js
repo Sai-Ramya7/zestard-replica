@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
@@ -40,7 +41,7 @@ class Partnership extends Component {
                       </div>
                       <div className="col-md-5 col-lg-5">
                         {offshore.gen_two_sec_image !== null &&
-                          <img src={offshore.gen_two_sec_image.source_url} alt="img" />
+                          <Img fluid={offshore.gen_two_sec_image.localFile.childImageSharp.fluid} alt="img" />
                         }
                       </div>
                     </div>
@@ -53,7 +54,7 @@ class Partnership extends Component {
                     <div className="row">
                       <div className="col-md-5 col-lg-5">
                         {reseller.gen_two_sec_image !== null &&
-                          <img src={reseller.gen_two_sec_image.source_url} alt="img" />
+                          <Img fluid={reseller.gen_two_sec_image.localFile.childImageSharp.fluid} alt="img" />
                         }
                       </div>
                       <div className="col-md-7 col-lg-7">
@@ -78,7 +79,7 @@ class Partnership extends Component {
                       </div>
                       <div className="col-md-5 col-lg-5">
                         {referral.gen_two_sec_image !== null &&
-                          <img src={referral.gen_two_sec_image.source_url} alt="img" />
+                          <Img fluid={referral.gen_two_sec_image.localFile.childImageSharp.fluid} alt="img" />
                         }
                       </div>
                     </div>
@@ -111,6 +112,24 @@ export const query = graphql`
           gen_left_heading
           gen_two_sec_image {
             source_url
+            localFile {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
+              }
+            }
           }
         }
       }
@@ -120,6 +139,24 @@ export const query = graphql`
       gen_right_description
       gen_two_sec_image {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
     }
   }

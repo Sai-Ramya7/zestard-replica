@@ -4,6 +4,7 @@ import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
 
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
+import Img from "gatsby-image"
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
 // import {ButtonToolbar, OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
@@ -17,6 +18,8 @@ import Layout from "../components/layout"
 import { removePre } from './../util/common'
 
 class Index extends Component {
+
+  
 
   // constructor(props) {
   //   super(props);
@@ -50,6 +53,9 @@ class Index extends Component {
       const industry = data.allWordpressAcfOptions.nodes[0].options;
       const clients = data.wordPressAcfHomeClients;
       const blog = data.wordPressAcfHomeBlogBlock;
+      // $('.nav-tabs > li > a').hover(function() {
+      //   $(this).tab('show');
+      // });
       return (
         <Layout>
         <SEO title="Offshore Website Design & Development Company" />
@@ -79,7 +85,7 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
-              {/* TEchnology Tabs section */}
+              {/* Technology Tabs section */}
               <section>
                 <div className="services">
                   <div className="container">
@@ -89,8 +95,8 @@ class Index extends Component {
                           {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
                             <Tab eventKey={node.tt_tab_title} className="nav-link" 
                             key={index} title={<p className={`item-${index+1}`}
+                            // onMouseEnter = { (e) => this.onMouseEnter(e, node.tt_tab_title) }
                             >
-                            {/* onMouseEnter = { (e) => this.onMouseEnter(e, node.tt_tab_title) }> */}
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
                               <span>{node.tt_tab_title}</span></p>}>
                               <div className="tab-pane" id={`tab_${index+1}`}>
@@ -194,7 +200,8 @@ class Index extends Component {
                     </div>
                       <div className="col-md-8 col-lg-9 col-sm-12 tablet">
                         <div className="product-img">
-                          <img src={project.home_featured_image_ps.source_url} alt=""/>
+                          {/* <img src={project.home_featured_image_ps.source_url} alt=""/> */}
+                          <Img fluid = {project.home_featured_image_ps.localFile.childImageSharp.fluid}  />
                         </div>
                       </div>
                     </div>
@@ -228,8 +235,9 @@ class Index extends Component {
                           <h2>{industry.pt_left_sec_sub_title}</h2>
                           <div id="testimonial-video">
                             <a href="https://www.youtube.com/watch?v=a6ml5b2j04M">
+                                {/* <img src={industry.pt_left_sec_thumbnail.source_url} alt=""/> */}
                               {industry.pt_left_sec_thumbnail !== null &&
-                                <img src={industry.pt_left_sec_thumbnail.source_url} alt=""/>
+                                <Img fluid={industry.pt_left_sec_thumbnail.localFile.childImageSharp.fluid} />
                               }
                             </a>
                           </div>
@@ -274,7 +282,9 @@ class Index extends Component {
                   key={node.wordpress_id}>
                     <Link to={`/${removePre(node.link)}`}>
                       <div className="card-img" style={{ 
-                        backgroundImage: `url(${node.featured_media.source_url})` }}>
+                        backgroundImage: `url(${node.featured_media.source_url})` }}
+                        // backgroundImage: `url(${node.featured_media.localFile.childImageSharp.fluid})` }}
+                        >
                       </div>
                       <p className="card-content">{node.title}</p>
                     </Link>
@@ -329,6 +339,24 @@ export const query = graphql`
   wordPressAcfHomePortfolioSection {
     home_featured_image_ps {
       source_url
+      localFile {
+        childImageSharp {
+          fluid {
+            base64
+            tracedSVG
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+            originalImg
+            originalName
+            presentationWidth
+            presentationHeight
+          }
+        }
+      }
     }
     home_description_ps
     home_link_ps
@@ -346,6 +374,24 @@ export const query = graphql`
         pt_left_sec_sub_title
         pt_left_sec_thumbnail {
           source_url
+          localFile {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+              }
+            }
+          }
         }
       }
     }
@@ -368,6 +414,24 @@ export const query = graphql`
         link
         featured_media {
           source_url
+          localFile {
+            childImageSharp {
+              fluid {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+              }
+            }
+          }
         }
       }
     }
