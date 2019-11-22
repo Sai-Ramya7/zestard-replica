@@ -52,14 +52,14 @@ export default class Lightbox extends Component {
         if (this.state.showLightbox) {
             if (keyCode === 37) {
                 // Left Arrow Key
-                if (this.state.selectedImage > 0) {
-                    this.setState({ selectedImage: this.state.selectedImage - 1 })
+                if (this.state.selIndex > 0) {
+                    this.setState({ selIndex: this.state.selIndex - 1 })
                 }
             }
             if (keyCode === 39) {
             // Right Arrow Key
-                if (this.state.selectedImage < this.props.images.length - 1) {
-                    this.setState({ selectedImage: this.state.selectedImage + 1 })
+                if (this.state.selIndex < this.props.EventImages.length - 1) {
+                    this.setState({ selIndex: this.state.selIndex + 1 })
                 }
             }
             if (keyCode === 27) {
@@ -80,9 +80,9 @@ export default class Lightbox extends Component {
           {EventImages.map((image, i) => (
             <div className="previewButton" key={i} type="button"
               onClick={e => this.handleClick(e, image, i) }>
-                {/* <Img fluid= {image.localFile.childImageSharp.fluid}/> */}
+                  {/* <img src={image.source_url} alt="img" /> */}
                 {image !== null &&
-                  <img src={image.source_url} alt="img" />
+                <Img fluid= {image.localFile.childImageSharp.fluid}/>
                 }
             </div>
           ))}
@@ -96,7 +96,7 @@ export default class Lightbox extends Component {
               <div className="slbContentOuter">
                 <div className="slbContent">
                   <div className="slbImageWrap">
-                    {/* <Img  fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
+                    {/* <Img fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
                   {EventImages !== null &&
                     <img src={EventImages[selIndex].source_url} alt="img" className="slbImage"/>
                   }
