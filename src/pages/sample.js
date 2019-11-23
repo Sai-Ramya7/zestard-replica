@@ -8,10 +8,8 @@ import BackgroundImage from 'gatsby-background-image-es5'
 
 export default ({ data }) => {
 
-  const imageData = data.file.childImageSharp.fixed;
   const imgData = data.allWordpressPost.edges[2].node.featured_media.localFile.childImageSharp.fixed
     
-  console.log(data.file.childImageSharp.fixed);
   return (
     <div>
       <section>
@@ -92,15 +90,7 @@ export default ({ data }) => {
   
 export const query = graphql`
 query {
-  file(relativePath: { eq: "zestard.png" }) {
-    childImageSharp {
-      # Specify the image processing specifications right in the query.
-      # Makes it trivial to update as your page's design changes.
-      fixed(width: 125, height: 125) {
-        ...GatsbyImageSharpFixed
-      }
-    }
-  }
+ 
   wordpressPage(wordpress_id: {eq: 169}) {
     title
     acf {
