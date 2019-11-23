@@ -7,6 +7,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-scroll-reveal`,
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,

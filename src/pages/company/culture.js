@@ -13,6 +13,9 @@ class Culture extends Component {
     render() {
       const data = this.props.data
       const acfData = data.wordpressPage.acf;
+      const cardBG = { 
+        backgroundImage: `linear-gradient( to url(${data.allWordpressWpEvent.edges[0].node.featured_media.localFile.childImageSharp.fluid.src})` 
+      }
       return (
         <Layout>
           <SEO title={data.wordpressPage.title} />

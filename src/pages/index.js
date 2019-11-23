@@ -7,7 +7,6 @@ import { Link, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Tab from 'react-bootstrap/Tab'
 import Tabs from 'react-bootstrap/Tabs'
-// import {ButtonToolbar, OverlayTrigger, Tooltip, Button} from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -19,31 +18,27 @@ import { removePre } from './../util/common'
 
 class Index extends Component {
 
-  
+  constructor(props) {
+    super(props);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+  }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.onMouseEnter = this.onMouseEnter.bind(this);
-  //   this.state = {
-  //     // showTab: false,
-  //   };
-  // }
+  handleMouseEnter = (event) => {
+    // console.log('fun', event.currentTarget.parentNode.id);
+    const tab = document.getElementsByClassName('nav-item')
+    for(var i=0; i< tab.length; i++) {
+      tab[i].classList.remove('active');
+    }
+    const ele = event.currentTarget.parentNode;
+    const current = ele.dataset.rbEventKey;
+    ele.classList.add('active');
+    const pane = document.getElementsByClassName('tab-pane')
+    for(var i=0; i< pane.length; i++) {
+      pane[i].classList.remove('show', 'active');
+    }
+    document.getElementById('uncontrolled-tab-example-tabpane-'+current).classList.add('show', 'active');
+  }
 
-  // onMouseEnter = (event, title) => {
-  //   // this.setState({showTab: true})
-  //   // console.log('showtab', this.state.showTab);
-  //   console.log('fun', event);
-  //   var navLink = document.getElementsByClassName('nav-link')
-  //   for(var i = 0; i < navLink.length; i++) {
-  //     navLink[i].style.display = "none";
-  //   }
-  //   // const target = el.currentTarget.getElementsByClassName('dropdown-menu')[0];
-  //   // const test = target.closest('.dropdown-menu');
-  //   // if(test !== null) {
-  //   //   test.classList.add('show');
-  //   // }
-  // }
-  
     render() {
       const data = this.props.data
       const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
@@ -53,9 +48,6 @@ class Index extends Component {
       const industry = data.allWordpressAcfOptions.nodes[0].options;
       const clients = data.wordPressAcfHomeClients;
       const blog = data.wordPressAcfHomeBlogBlock;
-      // $('.nav-tabs > li > a').hover(function() {
-      //   $(this).tab('show');
-      // });
       return (
         <Layout>
         <SEO title="Offshore Website Design & Development Company" />
@@ -95,7 +87,7 @@ class Index extends Component {
                           {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
                             <Tab eventKey={node.tt_tab_title} className="nav-link" 
                             key={index} title={<p className={`item-${index+1}`}
-                            // onMouseEnter = { (e) => this.onMouseEnter(e, node.tt_tab_title) }
+                            onMouseEnter = { (e) => this.handleMouseEnter(e) }
                             >
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
                               <span>{node.tt_tab_title}</span></p>}>
@@ -116,50 +108,13 @@ class Index extends Component {
                   </div>
                 </div>
               </section>
-              {/* <section>
-                <div className="services">
-                  <div className="container">
-                    <div className="row justify-content-center">
-                      <div className="col-lg-10 col-md-12 text-center">
-                        <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
-                          <ButtonToolbar>
-                          {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
-                            <OverlayTrigger
-                              key={index}
-                              overlay={
-                                <Tooltip>
-                                  <div className="tab-pane" id={`tab_${index+1}`}>
-                                    <h2 className="title text-center">{node.tt_tab_title}</h2>
-                                    <div dangerouslySetInnerHTML={{ __html: node.tt_tab_description }} />
-                                    <div className="row">
-                                      <div className="col-sm-12 col-12 text-center">
-                                        <Link to={`/services/${removePre(node.tt_tab_link)}`} className="btn btn-primary learn-more">Learn More</Link>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </Tooltip>
-                              }>
-                              <Button variant="secondary">
-                                <p className={`item-${index+1}`}>
-                                <img alt="" src={node.tt_title_icon.source_url} width="30" />
-                                <span>{node.tt_tab_title}</span></p>
-                              </Button>
-                            </OverlayTrigger>
-                          ))}
-                          </ButtonToolbar>    
-                        </Tabs>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section> */}
               {/* what we do */}
               <section>
                 <div className="what-we-do">
                   <div className="container">
                     <div className="row">
                       <div className="service-head col-lg-12">
-                          <h2 className="title text-center">{ser.home_service_heading}</h2>
+                        <h2 className="title text-center">{ser.home_service_heading}</h2>
                       </div>
                       <div className="service-content">
                         <div className="row row-eq-height">

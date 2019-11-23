@@ -15,7 +15,7 @@ export default ({ data }) => {
             <div className="row">
               <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
                 {data.allWordpressPost.edges[0].node.featured_media !== null &&
-                  <Img sizes={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.sizes} />
+                  <Img fixed={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.fixed} />
                 }
               </div>
               <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
@@ -30,9 +30,41 @@ export default ({ data }) => {
         </div>
       </section>
       <h1>Hello gatsby-image</h1>
+      <div data-sal="slide-up"
+  data-sal-delay="300"
+  data-sal-easing="ease">
       {data.allWordpressPost.edges[0].node.featured_media !== null &&
-        <Img sizes={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.sizes} />
+        <Img fixed={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.fixed} />
       }
+      </div>
+      <div data-sal="slide-up"
+  data-sal-delay="300"
+  data-sal-easing="ease">
+      {data.allWordpressPost.edges[1].node.featured_media !== null &&
+        <Img fixed={data.allWordpressPost.edges[1].node.featured_media.localFile.childImageSharp.fixed} />
+      }
+      </div>
+      <div data-sal="slide-up"
+  data-sal-delay="300"
+  data-sal-easing="ease">
+      {data.allWordpressPost.edges[2].node.featured_media !== null &&
+        <Img fixed={data.allWordpressPost.edges[2].node.featured_media.localFile.childImageSharp.fixed} />
+      }
+      </div>
+      <div data-sal="slide-up"
+  data-sal-delay="300"
+  data-sal-easing="ease">
+      {data.allWordpressPost.edges[3].node.featured_media !== null &&
+        <Img fixed={data.allWordpressPost.edges[3].node.featured_media.localFile.childImageSharp.fixed} />
+      }
+      </div>
+      <div data-sal="slide-up"
+  data-sal-delay="300"
+  data-sal-easing="ease">
+      {data.allWordpressPost.edges[5].node.featured_media !== null &&
+        <Img fixed={data.allWordpressPost.edges[5].node.featured_media.localFile.childImageSharp.fixed} />
+      }
+      </div>
     </div>
   )
 }
@@ -58,19 +90,17 @@ query {
           source_url
           localFile {
             childImageSharp {
-              sizes {
-                sizes
-                aspectRatio
+              fixed {
                 base64
-                originalImg
-                originalName
-                presentationHeight
-                presentationWidth
+                tracedSVG
+                aspectRatio
+                width
+                height
                 src
                 srcSet
-                srcSetWebp
                 srcWebp
-                tracedSVG
+                srcSetWebp
+                originalName
               }
             }
           }

@@ -98,7 +98,7 @@ export default class Lightbox extends Component {
                   <div className="slbImageWrap">
                     {/* <Img fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
                   {EventImages !== null &&
-                    <img src={EventImages[selIndex].source_url} alt="img" className="slbImage"/>
+                    <img src={EventImages[selIndex].source_url} alt="img" loading="lazy" className="slbImage"/>
                   }
                   </div>
                 </div>
