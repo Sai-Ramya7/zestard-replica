@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import BackgroundImage from 'gatsby-background-image-es5'
 
 import Layout from "./../../components/layout"
 import PageHeader from './../../components/page-header';
@@ -34,12 +35,21 @@ class Culture extends Component {
                       {data.allWordpressWpEvent.edges.map(({ node }) => (
                         <div className="col-lg-4 col-md-6 col-sm-6 culture-box-wrap" key={node.id}>
                           <div className="events-wrapper card shadow-sm rounded">
-                            <div className="gallery-image" 
+                            {/* <div className="gallery-image" 
                             style={{backgroundImage:`url(${node.featured_media.localFile.childImageSharp.fluid.src})`}}>
                               <div className="view-more">
                                 <Link to={`/${removePre(node.link)}/`}>View All</Link>
                               </div>
-                            </div>
+                            </div> */}
+                            <BackgroundImage
+                              Tag="section"
+                              className="gallery-image"
+                              fluid={node.featured_media.localFile.childImageSharp.fluid}
+                            >
+                              <div className="view-more">
+                                <Link to={`/${removePre(node.link)}/`}>View All</Link>
+                              </div>
+                            </BackgroundImage>
                             <div className="card-body event-title">
                               <h3>{node.title}</h3>
                             </div>

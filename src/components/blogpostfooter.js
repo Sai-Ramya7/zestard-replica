@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "gatsby";
-import { dateFormate } from './../util/common'
+import { dateFormate, removePre } from './../util/common'
 import Img from "gatsby-image"
 
 const BlogPostFooter = (props) => {
@@ -20,7 +20,7 @@ const BlogPostFooter = (props) => {
           {allPost.edges.map(({ node }) => (
             <div className="col-md-4 rel-bog-wrap" key={node.id}>
               <div className="card card-blog">
-                <Link to={`/blog/${node.slug}`} className="post-thumbnail">
+                <Link to={`/${removePre(node.link)}`} className="post-thumbnail">
                   {/* <img src={node.featured_media.source_url} alt="img" className="card-image" /> */}
                 {node.featured_media !== null &&
                   <Img className="card-image" 
@@ -28,13 +28,13 @@ const BlogPostFooter = (props) => {
                 }</Link>
                 <div className="content">
                   <h4 className="card-title">
-                    <Link to={`/blog/${node.slug}`}>{node.title}</Link>
+                    <Link to={`/${removePre(node.link)}`}>{node.title}</Link>
                   </h4>
                   <div>
                     <span className="card-description" 
                       dangerouslySetInnerHTML={{ __html: node.excerpt }} 
                     />
-                    <Link to={`/blog/${node.slug}`} className="moretag">Read more...</Link>
+                    <Link to={`/${removePre(node.link)}`} className="moretag">Read more...</Link>
                   </div>
                 </div>
                 <div className="footer-blog">

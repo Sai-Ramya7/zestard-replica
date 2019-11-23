@@ -1073,6 +1073,7 @@
         .card-img{
             background-color: #fff;
             background-repeat: no-repeat;
+            // border: 3px solid yellow;
             width: 100%;
             height: 154px;
             background-size: 100%;
@@ -1081,10 +1082,13 @@
             -moz-transition: all 0.3s ease-in-out;
             -o-transition: all 0.3s ease-in-out;
             transition: all 0.3s ease-in-out;
-
             &:hover{
                 background-size: 120%;
             }
+            // .parent:hover .child,
+            // .parent:focus .child {
+            // transform: scale(1.2);
+            // }
         }
         .card-content{
             padding: 10px 0;

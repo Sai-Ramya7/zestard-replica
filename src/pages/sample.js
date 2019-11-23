@@ -3,8 +3,13 @@ import { graphql } from "gatsby"
 
 import Layout from "./../components/layout"
 import Img from "gatsby-image"
+import BackgroundImage from 'gatsby-background-image-es5'
+
 
 export default ({ data }) => {
+
+  const imageData = data.file.childImageSharp.fixed;
+  const imgData = data.allWordpressPost.edges[2].node.featured_media.localFile.childImageSharp.fixed
     
   console.log(data.file.childImageSharp.fixed);
   return (
@@ -14,9 +19,17 @@ export default ({ data }) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
-                {data.allWordpressPost.edges[0].node.featured_media !== null &&
-                  <Img fixed={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.fixed} />
+                  {/* <Img fixed={data.allWordpressPost.edges[0].node.featured_media.localFile.childImageSharp.fixed} /> */}
+                {data.wordpressPage.acf.header_mascot !== null &&
+                  <BackgroundImage
+                    Tag="img"
+                    // className={className}
+                    src={data.wordpressPage.acf.header_mascot.source_url}
+                    // backgroundColor={`#040e18`}
+                  >
+                  </BackgroundImage>
                 }
+                
               </div>
               <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
                 <div className="page-detail">
@@ -30,7 +43,7 @@ export default ({ data }) => {
         </div>
       </section>
       <h1>Hello gatsby-image</h1>
-      <div data-sal="slide-up"
+      {/* <div data-sal="slide-up"
   data-sal-delay="300"
   data-sal-easing="ease">
       {data.allWordpressPost.edges[0].node.featured_media !== null &&
@@ -64,7 +77,15 @@ export default ({ data }) => {
       {data.allWordpressPost.edges[5].node.featured_media !== null &&
         <Img fixed={data.allWordpressPost.edges[5].node.featured_media.localFile.childImageSharp.fixed} />
       }
-      </div>
+      </div> */}
+      <BackgroundImage
+          Tag="section"
+          // className={className}
+          fixed={imgData}
+          // backgroundColor={`#040e18`}
+        >
+          <h6><button>View All</button></h6>
+        </BackgroundImage>
     </div>
   )
 }
@@ -77,6 +98,17 @@ query {
       # Makes it trivial to update as your page's design changes.
       fixed(width: 125, height: 125) {
         ...GatsbyImageSharpFixed
+      }
+    }
+  }
+  wordpressPage(wordpress_id: {eq: 169}) {
+    title
+    acf {
+      header_page_title
+      header_sub_text
+      header_section_title
+      header_mascot {
+        source_url
       }
     }
   }

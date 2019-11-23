@@ -2,6 +2,7 @@
 
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
+import BackgroundImage from 'gatsby-background-image-es5'
 
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import Img from "gatsby-image"
@@ -235,12 +236,17 @@ class Index extends Component {
                 {data.allWordpressPost.edges.map(({ node }) => (
                   <div className="col-lg-3 col-md-6 col-sm-6 blog-wraper"
                   key={node.wordpress_id}>
-                    <Link to={`/${removePre(node.link)}`}>
+                    <Link to={`/${removePre(node.link)}`} className="card-img">
                       <div className="card-img" style={{ 
                         backgroundImage: `url(${node.featured_media.source_url})` }}
-                        // backgroundImage: `url(${node.featured_media.localFile.childImageSharp.fluid})` }}
                         >
                       </div>
+                      {/* <BackgroundImage
+                        Tag="div"
+                        className="card-img"
+                        fluid={node.featured_media.localFile.childImageSharp.fluid}
+                      >
+                      </BackgroundImage> */}
                       <p className="card-content">{node.title}</p>
                     </Link>
                   </div>

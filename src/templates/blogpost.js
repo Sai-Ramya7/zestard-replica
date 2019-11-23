@@ -141,6 +141,7 @@ export const pageQuery = graphql`
                 date(formatString: "l")
                 slug
                 excerpt
+                link
                 featured_media {
                     source_url
                     localFile {
