@@ -1,7 +1,7 @@
 // Template for single blog post page
 
 import React, { Component } from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import Layout from "./../components/layout"
 import BlogPostFooter from './../components/blogpostfooter';
@@ -27,19 +27,19 @@ class PostTemplate extends Component {
                                         <h3>Share</h3>
                                         <ul>
                                             <li>
-                                                <Link to="/https://www.facebook.com/zestard"  target="_blank">
+                                                <a href="https://www.facebook.com/zestard"  target="_blank">
                                                     <i aria-hidden="true" className="fab fa-facebook-square"></i>
-                                                </Link>
+                                                </a>
                                             </li>
                                             <li>
-                                                <Link to="/https://twitter.com/zestardtech"  target="_blank">
+                                                <a href="https://twitter.com/zestardtech"  target="_blank">
                                                     <i aria-hidden="true" className="fab fa-twitter"></i>
-                                                </Link>
+                                                </a>
                                             </li>
                                             <li>
-                                                <Link to="/https://www.linkedin.com/company/zestard"  target="_blank">
+                                                <a href="https://www.linkedin.com/company/zestard"  target="_blank">
                                                     <i aria-hidden="true" className="fab fa-linkedin-square"></i>
-                                                </Link>
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>

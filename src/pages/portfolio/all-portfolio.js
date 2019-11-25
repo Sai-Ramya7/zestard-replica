@@ -12,7 +12,6 @@ class Portfolio extends Component {
   
     render() {
       const data = this.props.data
-      console.log(data)
       const acfData = data.wordpressPage.acf;
       return (
         <Layout>

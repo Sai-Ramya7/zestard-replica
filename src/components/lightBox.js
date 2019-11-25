@@ -30,8 +30,7 @@ export default class Lightbox extends Component {
         e.preventDefault()
         this.setState({ showLightbox: true, selectedImage: image, selIndex: index })
         // this.setState({ showLightbox: !this.state.showLightbox, selectedImage: index })
-        console.log('sel', this.state.selectedItem)
-        console.log('ind', this.state.selIndex)
+        // console.log('ind', this.state.selIndex)
     }
 
     closeModal = () => {
