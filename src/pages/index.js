@@ -50,6 +50,7 @@ class Index extends Component {
       const project = data.wordPressAcfHomePortfolioSection;
       const industry = data.allWordpressAcfOptions.nodes[0].options;
       const clients = data.wordPressAcfHomeClients;
+      console.log('clients', clients.ch_clients_logos[0].localFile)
       const blog = data.wordPressAcfHomeBlogBlock;
       return (
         <Layout>
@@ -221,7 +222,8 @@ class Index extends Component {
                           {data.wordPressAcfHomeClients.ch_clients_logos.map(( node, index ) => ( 
                             <div className="col-md-2  mb-md-4 px-xs-2 pb-xs-4 col-12 client-logo mobile"
                             key={index}>
-                              <img src={node.source_url} alt=""/>
+                              {/* <img src={node.source_url} alt=""/> */}
+                              <Img fixed={node.localFile.childImageSharp.fixed} />
                             </div>
                           ))}
                           </div>
@@ -281,19 +283,17 @@ export const query = graphql`
         source_url
         localFile {
           childImageSharp {
-            fluid {
+            fixed {
               base64
               tracedSVG
               aspectRatio
+              width
+              height
               src
               srcSet
               srcWebp
               srcSetWebp
-              sizes
-              originalImg
               originalName
-              presentationWidth
-              presentationHeight
             }
           }
         }
@@ -421,6 +421,22 @@ export const query = graphql`
     ch_title
     ch_clients_logos {
       source_url
+      localFile {
+        childImageSharp {
+          fixed {
+            base64
+            tracedSVG
+            aspectRatio
+            width
+            height
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            originalName
+          }
+        }
+      }
     }
   }
   wordPressAcfHomeBlogBlock {

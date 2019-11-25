@@ -67,19 +67,17 @@ query($id: Int!) {
             source_url
             localFile {
               childImageSharp {
-                fluid {
+                fixed {
                   base64
                   tracedSVG
                   aspectRatio
+                  width
+                  height
                   src
                   srcSet
                   srcWebp
                   srcSetWebp
-                  sizes
-                  originalImg
                   originalName
-                  presentationWidth
-                  presentationHeight
                 }
               }
             }
