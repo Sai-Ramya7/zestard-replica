@@ -2,6 +2,7 @@
 
 import React from "react"
 import { graphql, StaticQuery } from "gatsby"
+import Img from "gatsby-image"
 
 function renderItems(file) {
   return (
@@ -9,8 +10,9 @@ function renderItems(file) {
       {file.map((node, index) => (
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6" key={index}>
               <h3 className="project-title">{node.node.title}</h3>
+                  {/* <img src={node.node.featured_media.source_url} alt="img" /> */}
               {node.node.featured_media !== null &&
-                  <img src={node.node.featured_media.source_url} alt="img" />
+              <Img fluid={node.node.featured_media.localFile.childImageSharp.fluid} />
               }
           </div>
       ))}
@@ -32,6 +34,24 @@ function TechPortfolio(props) {
                 slug
                 featured_media {
                   source_url
+                  localFile {
+                    childImageSharp {
+                      fluid {
+                        base64
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        originalImg
+                        originalName
+                        presentationWidth
+                        presentationHeight
+                      }
+                    }
+                  }
                 }
               }
             }

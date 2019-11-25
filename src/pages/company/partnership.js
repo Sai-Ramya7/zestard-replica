@@ -105,6 +105,24 @@ export const query = graphql`
       header_section_title
       header_mascot {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
       gen_content_modules_page {
         ... on WordPressAcf_gen_right_image_and_left_description {

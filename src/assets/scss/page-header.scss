@@ -5,20 +5,24 @@
         padding: 30px 0;
     }
 }
-.contact {
-    .page-header {
-        height: 450px; 
-        img {
-            width: 300px;
-        }
-    }
-}
+// .contact {
+//     .page-header {
+//         height: 450px; 
+//         img {
+//             width: 300px;
+//         }
+//     }
+// }
 .page-header {
     background-image: url('./../images/blog-banner.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     @media(max-width: 767px){
         background: linear-gradient(-14deg, #009fff 21%, #0974d5 30%, #053ab1 46%, #06284e 92%);
+    }
+    .head_img {
+        width: 315px;
+        height: 320px;
     }
     img { 
         display: block;

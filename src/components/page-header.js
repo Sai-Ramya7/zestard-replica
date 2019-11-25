@@ -18,8 +18,9 @@ class PageHeader extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
+                                    {/* <img src={headerMascot.source_url} loading="lazy" alt=""/> */}
                                 {headerMascot !== null &&
-                                    <img src={headerMascot.source_url} loading="lazy" alt=""/>
+                                    <Img fluid={headerMascot.localFile.childImageSharp.fluid} />
                                 }
                             </div>
                             <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">

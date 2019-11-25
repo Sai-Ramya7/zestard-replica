@@ -2,7 +2,7 @@
 
 import React, { Component } from "react"
 import { Link, graphql } from "gatsby"
-import BackgroundImage from 'gatsby-background-image-es5'
+// import BackgroundImage from 'gatsby-background-image-es5'
 
 // import {Navbar, Nav, NavItem} from 'react-bootstrap'
 import Img from "gatsby-image"
@@ -43,6 +43,8 @@ class Index extends Component {
     render() {
       const data = this.props.data
       const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
+      console.log(datatabs)
+      console.log('tab_icons', datatabs[0].tt_title_icon.localFile.childImageSharp.fluid)
       const acfData = data.wordpressPage.acf;
       const ser = data.wordPressAcfHomeServicesBlock;
       const project = data.wordPressAcfHomePortfolioSection;
@@ -85,12 +87,15 @@ class Index extends Component {
                     <div className="row justify-content-center">
                       <div className="col-lg-10 col-md-12 text-center">
                         <Tabs defaultActiveKey={datatabs[0].tt_tab_title} id="uncontrolled-tab-example" className="nav-tabs">
-                          {data.wordPressAcfTechnologyTabs.technology_tabs_repeater.map(( node, index ) => ( 
+                          {datatabs.map(( node, index ) => ( 
                             <Tab eventKey={node.tt_tab_title} className="nav-link" 
                             key={index} title={<p className={`item-${index+1}`}
                             onMouseEnter = { (e) => this.handleMouseEnter(e) }
                             >
                               <img alt="" src={node.tt_title_icon.source_url} width="30" />
+                              {/* {node.tt_title_icon.localFile !== null &&
+                                <Img fluid={node.tt_title_icon.localFile.childImageSharp.fluid} />
+                              } */}
                               <span>{node.tt_tab_title}</span></p>}>
                               <div className="tab-pane" id={`tab_${index+1}`}>
                                 <h2 className="title text-center">{node.tt_tab_title}</h2>
@@ -125,6 +130,7 @@ class Index extends Component {
                               <div className="row service-head">
                                 <div className="col-md-3 col-sm-3 col-3 text-xs-center service-img">
                                   <img src={node.home_service_icon.source_url} alt=""/>
+                                  {/* <Img fluid={node.home_service_icon.localFile.childImageSharp.fluid} /> */}
                                 </div>
                                 <div className="col-md-9 col-sm-9 col-12 text-xs-center p-xs-0">
                                   <div className="title">{node.home_service_name}</div>
@@ -273,6 +279,24 @@ export const query = graphql`
       header_section_title
       header_mascot {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
     }
   }
@@ -284,6 +308,24 @@ export const query = graphql`
       tt_tab_description
       tt_title_icon {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
     }
   }
@@ -294,6 +336,24 @@ export const query = graphql`
       home_service_description
       home_service_icon {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
     }
   }

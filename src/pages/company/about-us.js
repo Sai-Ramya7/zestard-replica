@@ -62,8 +62,9 @@ class AboutUs extends Component {
                         key={index}>
                           <div className="our-values-box text-center">
                             <div className="icon">
+                                {/* <img src={node.gen_icon_gb.source_url} alt="img" className="normal" /> */}
                               {node.gen_icon_gb !== null &&
-                                <img src={node.gen_icon_gb.source_url} alt="img" className="normal" />
+                              <Img fixed={node.gen_icon_gb.localFile.childImageSharp.fixed} alt="img" className="normal" />
                               }
                             </div>
                             <h3>{node.gen_title_gb}</h3>
@@ -91,7 +92,7 @@ class AboutUs extends Component {
                               <div className="card shadow-sm">
                                 <div className="card-body">
                                   {node.pt_abt_partners_logo !== null &&
-                                    <img src={node.pt_abt_partners_logo.source_url} alt="logo" />
+                                  <Img fluid={node.pt_abt_partners_logo.localFile.childImageSharp.fluid} />
                                   }
                                 </div>
                               </div>
@@ -136,8 +137,9 @@ class AboutUs extends Component {
                         <div className="box">
                           <div className="row">
                             <div className="col-md-3 col-sm-3 col-3 text-right ">
+                                {/* <img src={node.lird_icon.source_url} alt=""/> */}
                               {node.lird_icon !== null &&
-                                <img src={node.lird_icon.source_url} alt=""/>
+                                <Img fixed={node.lird_icon.localFile.childImageSharp.fixed} alt="img" />
                               }
                             </div>
                             <div className="col-md-9 col-sm-9 col-9">
@@ -193,6 +195,24 @@ export const query = graphql`
         pt_abt_partners_logo {
           pt_abt_partners_logo {
             source_url
+            localFile {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
+              }
+            }
           }
         }
       }
@@ -205,6 +225,24 @@ export const query = graphql`
       header_section_title
       header_mascot {
         source_url
+        localFile {
+          childImageSharp {
+            fluid {
+              base64
+              tracedSVG
+              aspectRatio
+              src
+              srcSet
+              srcWebp
+              srcSetWebp
+              sizes
+              originalImg
+              originalName
+              presentationWidth
+              presentationHeight
+            }
+          }
+        }
       }
     }
     childWordPressAcfGenRightVideoAndLeftDescription {
@@ -219,6 +257,22 @@ export const query = graphql`
         gen_title_gb
         gen_icon_gb {
           source_url
+          localFile {
+            childImageSharp {
+              fixed {
+                base64
+                tracedSVG
+                aspectRatio
+                width
+                height
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                originalName
+              }
+            }
+          }
         }
       }
     }
@@ -227,6 +281,22 @@ export const query = graphql`
         lird_title
         lird_icon {
           source_url
+          localFile {
+            childImageSharp {
+              fixed {
+                base64
+                tracedSVG
+                aspectRatio
+                width
+                height
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                originalName
+              }
+            }
+          }
         }
       }
     }

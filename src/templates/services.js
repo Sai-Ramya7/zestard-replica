@@ -65,6 +65,24 @@ query($id: Int!) {
           header_section_title
           header_mascot {
             source_url
+            localFile {
+              childImageSharp {
+                fluid {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
+              }
+            }
           }
           
           sl_content_module_page {
@@ -79,30 +97,30 @@ query($id: Int!) {
           }
         }
         childWordPressAcfTechAboutTechnology {
-            tech_about_heading
-            tech_about_content
-            tech_about_right_content
+          tech_about_heading
+          tech_about_content
+          tech_about_right_content
         }
         childWordPressAcfTechServices {
-            tech_services_heading
-            tech_sub_heading
-            tech_services_list {
-              tech_service_name
-              tech_service_description
-            }
+          tech_services_heading
+          tech_sub_heading
+          tech_services_list {
+            tech_service_name
+            tech_service_description
+          }
         }
         childWordPressAcfTechPortfolio {
-            tech_portfolio_heading
-            tech_portfolio_sub_heading
-            tech_portfolio_link
-            tech_portfolio_item1
-            tech_portfolio_item2
+          tech_portfolio_heading
+          tech_portfolio_sub_heading
+          tech_portfolio_link
+          tech_portfolio_item1
+          tech_portfolio_item2
         }
         childWordPressAcfTechKeyBenefits {
-            tech_keyb_heading
-            tech_key_features_repeater {
-              tech_key_features
-            }
+          tech_keyb_heading
+          tech_key_features_repeater {
+            tech_key_features
+          }
         }
       }
     }
