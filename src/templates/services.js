@@ -88,9 +88,27 @@ query($id: Int!) {
             sl_service_sub_text
             sl_service_page_link
             sl_service_image {
-              source_url,
-              title,
+              source_url
+              title
               wordpress_id
+              localFile {
+                childImageSharp {
+                  sizes {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                    originalImg
+                    originalName
+                    presentationWidth
+                    presentationHeight
+                  }
+                }
+              }
             }
           }
         }

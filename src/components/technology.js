@@ -19,9 +19,10 @@ class Technology extends Component {
                     <div className="container">
                         <div className="row">
                             <div className="col-md-5 col-lg-4 tech-img">
-                                {/* <Img fixed={serviceImage.source_url.childImageSharp.fixed} /> */}
-                            { serviceImage!== null &&
-                            <img src={serviceImage.source_url} alt=""/>
+                            { serviceImage!== null && serviceImage.localFile !== null && serviceImage.localFile.childImageSharp !== null &&
+                            <Img sizes={serviceImage.localFile.childImageSharp.sizes} alt="tech_img" 
+                            style={{width:`80%`}}
+                            />
                             }
                             </div>
                             <div className="col-md-7 col-lg-8 tech-content">
