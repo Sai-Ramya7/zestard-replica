@@ -43,14 +43,11 @@ class Index extends Component {
     render() {
       const data = this.props.data
       const datatabs = data.wordPressAcfTechnologyTabs.technology_tabs_repeater
-      console.log(datatabs)
-      console.log('tab_icons', datatabs[0].tt_title_icon.localFile.childImageSharp.fluid)
       const acfData = data.wordpressPage.acf;
       const ser = data.wordPressAcfHomeServicesBlock;
       const project = data.wordPressAcfHomePortfolioSection;
       const industry = data.allWordpressAcfOptions.nodes[0].options;
       const clients = data.wordPressAcfHomeClients;
-      console.log('clients', clients.ch_clients_logos[0].localFile)
       const blog = data.wordPressAcfHomeBlogBlock;
       return (
         <Layout>
@@ -222,8 +219,8 @@ class Index extends Component {
                           {data.wordPressAcfHomeClients.ch_clients_logos.map(( node, index ) => ( 
                             <div className="col-md-2  mb-md-4 px-xs-2 pb-xs-4 col-12 client-logo mobile"
                             key={index}>
-                              {/* <img src={node.source_url} alt=""/> */}
-                              <Img fixed={node.localFile.childImageSharp.fixed} />
+                              <img src={node.source_url} alt=""/>
+                              {/* <Img fixed={node.localFile.childImageSharp.fixed} /> */}
                             </div>
                           ))}
                           </div>
