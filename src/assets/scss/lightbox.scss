@@ -22,17 +22,6 @@
     }
 }
 
-// .previewButton {
-//     overflow: hidden;
-//     height: auto;
-//     background: #fff;
-//     // border: none;
-//     padding: 0;
-//     margin: 0;
-//     border-top: 1px solid red;
-//     border-left: 1px solid red;
-// }
-
 .closebutton {
     float: right;
     background: transparent;
@@ -55,14 +44,18 @@
     background: transparent;
     border: none;
 }
+
 .slbOverlay {
     overflow: hidden;
     z-index: 2000;
-    background-color: #000;
     opacity: 0.7;
-    // -webkit-animation: slbOverlay 0.5s;
-    // -moz-animation: slbOverlay 0.5s;
     animation: slbOverlay 0.5s;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-sizing: border-box;
 }
 .slbWrapOuter {
     overflow-x: hidden;
@@ -71,36 +64,42 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    // left: 0px;
+    box-sizing: border-box;
     margin: 0 auto;
+    max-width: 100%;
+    max-height: 70%;
     .slbWrap {
         position: fixed;
+        text-align: center;
+        // left: 0;
         top: 0;
         bottom: 0;
         margin: 0 auto;
-        width: 100%;
-        // left: 0;
+        // max-height: 80%;
+        // max-width: 65%;
+        display: flex;
         .slbContentOuter {
             position: relative;
-            display: inline-block;
+            display: flex;
             vertical-align: middle;
+            left: 0;
             margin: 0px auto;
             padding: 0 auto;
             box-sizing: border-box;
             z-index: 2020;
-            // text-align: left;
-            max-width: 100%;
+            // display: flex;
+            // max-width: 80%;
+            // max-height: 80%;
             .slbContent {
                 position: relative;
+                display: flex;
                 .slbImageWrap {
-                    // -webkit-animation: slbEnter 0.3s;
-                    // -moz-animation: slbEnter 0.3s;
                     animation: slbEnter 0.3s;
                     position: relative;
                     .slbImage {
                         position: relative;
                         align-content: center;
-                        max-height: 560px;
+                        max-height: 100%;
                         width: auto;
                         max-width: 100%;
                         height: auto;

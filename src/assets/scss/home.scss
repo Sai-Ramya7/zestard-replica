@@ -1033,17 +1033,30 @@
         }
         .client-logo {
             margin-bottom: 30px;
-            padding: 1rem;
-            display: flex;
+            // padding: 1rem 0;
+            height: 122px;
+            // padding: 1rem;
+            display: initial;
             align-items: center;
             text-align: center;
-            img{
-                margin: 0 auto;
-            }
+            // img{
+            //     display: flex;
+            //     margin: 0;
+            //     width: 40px;
+            //     height: auto;
+            // }
             @media only screen and (max-width: 575px)  {
                     margin-bottom: 0px;
             }
         }
+        // .mobile {
+        //     div{
+        //         img {
+        //             // background-color: pink;
+        //             background-size: 40%;
+        //         }
+        //     }
+        // }
     }
 }
 /* Blog */

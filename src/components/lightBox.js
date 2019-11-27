@@ -35,14 +35,17 @@ export default class Lightbox extends Component {
 
     closeModal = () => {
         this.setState({ showLightbox: false })
+        // console.log('close');
     }
     
     goBack = () => {
-        this.setState({ selIndex: this.state.selIndex - 1 })
+      this.setState({ selIndex: this.state.selIndex - 1 })
+      // console.log(this.state.selIndex);  
     }
     
     goForward = () => {
-        this.setState({ selIndex: this.state.selIndex + 1 })
+      this.setState({ selIndex: this.state.selIndex + 1 })
+      // console.log(this.state.selIndex);  
     }
     
     handleKeyUp = e => {
@@ -87,7 +90,7 @@ export default class Lightbox extends Component {
           ))}
         </div>
         {showLightbox && (
-        <Modal show={showLightbox} onKeyUp={e => this.handleKeyDown(e)}>
+        <Modal show={showLightbox} onKeyUp={e => this.handleKeyDown(e)} >
         <div className="slbElement">
           <div className="slbOverlay"></div>
           <div className="slbWrapOuter">
@@ -96,12 +99,12 @@ export default class Lightbox extends Component {
                 <div className="slbContent">
                   <div className="slbImageWrap">
                     {/* <Img fluid= {EventImages[selIndex].localFile.childImageSharp.fluid}/> */}
-                  {EventImages !== null &&
-                    <img src={EventImages[selIndex].source_url} alt="img" loading="lazy" className="slbImage"/>
-                  }
+                    {EventImages !== null &&
+                      <img src={EventImages[selIndex].source_url} alt="img" loading="lazy" className="slbImage"/>
+                    }
                   </div>
                 </div>
-                  <button type="button" title="Close" className="slbCloseBtn "
+                <button type="button" title="Close" className="slbCloseBtn "
                   onClick={this.closeModal}>×</button>
                 <div className="slbArrows">
                   <button type="button" title="Previous" className="prev slbArrow"
