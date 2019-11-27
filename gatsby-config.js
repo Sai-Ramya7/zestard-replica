@@ -39,10 +39,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
+        name: `Zestard Technologies PVT LTD`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
+        background_color: `#1F98EA`,
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/assets/images/favicon-96x96.png`, // This path is relative to the root of the site.
