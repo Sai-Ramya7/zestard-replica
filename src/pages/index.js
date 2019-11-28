@@ -219,8 +219,8 @@ class Index extends Component {
                           {data.wordPressAcfHomeClients.ch_clients_logos.map(( node, index ) => ( 
                             <div className="col-md-2  mb-md-4 px-xs-2 pb-xs-4 col-12 client-logo mobile"
                             key={index}>
-                              {/* <img src={node.source_url} alt=""/> */}
-                              <Img fixed={node.localFile.childImageSharp.fixed} />
+                              <img src={node.source_url} alt=""/>
+                              {/* <Img fixed={node.localFile.childImageSharp.fixed} /> */}
                             </div>
                           ))}
                           </div>

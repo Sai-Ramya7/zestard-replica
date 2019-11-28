@@ -1032,19 +1032,19 @@
             margin-left: 24px !important;
         }
         .client-logo {
+            margin-top: 30px;
             margin-bottom: 30px;
-            // padding: 1rem 0;
-            height: 122px;
+            // height: 122px;
             // padding: 1rem;
-            display: initial;
+            display: inline-flex;
             align-items: center;
             text-align: center;
-            // img{
-            //     display: flex;
-            //     margin: 0;
-            //     width: 40px;
-            //     height: auto;
-            // }
+            img{
+                // display: flex;
+                // margin: 0;
+                width: 155px;
+                height: auto;
+            }
             @media only screen and (max-width: 575px)  {
                     margin-bottom: 0px;
             }
