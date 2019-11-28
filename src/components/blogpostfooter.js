@@ -22,7 +22,7 @@ const BlogPostFooter = (props) => {
               <div className="card card-blog">
                 <Link to={`/${removePre(node.link)}`} className="post-thumbnail">
                   {/* <img src={node.featured_media.source_url} alt="img" className="card-image" /> */}
-                {node.featured_media !== null &&
+                {node.featured_media !== null &&  node.featured_media.localFile !== null && node.featured_media.localFile.childImageSharp !== null &&
                   <Img className="card-image" 
                   fluid={node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                 }</Link>

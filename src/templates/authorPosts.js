@@ -45,7 +45,7 @@ class AuthorPostsTemplate extends Component {
                             <div className="col-md-12 col-sm-12">
                               <div className="card-image">
                                 <Link to={`/${removePre(node.node.link)}`} className="post-thumbnail">
-                                {node.node.featured_media !== null &&
+                                {node.node.featured_media !== null && node.node.featured_media.localFile !== null && node.node.featured_media.localFile.childImageSharp !== null &&
                                   <Img fluid={node.node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                                 }</Link>
                               </div>
