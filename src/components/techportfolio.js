@@ -11,7 +11,7 @@ function renderItems(file) {
           <div className="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6" key={index}>
               <h3 className="project-title">{node.node.title}</h3>
                   {/* <img src={node.node.featured_media.source_url} alt="img" /> */}
-              {node.node.featured_media !== null &&
+              {node.node.featured_media !== null && node.node.featured_media.localFile !== null && node.node.featured_media.localFile.childImageSharp !== null &&
               <Img fluid={node.node.featured_media.localFile.childImageSharp.fluid} />
               }
           </div>
