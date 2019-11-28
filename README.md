@@ -97,42 +97,6 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 <!-- AUTO-GENERATED-CONTENT:END -->
 
 
--src
-  -assets
-    -images
-    -scss
-  -components
-  -pages
-  -templates
-  -util
--app.json
--gatsby-config.js
--gatsby-node.js
--static.json
-
-**`/src`**: This directory will contain all of the code related to what we will see on the front-end of the site, such as the site header or a page template. `src` is a convention for “source code”.
-
-**`/assets`**: This directory contains the images and scss folders used in this site.
-
-**`/images`**: This folder contains all the images used in this site.
-
-**`/scss`**: This folder contains all the scss files which is used for styling the components.
-
-**`/components`**: This directory contains all the basic and reusable components.
-
-**`/pages`**: This directory contains all the statically created pages in this site.
-
-**`/templates`**: This directory contains all the dynamically created pages.
-
-**`/util`**: This directory contains the common javascript file which is used in components and pages.
-
-**`/app.json`**: This file includes general information required to run an app on Heroku.
-
-**`/gatsby-config.js`**: This file contains all the plugins that we used for this site.
-
-**`/gatsby-node.js`**: This file contains the apis that helps to build dynamic pages.
-
-**`/static.json`**: This file is used for the configuration of the static buildpack.
 
 
 
