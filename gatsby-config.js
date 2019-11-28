@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `zestard-technologies`,
+        name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
         background_color: `#1F98EA`,
