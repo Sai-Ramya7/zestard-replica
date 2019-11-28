@@ -87,12 +87,16 @@
         font-size: 17px;
         line-height: 28px;
         padding: 0px;
+        font-weight: normal;
     }
     h5 {
         font-size: 1.25rem;
     }
     h6 {
         font-size: 1rem;
+        p {
+            font-weight: normal;
+        }
     }
 }
 
