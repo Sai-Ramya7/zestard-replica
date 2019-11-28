@@ -110,7 +110,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 -gatsby-node.js
 -static.json
 
-**`/src`**: This directory will contain all of the code related to what we will see on the front-end of our site, such as our site header or a page template. `src` is a convention for “source code”.
+**`/src`**: This directory will contain all of the code related to what we will see on the front-end of the site, such as the site header or a page template. `src` is a convention for “source code”.
 
 **`/assets`**: This directory contains the images and scss folders used in this site.
 
@@ -120,7 +120,7 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 **`/components`**: This directory contains all the basic and reusable components.
 
-**`/pages`**: This directory contains all the statically created pages in our site.
+**`/pages`**: This directory contains all the statically created pages in this site.
 
 **`/templates`**: This directory contains all the dynamically created pages.
 
