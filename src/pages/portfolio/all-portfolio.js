@@ -34,7 +34,7 @@ class Portfolio extends Component {
                                     <div className="col-lg-3 col-md-4 col-sm-6 col-12" key={index}>
                                         <div className="project">
                                             <a className="project-img" href="#">
-                                            {node.featured_media !== null &&
+                                            {node.featured_media !== null && node.featured_media.localFile !== null && node.featured_media.localFile.childImageSharp !== null &&
                                             <Img fluid={node.featured_media.localFile.childImageSharp.fluid} alt=""/>
                                             }
                                                 <div className="img-hover-color"></div>
