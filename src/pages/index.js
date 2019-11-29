@@ -249,8 +249,7 @@ class Index extends Component {
                       {/* <BackgroundImage
                         Tag="div"
                         className="card-img"
-                        fluid={node.featured_media.localFile.childImageSharp.fluid}
-                      >
+                        fluid={node.featured_media.localFile.childImageSharp.fluid} >
                       </BackgroundImage> */}
                       <p className="card-content">{node.title}</p>
                     </Link>

@@ -168,25 +168,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// "engines": {
-//     "node": "13.0.1",
-//     "yarn": "1.19.1"
-//   }

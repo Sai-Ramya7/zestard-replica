@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Link } from "gatsby";
-import { dateFormate, removePre } from './../util/common'
+import { dateFormate, removePre, removeSpecialSymbols } from './../util/common'
 import Img from "gatsby-image"
 
 const BlogPostFooter = (props) => {
@@ -11,7 +11,8 @@ const BlogPostFooter = (props) => {
   } = props;
   return (
     <div className="section related-posts bg-related-post">
-      <div className="container">
+      {allPost.edges.length > 0 &&
+        <div className="container">
         <div className="row">
           <h2 className="related-blog-title title text-center">
               You may also like
@@ -28,7 +29,7 @@ const BlogPostFooter = (props) => {
                 }</Link>
                 <div className="content">
                   <h4 className="card-title">
-                    <Link to={`/${removePre(node.link)}`}>{node.title}</Link>
+                    <Link to={`/${removePre(node.link)}`}>{`${removeSpecialSymbols(node.title)}`}</Link>
                   </h4>
                   <div>
                     <span className="card-description" 
@@ -60,7 +61,7 @@ const BlogPostFooter = (props) => {
           ))}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   )
 }
