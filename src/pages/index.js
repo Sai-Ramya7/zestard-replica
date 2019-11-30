@@ -61,9 +61,10 @@ class Index extends Component {
                     <div className="container">
                       <div className="row">
                         <div className="col-lg-5 col-md-6 col-sm-6 col-xs-12 vector">
-                          {acfData.header_mascot !== null &&
-                          <img src={acfData.header_mascot.source_url} alt=""
-                          className="home-avatar"/>
+                          {/* <img src={acfData.header_mascot.source_url} alt=""
+                          className="home-avatar"/> */}
+                          {acfData.header_mascot !== null && acfData.header_mascot.localFile !== null && acfData.header_mascot.localFile.childImageSharp !== null &&
+                            <Img fixed={acfData.header_mascot.localFile.childImageSharp.fixed} />
                           }
                         </div>
                         <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
