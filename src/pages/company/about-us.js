@@ -138,7 +138,7 @@ class AboutUs extends Component {
                           <div className="row">
                             <div className="col-md-3 col-sm-3 col-3 text-right ">
                                 {/* <img src={node.lird_icon.source_url} alt=""/> */}
-                              {node.lird_icon !== null &&
+                              {node.lird_icon !== null && node.lird_icon.localFile !== null && node.lird_icon.localFile.childImageSharp !== null &&
                                 <Img fixed={node.lird_icon.localFile.childImageSharp.fixed} alt="img" />
                               }
                             </div>

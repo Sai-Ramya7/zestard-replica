@@ -68,9 +68,13 @@ class Index extends Component {
                         </div>
                         <div className="col-lg-7 col-md-6 col-sm-6 col-xs-12">
                           <div className="page-detail">
-                            <h5>{acfData.header_section_title}</h5>
-                            <h1 className="title">{acfData.header_page_title}</h1>
-                            <h4 className="sub-title">{acfData.header_sub_text}</h4>
+                            {/* <h5>{acfData.header_section_title}</h5> */}
+                            <h1 className="title"
+                             dangerouslySetInnerHTML = {{ __html: acfData.header_page_title }} />
+                            <h4 className="sub-title"
+                            dangerouslySetInnerHTML = {{ __html: acfData.header_sub_text }} />
+                            {/* <h1 className="title">{acfData.header_page_title}</h1> */}
+                            {/* <h4 className="sub-title">{acfData.header_sub_text}</h4> */}
                           </div>
                         </div>
                       </div>
